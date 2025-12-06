@@ -1,0 +1,82 @@
+<div class="card">
+  <div class="card-header">Add Course</div>
+  <div class="card-body p-3">
+    <form #courseForm="ngForm" (ngSubmit)="onSubmit(courseForm)">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          name="title"
+          #title="ngModel"
+          [(ngModel)]="model.title"
+          required
+        />
+        <!-- "#title is identifier" -->
+
+        <!-- <div *ngIf="title?.invalid && title?.touched" class="text-danger">Title is required!</div> -->
+        <!-- ngIf no use krva CommonModule import krvu pde ts file ma -->
+
+        @if(title.invalid && title.touched){
+        <div class="text-danger">Title is required!</div>
+        }
+      </div>
+
+      <div class="mb-3">
+        <label for="Description" class="form-label">Description</label>
+        <textarea
+          class="form-control"
+          rows="3"
+          placeholder="Enter Description"
+          id="title"
+          name="description"
+          #description="ngModel"
+          [(ngModel)]="model.description"
+          required
+        ></textarea>
+        <!-- <div *ngIf="description.invalid && description.touched" class="text-danger">Title is required!</div> -->
+        @if(description.invalid && description.touched){
+        <div class="text-danger">description is required!</div>
+        }
+      </div>
+
+      <div class="mb-3">
+        <label for="image" class="form-label">choose an image:</label>
+        <input
+          type="file"
+          class="form-control"
+          accept="image/*"
+          name="image"
+          (change)="onFileSelected($event)"
+          [multiple]="false"
+          ngModel
+          required
+        />
+
+        <!-- preiew image -->
+        @if(cover){
+        <div class="imageDiv">
+          <img [src]="cover" alt="" />
+        </div>
+        } @if(imageFlag){
+        <div class="text-danger">image required!</div>
+        }
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary btn-sm">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="row m-0 mt-2">
+  @for(course of courses; track $index){
+  <div class="col-lg-3 col-sm-6 mb-3">
+    <app-courses [coursess]="course" [isDelete]="true"></app-courses>
+  </div>
+  } @empty {
+  <div class="text-center">
+    <p>No course Added yet.</p>
+  </div>
+  }
+</div>

@@ -1,0 +1,9 @@
+.navbar {
+  padding: 15px;
+}
+a {
+  cursor: pointer;
+}
+.nav-item {
+  color: black !important;
+}

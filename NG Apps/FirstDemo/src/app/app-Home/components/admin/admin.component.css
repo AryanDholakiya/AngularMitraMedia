@@ -1,0 +1,29 @@
+.card {
+  width: 60%;
+  margin: auto;
+  margin-top: 5vh;
+  background-color: rgba(151, 194, 238, 0.712);
+}
+.card-header {
+  font-size: 30px;
+  background-color: rgba(107, 184, 236, 0.863);
+}
+.btn-primary {
+  width: 8rem;
+  height: 2.5rem;
+  border-radius: 7px;
+  border: 1px solid dodgerblue;
+}
+.imageDiv {
+  position: relative;
+  height: 200px;
+}
+img {
+  border: 1px solid black;
+  height: 100%;
+  margin-top: 10px;
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 0;
+}

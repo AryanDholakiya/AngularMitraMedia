@@ -1,0 +1,17 @@
+<div class="card h-100 border border-black">
+  <img class="card-img-top p-2" [src]="coursess?.image" alt="Card image cap" />
+  <!-- src="/assets/imgs/education.avif" -->
+  <div class="card-body">
+    <h4 class="card-title">{{ coursess?.title }}</h4>
+    <p class="card-text">
+      {{ coursess?.description }}
+    </p>
+    <a href="#" class="btn btn-primary specialButton">Get Course</a>
+
+    @if(isDelete){
+    <div class="trashIcon">
+      <i class="bi bi-trash-fill"></i>
+    </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<!-- <p>home works!</p> -->
+<!-- <div>{{title}} Angular StandAlone Project!</div>
+<button class="title" (click)="changetitle()">Change Title</button> -->
+<!-- <br>
+<a routerLink="/about">Go to about</a> <br>
+<a [routerLink]="['/','about']">Go to about</a> <br>
+<a (click)="navigate()" style="color: blue; cursor: pointer;">Go to about</a>
+
+<br style="margin-top: 10px;">
+<a [routerLink]="['/','about',1]">another about </a>
+
+
+<a routerLink="/admin">Admin </a> -->
+<!-- <app-admin></app-admin> -->
+<!-- <h2>Product List</h2>
+<ul>
+    <li><a [routerLink]="['/about', 101]">About 101</a></li>
+    <li><a [routerLink]="['/about', 102]">About 102</a></li>
+    <li><a [routerLink]="['/about', 103]">About 103</a></li>
+</ul> -->
+
+<section>
+  <img class="mainImg" src="assets/imgs/coding bg.jpg" alt="Eucation" />
+  <div class="main-content">
+    <h1 class="mt-2 text-dark">Explore Amazing Content</h1>
+    <button class="btn btn-light btn-lg mx-2">Courses</button>
+    <button class="btn btn-primary btn-lg">Templates</button>
+  </div>
+</section>
+
+<section class="courses">
+  <div class="container">
+    <div class="text-center p-2 allcourses">
+      <h1>All Courses</h1>
+    </div>
+    <div class="row mt-3">
+      @for(course of courses; track $index){
+      <div class="col-lg-3 col-sm-6 mt-3">
+        <app-courses [coursess]="course"></app-courses>
+        <!-- [coursess] : basically aa two way binding thy chhe.. aa coursess @input thi course.compo.ts ma declare thyelo hovo joie nkr error aavse -->
+      </div>
+      }
+    </div>
+  </div>
+</section>

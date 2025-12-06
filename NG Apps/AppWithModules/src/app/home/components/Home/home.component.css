@@ -1,0 +1,9 @@
+div {
+  color: red;
+}
+button.changetitle {
+  background-color: red;
+  border: none;
+  border-radius: 5px;
+  color: white;
+}

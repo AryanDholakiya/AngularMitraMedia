@@ -1,0 +1,202 @@
+Angular and TypeScript:
+gpt: TypeScript Tutorial ,  Angular learning basics  , gemini : i want to learn angular
+
+--> cmd : 
+-go inside folder : cd folder name
+-go return in previous folder: cd ..
+
+//delete any app:
+Control Panel → Programs and Features
+(Windows + R → type appwiz.cpl
+
+--> To run the ts file we need to run the command in this order.
+1. tsc 01_TsBasics.ts 
+2. node 01_TsBasics.js
+
+
+
+//Angular Basics:
+
+-->Run automatically your app in browser: "ng s --open" or  "ng s --o"
+
+-->Entry point of angular app > main.ts(inside src folder)
+-->then 2ndly app.routes.ts file runs. (this is exchanged with Module.ts in old versions of Ng)
+-->app.component.ts--> app.component.html / app.component (agal ni aa 3y file src na app component ma hse) 
+--> index.html (src ma) => this is the last file which runs. every pages/Ui shown from here to the client.
+
+--> app component is our root component. all component will created inside the app.component.ts
+--> create component command : ng g c componentName
+
+
+//Constructor vs ngOnInit() : mathi constructor pela load thse.
+
+
+//create Component: ng g c compoName
+
+
+//<router-outlet></router-outlet> : basically it is an angular directive. we have to import it in ts file(normally its auto decalred when we writes <router-outlet></router-outlet> in html file)
+router-outlet no use bija page ne current page ma btavva thy 6. we must have to give routing to use router-outlet.
+
+//route: in app.route.ts file
+
+export const routes: Routes = [
+  {
+    path: 'Home',
+    component: HomeComponent,
+  },
+  {
+    path: '',
+    redirectTo: '/Home',
+    pathMatch: 'full',
+  },
+];
+
+--> all these routes are "CHILD ROUTE" of our appcomponent.
+
+
+--> routerLink: anchor tag ma href ne bdle angular ma aa aave
+<a routerLink="/about"></a>
+
+--> if we are using the --no-standalone project(module.ts file valo) then we don't have to do anything to redirect to another page 
+using routelink.
+
+--But in standalone project we have to import routerlink in the page in whose html file we are using routerLink.(usually it comes automatically when we use routerLink in html page)
+
+
+
+//Injection for navigate:  private router = inject(Router);
+
+//ActivatedRoute is used to get information about current route such as:
+route parameter(id), query parameter, fragment, URL info
+
+-It helps the component to know which data to show.
+
+there 2 ways : 
+1)using snapshot: Snapshot gives the current state of URL at the time component loads.
+If value changes after component loaded, snapshot won’t update.  
+ex: const id = this.route.snapshot.paramMap.get('id');
+
+2)using observables:Route parameters are Observables because they can change while component is active (user clicks inside app).
+So we subscribe to get values live whenever route changes.
+ex:
+this.route.params.subscribe((params) => {
+  console.log(params['id']);
+});
+
+//see diffrence between these both in project : FirstDemo 
+| Concept   | Shop Example                                                                                         |
+| --------- | ---------------------------------------------------------------------------------------------------- |
+| Snapshot  | You enter shop & see **price of shoes** once → If shopkeeper updates price later → You will not know |
+| Subscribe | Shopkeeper updates price & **keeps informing** continuously                                          |
+
+
+
+// Simple routing vs Lazy Loading Routing:
+
+Simple routing ex: 
+{
+	path: 'Home',
+    component: HomeComponent,
+},
+
+lazyLoading ex: 
+{
+    path: 'Home',
+    loadComponent: () =>
+      import('./home/home.component').then((c) => c.HomeComponent),
+},
+
+--> simple routing ma bdha component ek sathe j load thy jai jyare lazy loading ma only current route no ek j component load thse 
+	aathi realoding time ghte ane app fast bne. in short jyare jeni jroor pde tyare j tene load kro.
+	
+	
+	
+// how to create new module in angular : ng g m module_name  (aama module.ts file and routing file bnse)
+--> nva bnela module ma component add krva mate : ng g c Module_name/Component_name (ana thi e module ma component bnse).
+
+
+// Koi module ne lazy load kravvu hoi to "loadComponent" ne bdle "loadChildren" lkhvu pde.
+ex: 
+{
+    path: '',
+    loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
+},
+
+-->upper na ex ma aakho "app-routing-module.ts" mathi HomeModule load thse pela --> tya thi te "home.module.ts" file ma jse --> tema imports ma "HomeRouting" pkdse 
+		--> etle "home-routing-module.ts" ma jse -->etle aa module na routes pramane page show krse.:
+		
+==> inshort aa ek component/module ma ena child component kai rite show kravva ane tena routes kai rite aapva te mate 6
+(aapna already bnavela component ma route and module.ts file add krva command : ng g m compoName --routing
+
+
+Angular is telling the router:
+
+“Don’t load the HomeModule right now.
+Load it only when the user navigates to this route.”
+
+import() = બાદમાં load કરવું
+then(m => m.HomeModule) = import માંથી proper module select કરવો	
+
+
+//Install bootstrap :
+--> npm install bootstrap --> check into package.json --> go to angular.json 
+--> add in styles : "node_modules/bootstrap/dist/css/bootstrap.min.css"
+--> add in scripts : "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+
+
+Template driven forms:
+
+--> form tag ma ek title decalre kro and ngForm ni value assin kro --> and aa title ne (ngsubmit) na funnction ma nakho.
+Ex: <form #courseForm="ngForm" (ngSubmit)="onSubmit(courseForm)">
+
+--> form na drek input ele ma title , name and [(ngModel)] this 2 way bind krvu jroori chhe.
+Ex: <textarea class="form-control" rows="3" placeholder="Enter Description" id="title" name="description"
+                    #description="ngModel" [(ngModel)]="model.description" required></textarea>
+					
+==> note that input fields ma #anytitle = ngModel aave and form tag ma #anytitle = ngForm
+
+==> aa ngForm , ngModel and  (ngSubmit) use krva ts file ma "FormsModule" import krvu pde.
+==> *ngif jeva directives use krva "CommonModule" import krvu pde.
+
+--> form submit thy tyare ekey field khali hoi to error btava :-> form.control.markAllAsTouched(); 
+
+
+==> aapne images vgere always "asset" folder bnavi tema image folder ma images mukvani.
+ ----> aa krya pachhi "Angular.json" ma build --> assets --> "src/assets" : aam path add krvo pde
+--> kyarey pn img tag na src ma path deti vkhte aagal "src/" na mukvu nkr path nhi mlse img no
+
+
+//if-else: latest syntax
+
+@if(loggedIn){
+	<div> User loggedIn </div>
+}
+@else{
+	<div> User NOT loggedIn </div>
+}
+
+//for loop :
+
+@for(user of users; track $index){
+	<div>{{$index}}: {{user.name}} </div>
+} @empty{ ---> aa to run thse jo "users" ni length 0 hse. //this part is not mendatory
+	empty list of user
+}
+
+
+//Switch case:
+
+@switch(accessLevel){
+	@case ('admin') { <p> hello admin </p> }
+	@case ('user') { <p> hello user </p> }
+	@default{ <p> select role! </p> }
+}
+
+
+@input decorator: parent component mathi child component ma data leva mate child component ma use kray chhe.
+
+
+//we can create an enum like component: ng g enum "enumName"
+
+//Spread operator: https://www.youtube.com/watch?v=_PQ7NSppj3Q&t=10082s
+==> usually used for the copying and merging the obj and arrays.

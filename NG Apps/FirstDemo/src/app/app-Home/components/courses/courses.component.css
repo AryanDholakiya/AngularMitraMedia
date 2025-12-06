@@ -1,0 +1,27 @@
+.card-body {
+  padding: 0.4rem 0.7rem !important;
+  height: 220px;
+}
+.card-img-top {
+  border-radius: 15px !important;
+  height: 200px;
+}
+.specialButton {
+  position: absolute;
+  bottom: 3%;
+  left: 2%;
+}
+.trashIcon {
+  position: absolute;
+  bottom: 3%;
+  right: 3%;
+  font-size: 20px;
+  border: 1px solid gray;
+  padding: 0 0.3rem;
+  border-radius: 5px;
+  transition: color 0.4s, background-color 0.4s;
+}
+.trashIcon:hover {
+  color: red;
+  background-color: lightblue;
+}

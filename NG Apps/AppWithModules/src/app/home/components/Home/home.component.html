@@ -1,0 +1,15 @@
+<div>
+    Modules Project. <br>
+</div>
+<p>home works!</p>
+{{title}}
+<br>
+<button class="changetitle" (click)="changetitle()">Change Title</button>
+<br>
+
+<!-- types of routerLink: that how can we use different ways to navigate to another page. -->
+<a routerLink="/about">go to About</a> <br>
+<a [routerLink]="['/','about']">go to About</a> <br>
+<a (click)="navigateRoute()" style="cursor: pointer; color: blue;">go to About</a>
+
+<footer style="margin-top: 10px;">this is footer.</footer>
