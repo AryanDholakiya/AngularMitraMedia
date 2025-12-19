@@ -1,0 +1,114 @@
+<nav
+  class="navbar navbar-expand-lg"
+  style="background-color: #e3f2fd"
+  data-bs-theme="light"
+>
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="">Navbar</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" routerLink="/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" routerLink="/pipes">Pipes</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            &#64;Input/&#64;Output
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" routerLink="/parent">Learn &#64;Input</a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/parent1"
+                >Learn &#64;Output</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/observables">Learn Observables</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/Service_Example">Learn Services</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Forms
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" routerLink="/TemplateDrivenForm"
+                >TemplateDrivenForm</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/ReactiveForm"
+                >ReactviveForm</a
+              >
+            </li>
+          </ul>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" routerLink="/RoutingUnderstanding">Routing</a>
+        </li> -->
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Routing-Concept
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" routerLink="/RoutingUnderstanding"
+                >Routing</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/Courses">Courses</a>
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                [routerLink]="[
+                  { outlets: { course_details: ['Course-details'] } }
+                ]"
+                >Course-Details</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

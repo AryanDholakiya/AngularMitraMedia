@@ -1,0 +1,36 @@
+<div class="p-2">
+  <button class="btn btn-success" (click)="callService()">
+    Simple ServiceEx
+  </button>
+  @if(ExArray.length !== 0){
+  <div class="p-3">
+    <table
+      class="table table-bordered border-secondary-subtle text-center mt-2"
+    >
+      <thead>
+        <tr>
+          <th>Student Rollno</th>
+          <th>Student Name</th>
+          <th>Student Age</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of ExArray; track $index) {
+        <tr>
+          <td>{{ item.rollno }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.age }}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  }
+  <br />
+  <button class="btn btn-success mt-2" (click)="ApiService()">
+    Get Data From Api
+  </button>
+  @for (item of ApiDataArray; track $index) {
+  <h6>{{ item.name }}</h6>
+  }
+</div>

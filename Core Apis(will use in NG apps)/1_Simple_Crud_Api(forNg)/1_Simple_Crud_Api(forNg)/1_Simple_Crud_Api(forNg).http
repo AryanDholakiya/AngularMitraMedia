@@ -1,0 +1,6 @@
+@_1_Simple_Crud_Api_forNg__HostAddress = http://localhost:5016
+
+GET {{_1_Simple_Crud_Api_forNg__HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

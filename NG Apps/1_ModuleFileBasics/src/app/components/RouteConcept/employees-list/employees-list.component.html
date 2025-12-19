@@ -1,0 +1,13 @@
+<div class="p-2">
+  <ul class="list-group w-75 mx-auto">
+    <li
+      (click)="GotoEmp(emp)"
+      class="list-group-item cursor-pointer"
+      *ngFor="let emp of Emplist; index as i"
+      [class.active]="isPrevious(emp)"
+    >
+      {{ emp.empId }} ⇉⇢ {{ emp.name }}
+    </li>
+    <!-- [routerLink]="['/Employees-List', emp.empId]"  : we can put this routerLink also instead of using router navigate or activated route in ts file-->
+  </ul>
+</div>

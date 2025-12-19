@@ -1,16 +1,45 @@
-<div class="card h-100 border border-black">
-  <img class="card-img-top p-2" [src]="coursess?.image" alt="Card image cap" />
-  <!-- src="/assets/imgs/education.avif" -->
-  <div class="card-body">
-    <h4 class="card-title">{{ coursess?.title }}</h4>
-    <p class="card-text">
-      {{ coursess?.description }}
-    </p>
-    <a href="#" class="btn btn-primary specialButton">Get Course</a>
+<div class="course-container mt-5 p-4">
+  <div class="row g-4">
+    <!-- @for(course of coursess; track $index){  ==> bcz of signal coursses became a writable funcion-->
+    @for(course of coursess(); track $index){
+    <div class="col-xl-3 col-lg-4 col-md-6">
+      <div
+        class="course-card shadow-sm border border-secondary-subtle position-relative"
+      >
+        <div class="course-img">
+          <!-- <img [src]="course.image" class="img-fluid" /> // url sanitize krva mate ni error aavse browser ma bcz of using signals, so we have to use and inject the DOMsanitizer-->
 
-    @if(isDelete){
-    <div class="trashIcon">
-      <i class="bi bi-trash-fill"></i>
+          <!--we created an variable using @let decorator and passed it to src: now we don't need it , now we just need to change in admin.compo.ts ==> saveCourses()  -->
+          <!-- @let url = sanitizeUrl(course.image); -->
+          <img [src]="course.image" class="img-fluid" />
+        </div>
+
+        <div class="course-content mb-4">
+          <h5 class="title">{{ course.title }}</h5>
+
+          <p class="desc">{{ course.description }}</p>
+        </div>
+        <div
+          class="card-footer position-absolute bottom-0 p-2 d-flex justify-content-between w-100"
+        >
+          <div class="d-flex justify-content-between d-block w-100">
+            <a class="btn btn-sm btn-dark">Get Course</a>
+
+            @if(isAdmin()){
+            <!-- "isAdmin" is changed to => "isAdmin()" bcz we make it input signal -->
+            <i
+              class="bi bi-trash-fill delete-btn"
+              (click)="deleteCourse(course)"
+            >
+            </i>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+    } @empty {
+    <div class="text-center text-secondary">
+      <p>No courses added yet.</p>
     </div>
     }
   </div>

@@ -1,0 +1,20 @@
+<div>
+  @for(item of myArray1; track $index){
+  <ul>
+    <li>{{ item }}</li>
+  </ul>
+  }
+  <br />
+
+  <!-- @for (emp of myArray2; track $index) { -->
+  @for (emp of myArray3; track $index) {
+  <ul>
+    {{
+      $index + 1
+    }}
+    <li>{{ emp.name }}</li>
+    <li>{{ emp.age }}</li>
+    <li>{{ emp.empId }}</li>
+  </ul>
+  }
+</div>

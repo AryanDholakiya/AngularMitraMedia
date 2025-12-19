@@ -1,0 +1,12 @@
+<div class="p-2">
+  <app-child1
+    [products]="item"
+    (AddInCart)="addToCartPlease($event)"
+  ></app-child1>
+
+  Your Cart: @for (item of YourCart; track $index) {
+  <ul>
+    <li>{{ item.Model }}</li>
+  </ul>
+  }
+</div>

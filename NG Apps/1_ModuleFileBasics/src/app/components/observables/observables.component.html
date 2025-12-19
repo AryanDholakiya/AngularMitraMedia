@@ -1,0 +1,22 @@
+<div class="p-2">
+  <h2>Observable in Angular:</h2>
+  <button class="btn btn-success mb-3" (click)="subscribeObservable()">
+    Get Data
+  </button>
+  <br />
+  <button class="btn btn-primary mb-3" (click)="chunkObservablefun()">
+    Get Data in Chunks
+  </button>
+  <br />
+
+  @if(buttonPressed === 'subscribeObservable'){ @for (item of simpleArr; track
+  $index) {
+  <ul>
+    <li class="d-block p-1 bg-body-secondary">{{ item }}</li>
+  </ul>
+  } } @else { @for (item of dataInChunks; track $index) {
+  <ul>
+    <li class="d-block p-1 bg-body-secondary">{{ item }}</li>
+  </ul>
+  } }
+</div>

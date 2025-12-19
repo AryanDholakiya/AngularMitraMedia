@@ -1,0 +1,35 @@
+<div class="p-2">
+  <p>Home</p>
+  <app-progress-bar [Progress]="progress"></app-progress-bar>
+  <br />
+  <div class="row m-0">
+    <div class="col-8 mx-auto">
+      <h5>
+        In below table, "Result" is came from progress-bar component using
+        &#64;Input.
+      </h5>
+      <table class="table table-bordered border-success text-center">
+        <thead>
+          <tr>
+            <th>RollNo</th>
+            <th>Student Name:</th>
+            <th>Result</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (Student of StudentData; track $index) {
+          <tr>
+            <td>{{ Student.RollNo }}</td>
+            <td>{{ Student.StudentName }}</td>
+            <td>
+              <app-progress-bar [Progress]="Student.result">{{
+                Student.result
+              }}</app-progress-bar>
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

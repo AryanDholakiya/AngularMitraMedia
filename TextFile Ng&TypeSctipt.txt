@@ -17,6 +17,14 @@ Control Panel → Programs and Features
 
 //Angular Basics:
 
+
+//in module project: if we find any error in ngIf, ngFor, ngStyle decorators just check the "app.module.ts" file there should be error in components path.
+aslo check that you have imported the commonModule or BrowserModule.
+
+//in module project: If you inject "httpClient" to use the get, post etc method , then you must have to add the "provideHttpClient()" 
+in the "app.module.ts" file's provider. like ==> providers: [provideHttpClient()],
+
+
 -->Run automatically your app in browser: "ng s --open" or  "ng s --o"
 
 -->Entry point of angular app > main.ts(inside src folder)
@@ -30,7 +38,10 @@ Control Panel → Programs and Features
 
 //Constructor vs ngOnInit() : mathi constructor pela load thse.
 
-
+//create new project : ng new "project_name"
+// no-standalone project bnavvo hoi to : ng new "project_name" --no-standalone  or
+										 ng new <project-name> --standalone=false 
+									Ex:  ng new WorkingWithApi --standalone-false
 //create Component: ng g c compoName
 
 
@@ -200,3 +211,329 @@ Ex: <textarea class="form-control" rows="3" placeholder="Enter Description" id="
 
 //Spread operator: https://www.youtube.com/watch?v=_PQ7NSppj3Q&t=10082s
 ==> usually used for the copying and merging the obj and arrays.
+
+
+
+standalone vs no-standalone:
+
+1) no-standalone project ma app.module.ts file aave --> tema routeroutlet import krvani jroor pdti nathi if we use routeroutlet.
+--> standlalone project ma app.compo.ts ma import thy jai most of jate jai
+
+2) no-standalone routes define krva - "app-routing.module.ts" file hoi
+--> standlalone project ma "app.routes.ts" file aave.
+
+3. no-standalone ma :
+<app-header></app-header>
+<router-outlet></router-outlet>
+<app-footer></app-footer>
+uppr pramane component show kravva "app.module.ts" ma declarations ma : "[AppComponent, HeaderComponent, FooterComponent]" aam manually
+add kravvu pde
+
+
+// Signals: basically they are used for change detection. it works as a observables
+
+ //understand why we use signals:
+  //without signals:
+  a = 2;
+  b = 3;
+  c = this.a + this.b;
+
+  withoutSignalEx() {
+    console.log('C before value of a change: ', this.c);
+    this.a = 10;
+    console.log('C after value of a change: ', this.c);
+  }
+
+  //with signal
+  A1 = signal(10);
+  B1 = signal(20);
+  C1 = computed(() => this.A1() + this.B1()); //"computed" is Readonly signal type swhich contains the callback(arrow fn)
+
+  withSignalEx() {
+    console.log('C1 before value of A1 change: ', this.C1());
+    this.A1.set(100);
+    console.log('C1 after value of A1 change: ', this.C1());   ====> Here value will changed and bcz change in A1 reflects bcz of signal
+  }
+
+ngOnInit(){
+withoutSignalEx();
+withSignalEx();
+}
+
+==> ts file ma je property ne signal no use kri ne banavi chhe tene html file ma pachhal "()" lgvva pde bcz te ek parakar na fun bni jai
+==> signal ma pachhal thi value change krvi hoi to 
+this.A1.set(100) ==> aam thse.
+
+
+//@let decorator: aa decorator na use thi apne html page ma pn variable bnavi skie, function call kri skie (js kaam kri skie).
+ex:
+		  @let url = sanitizeUrl(course.image);
+          <img [src]="url" class="img-fluid" />
+check : FIRSTDEMO project --> courses.comonent.html file --> line 10 11  and its ts file's sanitizeUrl() function
+
+
+// input signals and output signals(if we don't want to use the @Input and @Output)
+ex: @Input() isAdmin: boolean = false; 
+--> changed into input function => isAdmin = input(false);
+
+-->input signal bni jai to html check ma "@if(isAdmin){}" na bdle " @if(isAdmin()){}" --> pachhal paranthses lgadva pde
+
+--> we can define our alias name of our property like here: input = isAdmin(false,{alias: 'isAdm'} );
+		=> now we have to pass "[isAdm]" not "[isAdmin]"
+		
+//how to build and deploy your project:
+1. run command =>  "ng build"
+2. after it you'll see the "dist" file folder
+3. search for firebase and login into it
+
+==> website is hosted on : https://learningplatform-777.web.app/admin
+
+
+
+// working with api : difference - standalone proj vs no-standalone proj
+
+1. standalone ma "app.config.ts" na providers ma  "provideHttpClient()," add kro.
+	--> no-standalone ma "app.module.ts" file na providers ma "provideHttpClient()," add kro.
+ex:
+
+private client = inject(HttpClient);  //first we must have to inject the httpClient
+
+  fetchHttpData() {
+    this.client.get('https://jsonplaceholder.typicode.com/posts').subscribe({
+      next: (posts) => {
+        console.log(posts);
+      },
+      error: (e) => {
+        console.log(e);
+      },
+    });
+  }
+  
+  
+// Standalone project ma [ngStyle] use krva te compo ni ts file ma import krvi pde.
+
+//pipes in Angular:
+1.lowercase 2.uppercase 3.titlecase 4.slice pipe 5.json pipe 6.date 7.currency 8.percent 9.decimal	
+
+ઘણા Pipes ને વધુ કંટ્રોલ માટે Parameters ની જરૂર હોય છે
+syntax: {{ dataToDisplay | pipeName:parameter1:parameter2:... }}
+ex: <p>{{ todayDate | date:'mediumDate' }}</p>  
+ex: {{ price | currency:'INR':'symbol-narrow' }}
+ex: <p>{{ 'This is a long text' | slice:0:10 }}</p>
+
+
+
+why we use services in Angular?
+--> Services are reusable classes that hold logic, data, or functions which can be shared across multiple components.
+--> Services help keep components clean by separating UI logic from business logic.
+--> services are usually implemented using the dependency injection.
+
+
+
+// what is the meaning of data streaming? // https://www.youtube.com/watch?v=SmDDEaglAd4 //https://www.youtube.com/watch?v=-N32Gt_csUk
+sending the data to client into the small chunks instead of sending entire big sized chunk.
+(ex: 1 gb no akho vidoe no moklta netflix small sized na data load kravse nkr user ne 1gb no video load thy tya sudhi raah jovi pdt 
+and pachhi joi skt.)
+
+
+
+//How to create an Observable? //--> just create an constructor of observable and assign it in variable.
+EX: 1_MODULEFILEBASICS
+
+=> myObsrvable = new Observable((observer)=>{
+	observer.next("je kai value emit krvi hoi te");
+   });       
+
+//observable ma value emmit krva always ek CALLBACK fun hoi je argument ne recive krse
+
+//NOTE: an Oserver will emmit the data if there is any subsriBe.
+EX:  
+simpleArr: any[] = [];
+myObservable = new Observable((observer) => {
+    observer.next([1, 2, 3, 4, 5]);
+});
+SubscribeObservable() {
+    this.buttonPressed = 'subscribeObservable';
+    //observer
+    //this suscribe method takes 3 callback function: next:(observable next event emmit kre tyare use thy), error:(observable error event emmit kre tyare use thy), complete:(observable complete event emmit kre tyare use thy)
+    this.myObservable.subscribe((val: any) => {
+      //"val" emmit thyeli value recieve krse
+      this.simpleArr = val;
+    });
+}
+HTML FILE CODE: 
+<button class="btn btn-success mb-3" (click)="subscribeObservable()">
+    Get Data
+</button>
+
+gpt: angular learning guid
+gimini : Angular @Input() & @Output() Explained
+
+
+//Template driven form ma name attribute frjiyat 6.
+-->tema ngModel [(ngModel)] and #template-ref-var = "ngModel" lkhvani jrror rey two way bind mate
+
+regex: /[A-Za-z0-9!#$%&'+/=?^_`{|}~-]+(?:\.[A-Za-z0-9!#$%&'+/=?^_`{|}~-]+)*@(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?/
+
+//reactive form: no-standalone
+
+1. import " ReactiveFormsModule " in  app.module.ts 
+2. import " FormControl, FormGroup, Validators " in your component's ts file
+
+
+
+//directives: Directives in Angular are special classes that let you add behavior, structure, or styling to DOM elements.
+- Component Directives: Component directives એ directives છે, જેમાં template હોય છે. સૌથી common directive type છે
+- Structural Directives: Examples: *ngIf, *ngFor, *ngSwitch
+- Attribute Directives:  Examples: ngClass, ngStyle, ngModel
+
+
+
+//If you are using the Auxilary routing then :
+
+1. "app.compo.html" jya main <router-outlet> define krelo 6 tya ek bijo pn muko and tema name aapo.
+EX:
+<router-outlet></router-outlet>
+<router-outlet name="course_details"></router-outlet>
+
+2. "app.module.ts" file ma auxilary route mate path niche ni rite thodo alg define thse.
+EX:
+{
+    path: 'Course-details',
+    outlet: 'course_details', //same name which we given in router-outlet "name"
+    component: CourseDetailsComponent,
+},
+
+3. RouterLink for the page which will be appear using Auxulary Route:
+EX:
+[routerLink]="[{ outlets: { course_details: ['Course-details'] } }]"
+-course_details: outlet name given in "app.module.ts"
+-Course-details : path name given in "app.module.ts"
+
+
+//<ng-content></ng-content> : ek j vstu repeatedly show kravva mate.
+
+Everthing Basics of Angular covered in App : 1_MODULEFILEBASICS
+
+
+
+
+
+app 2 : 2_WorkingWithApi 
+
+//Enable CORS in .NET Core: in api project
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngular",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:4200")
+                  .AllowAnyHeader()
+                  .AllowAnyMethod()
+				  .AllowAnyOrigin(); //must required
+        });
+});
+var app = builder.Build();
+app.UseCors("AllowAngular");
+
+
+// after adding this CORS data in api project open angular proj : (module project -no-standalone)
+1. in "app.module.ts" file's provider add provideHttpClient().
+2. create one service and make api call there 
+Ex: 
+  getStudent(): Observable<Student[]> { 
+    return this.client.get<Student[]>(
+      'https://localhost:7171/api/StudentApi/AllStudents'
+    );
+  }
+  
+3. call this "getStudent()" method in your other component's ts file after injecting the service
+Ex:
+ngOnInit(): void {
+    this.studentService.getStudent().subscribe({  // we must have to subscribe this
+      next: (data) => {
+        this.TotalStudents = data;
+        console.log(data);
+      },
+      error: (error) => {
+        alert(error);
+      },
+    });
+  }
+
+
+
+4. you can store these data in any array which cames from api and show it in html file
+
+
+
+//if we want to prevent data from flicking while we reload the app--> we have to use the resolver there.
+-Normal Flow(Without Resolver):
+Route → Component → API Call → Data → UI
+
+-With Resolver
+Route → Resolver → API Call → Data Ready → Component → UI
+
+aano arth component load thy pela j compo pase api mathi data aavi gaya hse ane aa data route ma teni key ma store thy gaya hse.
+Ex:
+{
+    path: 'home',
+    component: StudentsComponent,
+    resolve: {
+      students: studentResolver,
+    },
+},
+//ahi "studentResolver" pela call thse jya aapne Api call marelo hse. aa api call thi aavta (return) data "students" ma store thse.
+//now we just have to use this key in component's ts file. tya aapne api call maravvani jroor j nai rese.
+
+Ex:
+ngOnInit(): void {
+    //Without resolver
+	
+    // this.studentService.getStudent().subscribe({
+    //   next: (data) => {
+    //     this.TotalStudents = data
+    //     console.log(data);
+    //   },
+    //   error: (error) => {
+    //     alert(error);
+    //   },
+    // });
+
+
+    //this is using the resolver method
+	
+    this.route.data.subscribe((res) => {  //ahi "route" e ActivatedRoute na injection mathi aave 6
+      this.TotalStudents = res['students'];
+    });
+  }
+  
+  
+//BehaviourSubject<>(): 
+
+Ex Code line: 
+
+private studentsSubject = new BehaviorSubject<Student[]>([]);
+students$ = this.studentsSubject.asObservable();
+
+Student[] → Student objects નો array
+[] → શરૂઆતમાં empty array
+private → બહારથી modify ન કરી શકાય, Only service can modify it
+
+BehaviorSubject<Student[]> : This BehaviorSubject stores and emits an array of Student objects
+->The current value must be Student[]
+->.next() must receive Student[]
+->Subscribers will receive Student[]
+
+-asObservable() Subject ને Observable માં convert કરે છે
+-Component:
+	Data જોઈ શકે
+	Subscribe કરી શકે
+-$ Naming Convention,...$ means this is an Observable
+
+Why TWO variables are needed?
+| Variable          | Role                  |
+| ----------------- | --------------------- |
+| `studentsSubject` | Internal data control |
+| `students$`       | Read-only data stream |

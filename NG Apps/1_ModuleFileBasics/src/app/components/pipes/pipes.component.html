@@ -1,0 +1,99 @@
+<div class="p-2">
+  <!-- @if(somearray.length !== 0){ @for (item of somearray; track $index) {  ////just example that we can pass the array and obj from parent using @input
+  <h5>{{ item }}</h5>
+  } } -->
+
+  <!-- pipes  -->
+  <p>uppercase pipe: {{ PipeExampleVar | uppercase }}</p>
+  <p>lowercase pipe: {{ PipeExampleVar | lowercase }}</p>
+  <p>titlecase pipe: {{ PipeExampleVar | titlecase }}</p>
+  <p>slice pipe: {{ PipeExampleVar | slice : 9 }}</p>
+  <p>slice pipe on array: {{ months | slice : 3 }}</p>
+  <!-- 9 no ni index no char lese -->
+  <p>slice pipe: {{ PipeExampleVar | slice : 12 : 17 }}</p>
+  <!-- 17 no nu index no char lese nahi -->
+  <h5>json pipe: {{ jsonPipeExVar | json }}</h5>
+
+  <br />
+  <h5>
+    without date pipe:<span style="color: green"> {{ dataPipeEx }}</span>
+  </h5>
+  <h5>
+    with date pipe:<span style="color: green">{{ dataPipeEx | date }}</span>
+  </h5>
+  <h5>
+    with date:'short' pipe:<span style="color: green">{{
+      dataPipeEx | date : "short"
+    }}</span>
+  </h5>
+  <h5>
+    with date:'medium' pipe:<span style="color: green">{{
+      dataPipeEx | date : "medium"
+    }}</span>
+  </h5>
+  <h5>
+    with date:'long' pipe:<span style="color: green">{{
+      dataPipeEx | date : "long"
+    }}</span>
+  </h5>
+  <h5>
+    with date:'full' pipe:<span style="color: green">{{
+      dataPipeEx | date : "full"
+    }}</span>
+  </h5>
+  <br />
+  <h5>
+    with date:'shortDate' pipe:<span style="color: green">{{
+      dataPipeEx | date : "shortDate"
+    }}</span>
+  </h5>
+  <h5>
+    with date:'mediumDate' pipe:<span style="color: green">{{
+      dataPipeEx | date : "mediumDate"
+    }}</span>
+  </h5>
+  <h5>
+    with date:'longDate' pipe:<span style="color: green">{{
+      dataPipeEx | date : "longDate"
+    }}</span>
+  </h5>
+  <h5>
+    with date:'fullDate' pipe:<span style="color: green">{{
+      dataPipeEx | date : "fullDate"
+    }}</span>
+  </h5>
+  <br />
+  <h5>
+    with date:'shortTime' pipe:<span style="color: green">{{
+      dataPipeEx | date : "shortTime"
+    }}</span>
+  </h5>
+  <h5>
+    with date:'mediumTime' pipe:<span style="color: green">{{
+      dataPipeEx | date : "mediumTime"
+    }}</span>
+  </h5>
+  <br />
+  <h5>
+    with date-maually:<span style="color: green">
+      {{ dataPipeEx | date : "dd/MM/yyyy" }}</span
+    >
+  </h5>
+  <h5 style="color: red">percent pipe:</h5>
+  <h4>{{ 0.5 | percent }} : inshort 0.5 * 100 and join the % symbol</h4>
+  <br />
+  <h5 style="color: red">currency pipe:</h5>
+  <h4>{{ 100 | currency }}</h4>
+  <h4>{{ 100 | currency : "EUR" }}</h4>
+  <!-- CAPITAL LETTERS MA J ARGUMENT AAPVI -->
+  <h4>{{ 500 | currency : "INR" }}</h4>
+  <br />
+  <hr />
+
+  <h2 style="color: green">custom pipe:</h2>
+  <h4>{{ 10 | exponentPower : 3 }}</h4>
+  <h4>{{ 10 | exponentPower }}</h4>
+  <h4>ABCD : {{ "ABCD" | ReverseString }}</h4>
+  <h4>ABCD : {{ "Angular" | ReverseString }}</h4>
+  <h4>1234 : {{ 1234 | ReverseString }}</h4>
+</div>

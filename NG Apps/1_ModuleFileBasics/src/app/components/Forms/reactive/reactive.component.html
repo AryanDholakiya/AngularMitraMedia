@@ -1,0 +1,143 @@
+<div class="p-2">
+  <div class="row m-0">
+    <div class="text-center p-2 my-2">
+      <h4
+        class="border border-secondary-subtle d-inline p-2 rounded-3"
+        specialDirective
+      >
+        Reactive Form
+      </h4>
+    </div>
+    <div class="col-md-6 border border-secondary-subtle mx-auto p-3 rounded-3">
+      <form [formGroup]="myform" (ngSubmit)="formData()">
+        <label for="name" class="form-label mt-2">Name:</label>
+        <input
+          type="text"
+          class="form-control"
+          [class.is-invalid]="
+            myform.get('name')?.invalid && myform.get('name')?.touched
+          "
+          formControlName="name"
+          placeholder="Enter your name"
+        />
+        @if(myform.get('name')?.invalid && myform.get('name')?.touched){
+        @if(myform.get('name')?.errors?.['required']){
+        <div class="invalid-feedback">Name is Required!</div>
+        } @if(myform.get('name')?.errors?.['minlength']){
+        <div class="invalid-feedback">
+          Name should be atleast of character
+          {{myform.get('name')?.errors?.['minlength'].requiredLength}}
+        </div>
+        } }
+
+        <label for="Age" class="form-label mt-2">Age:</label>
+        <input
+          type="number"
+          class="form-control"
+          [class.is-invalid]="
+            myform.get('Age')?.invalid && myform.get('Age')?.touched
+          "
+          formControlName="Age"
+          placeholder="Enter your Age"
+        />
+        @if(myform.get('Age')?.invalid && myform.get('Age')?.touched){
+        @if(myform.get('Age')?.errors?.['required']){
+        <div class="invalid-feedback">Age is Required!</div>
+        } @if(myform.get('Age')?.errors?.['min']){
+        <div class="invalid-feedback">Minimum age is 18!</div>
+        } @if(myform.get('Age')?.errors?.['max']){
+        <div class="invalid-feedback">Maximum age is 35!</div>
+        } }
+
+        <label for="email" class="form-label mt-2">Email:</label>
+        <input
+          type="text"
+          class="form-control"
+          [class.is-invalid]="
+            myform.get('email')?.invalid && myform.get('email')?.touched
+          "
+          formControlName="email"
+          placeholder="Enter your email address"
+        />
+        @if(myform.get('email')?.invalid && myform.get('email')?.touched){
+        @if(myform.get('email')?.errors?.['required']) {
+        <div class="invalid-feedback">email is Required!</div>
+        } @if(myform.get('email')?.errors?.['pattern']) {
+        <div class="invalid-feedback">email format is not valid!</div>
+        } }
+
+        <label for="gender" class="form-check-label">Gender:</label>
+        <div class="form-check">
+          <input
+            type="radio"
+            formControlName="gender"
+            class="form-check-input border border-secondary-subtle"
+            value="Male"
+          /><label for="male">Male</label>
+        </div>
+        <div class="form-check">
+          <input
+            type="radio"
+            formControlName="gender"
+            class="form-check-input border border-secondary-subtle"
+            value="Female"
+          /><label for="female">Female</label>
+        </div>
+        <div class="form-group mt-3">
+          <label for="role">Select Job Role:</label>
+          <select
+            class="form-select"
+            formControlName="role"
+            required
+            [class.is-invalid]="
+              myform.get('role')?.invalid && myform.get('role')?.touched
+            "
+          >
+            <option selected disabled value="" selected>
+              Select your Job Role
+            </option>
+            <option value="SOFTWARE DEVELOPER">SOFTWARE DEVELOPER</option>
+            <option value="DATA ANALYST">DATA ANALYST</option>
+            <option value="TESTER">TESTER</option>
+          </select>
+          @if(myform.get('role')?.invalid && myform.get('role')?.touched){
+          @if(myform.get('role')?.errors?.['required']){
+          <div class="invalid-feedback">This field is required!</div>
+          } }
+        </div>
+
+        <div class="form-check mt-3">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            formControlName="accept"
+          />
+          <label for="terms">I accept the terms and conditions.</label>
+        </div>
+
+        <div class="form-group mt-3">
+          <label for="">Skills:</label>
+          @for(skill of mySkills; track $index){
+          <div class="form-check">
+            <label [for]="skill">{{ skill }}</label>
+            <input
+              type="checkbox"
+              class="form-check-input"
+              [value]="skill"
+              (change)="changeBox($event)"
+            />
+          </div>
+          }
+        </div>
+
+        <button
+          class="btn btn-success mt-3"
+          type="submit"
+          [class.disabled]="myform.invalid || mySkills.length == 0"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

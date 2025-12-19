@@ -23,7 +23,9 @@
   <img class="mainImg" src="assets/imgs/coding bg.jpg" alt="Eucation" />
   <div class="main-content">
     <h1 class="mt-2 text-dark">Explore Amazing Content</h1>
-    <button class="btn btn-light btn-lg mx-2">Courses</button>
+    <button class="btn btn-light btn-lg mx-2" routerLink="/courses">
+      Courses
+    </button>
     <button class="btn btn-primary btn-lg">Templates</button>
   </div>
 </section>
@@ -33,13 +35,19 @@
     <div class="text-center p-2 allcourses">
       <h1>All Courses</h1>
     </div>
-    <div class="row mt-3">
+
+    <!-- <div class="row mt-3">
       @for(course of courses; track $index){
       <div class="col-lg-3 col-sm-6 mt-3">
-        <app-courses [coursess]="course"></app-courses>
-        <!-- [coursess] : basically aa two way binding thy chhe.. aa coursess @input thi course.compo.ts ma declare thyelo hovo joie nkr error aavse -->
-      </div>
+        <app-courses [coursess]="course"></app-courses> -->
+    <!-- [coursess] : basically aa two way binding thy chhe.. aa coursess @input thi course.compo.ts ma declare thyelo hovo joie nkr error aavse -->
+    <!-- </div>
       }
-    </div>
+    </div> -->
   </div>
+  <!-- upper no code lkhvae bdle hve khali ek line lkhvi pdse. -->
+  <app-courses></app-courses>
+</section>
+<section>
+  <app-about></app-about>
 </section>

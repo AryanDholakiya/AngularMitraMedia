@@ -4,7 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
+    loadChildren: () => import('./app-Home/home.module').then((m) => m.HomeModule),
+    //note here module load kravannu 6, HomeComponent nhi.
+    //standalone true project ma badha compo standalone hoi etle chale pn ahi em nahi thse
   },
 ];
 
@@ -12,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

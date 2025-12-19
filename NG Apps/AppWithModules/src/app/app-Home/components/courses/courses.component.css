@@ -1,0 +1,47 @@
+.course-card {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.course-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.course-img img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-bottom: 2px solid #eee;
+}
+
+.course-content {
+  padding: 15px;
+}
+
+.title {
+  font-size: 17px;
+  font-weight: 600;
+  color: #222;
+}
+
+.desc {
+  font-size: 14px;
+  color: #555;
+  height: 45px;
+  overflow: hidden;
+}
+
+.delete-btn {
+  color: #c70000;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.delete-btn:hover {
+  color: #ff3333;
+  transform: scale(1.1);
+}

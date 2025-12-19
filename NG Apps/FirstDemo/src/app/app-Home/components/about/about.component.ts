@@ -20,7 +20,7 @@ export class AboutComponent implements OnInit {
     this.route.params.subscribe({
       next: (data) => {
         this.newid = data['id'];
-        console.log(data['id']);
+        // console.log(data['id']);
       },
       error: (e: any) => {
         console.log(e);

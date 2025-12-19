@@ -1,0 +1,33 @@
+/* div {
+  color: red;
+}
+button.changetitle {
+  background-color: red;
+  border: none;
+  border-radius: 5px;
+  color: white;
+} */
+
+.mainImg {
+  object-position: center;
+  object-fit: cover;
+  width: 100%;
+  height: 80vh;
+}
+.main-content {
+  position: absolute;
+  top: 40%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+}
+.courses {
+  padding: 1rem 0;
+  background-color: #c1f0f3;
+}
+.allcourses h1 {
+  font-size: 2rem;
+  font-weight: 500;
+  border-bottom: 3px double black;
+  display: inline;
+}

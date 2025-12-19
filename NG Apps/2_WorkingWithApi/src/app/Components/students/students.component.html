@@ -1,0 +1,196 @@
+<div class="p-2">
+  <div class="row m-0">
+    <div class="col-md-8 mx-auto">
+      <h3 class="fw-bold text-center text-decoration-underline">
+        Student Details
+      </h3>
+
+      <button
+        class="btn btn-primary my-2"
+        (click)="openAddModal()"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+      >
+        Add Student
+      </button>
+
+      <table class="table table-bordered border-secondary-subtle text-center">
+        <thead class="table-dark text-white">
+          <tr>
+            <th>Student Photo</th>
+            <th>Gr Number</th>
+            <th>Student Name</th>
+            <th>Standard</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let stud of TotalStudents">
+            <td>
+              <img
+                *ngIf="stud.sphoto"
+                [src]="stud.sphoto"
+                width="50"
+                height="50"
+                class="rounded-circle"
+              />
+            </td>
+            <td>{{ stud.grNumber }}</td>
+            <td>{{ stud.sname }}</td>
+            <td>{{ stud.sstd }}</td>
+            <td>{{ stud.sgender }}</td>
+            <td>{{ stud.sage }}</td>
+            <td class="d-flex justify-content-evenly">
+              <button
+                class="btn btn-warning"
+                (click)="openEditModal(stud)"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
+                Edit
+              </button>
+
+              <button class="btn btn-danger" (click)="delete(stud.grNumber)">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- modal code -->
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+  data-bs-backdrop="static"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          {{ isEditMode ? "Edit Student" : "Add Student" }}
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="studentForm">
+          <div *ngIf="isEditMode">
+            <label for="" class="form-label mt-2">Gr Number: </label>
+            <input
+              type="number"
+              class="form-control border border-secondary-subtle"
+              formControlName="grNum"
+              placeholder="Gr Number"
+              [class.is-invalid]="
+                studentForm.get('grNum')?.invalid &&
+                studentForm.get('grNum')?.touched
+              "
+            />
+          </div>
+          <label for="" class="form-label mt-2">Name: </label>
+          <input
+            #studentName
+            type="text"
+            class="form-control border border-secondary-subtle"
+            formControlName="name"
+            placeholder="Enter Name of Student"
+            [class.is-invalid]="
+              studentForm.get('name')?.invalid &&
+              studentForm.get('name')?.touched
+            "
+          />
+          <label for="std" class="form-label mt-2">Standard:</label>
+          <input
+            type="number"
+            formControlName="std"
+            class="form-control border-secondary-subtle"
+            [class.is-invalid]="
+              studentForm.get('std')?.invalid && studentForm.get('std')?.touched
+            "
+          />
+          <label for="" class="form-label mt-2">Gender: </label>
+          <div class="form-check">
+            <label for="male">Male</label>
+            <input
+              type="radio"
+              formControlName="gender"
+              class="form-check-input border border-secondary-subtle"
+              value="Male"
+            />
+          </div>
+          <div class="form-check">
+            <label for="female" class="form-label mt-2">Female</label>
+            <input
+              type="radio"
+              formControlName="gender"
+              class="form-check-input border border-secondary-subtle"
+              value="Female"
+            />
+          </div>
+          <label for="age" class="form-label mt-2">Age:</label>
+          <input
+            type="number"
+            formControlName="age"
+            class="form-control border-secondary-subtle"
+            [class.is-invalid]="
+              studentForm.get('age')?.invalid && studentForm.get('age')?.touched
+            "
+          />
+          <label for="photo" class="form-label mt-2">photo:</label>
+          <br />
+          <div
+            *ngIf="isEditMode && photoBase64"
+            class="border border-secondary-subtle d-inline-block mb-2"
+          >
+            <img
+              [src]="photoBase64"
+              width="100"
+              height="100"
+              class="rounded-circle"
+            />
+          </div>
+          <input
+            type="file"
+            formControlName="sphoto"
+            accept="image/*"
+            class="form-control border-secondary-subtle"
+            (change)="onPhotoselected($event)"
+          />
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="closeModal()"
+          data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+          (click)="saveStudent()"
+        >
+          {{ isEditMode ? "Edit" : "Save" }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

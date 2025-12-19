@@ -1,0 +1,21 @@
+<div>
+  @for (item of products; track $index) {
+  <div class="card mb-3" style="width: 380px">
+    <div class="card-header">
+      <h3>{{ item.itemBrand }}</h3>
+    </div>
+    <div class="card-body">
+      <h4>{{ item.Model }}</h4>
+      <p class="card-text">
+        {{ item.description }}
+      </p>
+      <h5>{{ item.price | currency : "INR" }}</h5>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary" (click)="adding(item)">
+        Add To Cart
+      </button>
+    </div>
+  </div>
+  }
+</div>

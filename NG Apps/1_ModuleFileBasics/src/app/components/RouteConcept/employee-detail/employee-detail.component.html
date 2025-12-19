@@ -1,0 +1,35 @@
+<div class="p-2">
+  You have selected a person with id => {{ EmpId }}.
+  <br />
+  <button
+    class="btn btn-success mx-2"
+    [disabled]="this.empSer.getMinId() == this.EmpId"
+    (click)="PreviousId()"
+  >
+    Previous Id
+  </button>
+  <button
+    class="btn btn-success"
+    [disabled]="this.empSer.getMaxId() == this.EmpId"
+    (click)="NextId()"
+  >
+    Next Id
+  </button>
+
+  <br />
+  <ul>
+    <li>
+      <a (click)="goToProduct(101)" class="cursor">Product 101</a>
+    </li>
+    <li>
+      <a (click)="goToProduct(102)" class="cursor">Product 102</a>
+    </li>
+    <li>
+      <a (click)="goToProduct(103)" class="cursor">Product 103</a>
+    </li>
+  </ul>
+  <br />
+
+  <!-- optional route parameter example -->
+  <button class="btn btn-warning" (click)="goback()">Back</button>
+</div>

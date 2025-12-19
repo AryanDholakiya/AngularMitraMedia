@@ -1,0 +1,168 @@
+<div class="p-2">
+  <div class="row m-0">
+    <h3 class="text-center" Highlight myCustomColor="red">
+      Template Driven Form
+    </h3>
+    <div class="col-md-6 mx-auto border border-secondary-subtle p-2">
+      <form
+        #myform2way="ngForm"
+        (ngSubmit)="TwowayBinded(myform2way)"
+        novalidate
+      >
+        <label class="mt-2">Name:</label>
+        <input
+          type="text"
+          name="name"
+          class="form-control"
+          [class.is-invalid]="name.invalid && name.touched"
+          ngModel
+          #name="ngModel"
+          [(ngModel)]="Employee.name"
+          required
+          minlength="3"
+        />
+        @if(name.invalid && (name.touched || name.dirty)){
+        @if(name.errors?.['required']){
+        <div class="text-danger">Name is required!</div>
+        } @if(name.errors?.['minlength']){
+        <div class="text-danger">Minimum length is 3!</div>
+        } }
+        <label class="mt-2">Age:</label>
+        <input
+          type="number"
+          name="age"
+          ngModel
+          class="form-control"
+          [(ngModel)]="Employee.empId"
+          [class.is-invalid]="age.invalid && age.touched"
+          required
+          min="18"
+          max="35"
+          #age="ngModel"
+        />
+        @if(age.invalid && (age.touched || age.dirty)){
+        @if(age.errors?.['min']){
+        <div class="text-danger">Minimum age is 18.</div>
+        } @if(age.errors?.['max']){
+        <div class="text-danger">maximum age is 35.</div>
+        } @if(age.errors?.['required']){
+        <div class="text-danger">Age is required!</div>
+        }}
+        <label class="mt-2">Email:</label>
+        <input
+          type="email"
+          name="email"
+          ngModel
+          class="form-control"
+          [class.is-invalid]="email.invalid && email.touched"
+          [(ngModel)]="Employee.email"
+          pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
+          required
+          email
+          #email="ngModel"
+        />
+        @if(email.invalid && (email.touched || email.dirty)){
+        @if(email.errors?.['required']){
+        <div class="text-danger">email is required!</div>
+        } @if(email.errors?.['email']){
+        <div class="text-danger">email is not in its valid format</div>
+        } }
+
+        <label class="mt-2">Gender:</label>
+        <div class="form-check">
+          <label for="male" class="form-check-label">Male</label>
+          <input
+            type="radio"
+            class="form-check-input border border-secondary-subtle"
+            name="gender"
+            ngModel
+            #male="ngModel"
+            [(ngModel)]="Employee.gender"
+            required
+            value="Male"
+          />
+        </div>
+        <div class="form-check">
+          <label for="female" class="form-check-label">Female</label>
+          <input
+            type="radio"
+            class="form-check-input border border-secondary-subtle"
+            name="gender"
+            ngModel
+            #female="ngModel"
+            [(ngModel)]="Employee.gender"
+            required
+            value="Female"
+          />
+        </div>
+
+        <div class="form-group mt-3">
+          <label for="role">Select Job Role:</label>
+          <select
+            class="form-select"
+            name="role"
+            ngModel
+            #role="ngModel"
+            [(ngModel)]="Employee.role"
+            required
+            [class.is-invalid]="role.invalid && role.touched"
+          >
+            <option selected disabled value="">Select your Job Role</option>
+            <option value="SOFTWARE DEVELOPER">SOFTWARE DEVELOPER</option>
+            <option value="DATA ANALYST">DATA ANALYST</option>
+            <option value="TESTER">TESTER</option>
+          </select>
+        </div>
+        @if(role.invalid && (role.touched || role.dirty)){
+        @if(role.errors?.['required']){
+        <div class="text-danger">Job role is required!</div>
+        } }
+
+        <div class="form-group mt-3">
+          <!-- checkboxes ma ngModel ni jroor nthi -->
+          <label for="">Skills:</label>
+          <div class="form-check">
+            <label for="Angular">Angular</label>
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="Skills"
+              value="Angular"
+              (change)="changeBox($event)"
+            />
+          </div>
+          <div class="form-check">
+            <label for="Angular">.Net</label>
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="Skills"
+              value=".Net"
+              (change)="changeBox($event)"
+            />
+          </div>
+          <div class="form-check">
+            <label for="React">React</label>
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="Skills"
+              value="React"
+              (change)="changeBox($event)"
+            />
+          </div>
+        </div>
+
+        <button
+          class="btn btn-success mt-3"
+          [class.disabled]="
+            myform2way.form.invalid || Employee.skills.length == 0
+          "
+        >
+          Submit
+        </button>
+        <br />
+      </form>
+    </div>
+  </div>
+</div>

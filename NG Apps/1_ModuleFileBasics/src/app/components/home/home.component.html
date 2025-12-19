@@ -1,0 +1,38 @@
+<div class="p-2">
+  
+  <p>Home works</p>
+
+  <app-progress-bar [Progress]="progressStatus"></app-progress-bar>
+  
+  <br />
+  <p>we can pass the array from parent to child compoent.</p>
+  <!-- <app-pipes [somearray]="arr"></app-pipes> //just example that we can pass the array and obj from parent using @input-->
+  <br />
+  <!-- <button class="btn btn-primary" routerLink="/pipes">Learn Pipes</button> -->
+  <br />
+  <h5>service example</h5>
+  <button (click)="useService()">click</button>
+  <p>
+    @for(item of demoArray; track $index){
+        <ul>
+            <li>name: {{item.name}}</li>
+            <li>roll no: {{item.rollno}}</li>
+            <li>age: {{item.age}}</li>
+        </ul>
+    }
+  </p>
+  <br />
+  <!-- <button class="btn btn-primary mb-2" routerLink="/parent">Learn &#64;Input</button>
+  <br>
+  <button class="btn btn-primary mb-2" routerLink="/parent1">Learn &#64;Output</button>
+  <br>
+  <button class="btn btn-primary mb-2" routerLink="/observables">Learn Observables</button>
+  <br>
+  <button class="btn btn-primary mb-2" routerLink="/Service_Example">Learn Services</button>
+  <br>
+  <button class="btn btn-primary mb-2" routerLink="/TemplateDrivenForm">Learn TemplateDrivenForm</button>
+  <br>
+  <button class="btn btn-primary mb-2" routerLink="/ReactiveForm">Learn ReactviveForm</button>
+  <br>
+  <button class="btn btn-success mb-2" routerLink="/RoutingUnderstanding">Learn Routing</button> -->
+</div>

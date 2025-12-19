@@ -1,0 +1,35 @@
+<!-- <div>Modules Project. <br /></div>
+<p>home works!</p>
+{{ title }}
+<br />
+<button class="changetitle" (click)="changetitle()">Change Title</button>
+<br /> -->
+
+<!-- types of routerLink: that how can we use different ways to navigate to another page. -->
+<!-- <a routerLink="/about">go to About</a> <br />
+<a [routerLink]="['/', 'about']">go to About</a> <br />
+<a (click)="navigateRoute()" style="cursor: pointer; color: blue"
+  >go to About</a>
+<footer style="margin-top: 10px">this is footer.</footer> -->
+
+<section>
+  <img class="mainImg" src="assets/imgs/coding bg.jpg" alt="Eucation" />
+  <div class="main-content">
+    <h1 class="mt-2 text-dark">Explore Amazing Content</h1>
+    <button class="btn btn-light btn-lg mx-2">Courses</button>
+    <button class="btn btn-primary btn-lg">Templates</button>
+  </div>
+</section>
+
+<section class="courses">
+  <div class="container">
+    <div class="text-center p-2 allcourses">
+      <h1>All Courses</h1>
+    </div>
+  </div>
+
+  <app-courses [coursess]="courses"></app-courses>
+</section>
+<section>
+  <app-about></app-about>
+</section>

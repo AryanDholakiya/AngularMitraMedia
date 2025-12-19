@@ -1,5 +1,5 @@
 <div class="card">
-  <div class="card-header">Add Course</div>
+  <div class="card-header">{{ "Add Course" | uppercase }}</div>
   <div class="card-body p-3">
     <form #courseForm="ngForm" (ngSubmit)="onSubmit(courseForm)">
       <div class="mb-3">
@@ -9,13 +9,13 @@
           class="form-control"
           name="title"
           #title="ngModel"
-          [(ngModel)]="model.title"
+          [(ngModel)]="model().title"
           required
         />
         <!-- "#title is identifier" -->
-
         <!-- <div *ngIf="title?.invalid && title?.touched" class="text-danger">Title is required!</div> -->
         <!-- ngIf no use krva CommonModule import krvu pde ts file ma -->
+        <!-- [(ngModel)]="model.title"  is changed to  [(ngModel)]="model().title" bcz of signal-->
 
         @if(title.invalid && title.touched){
         <div class="text-danger">Title is required!</div>
@@ -31,10 +31,11 @@
           id="title"
           name="description"
           #description="ngModel"
-          [(ngModel)]="model.description"
+          [(ngModel)]="model().description"
           required
         ></textarea>
         <!-- <div *ngIf="description.invalid && description.touched" class="text-danger">Title is required!</div> -->
+        <!-- [(ngModel)]="model.description"  is changed to [(ngModel)]="model().description" bcz of signal-->
         @if(description.invalid && description.touched){
         <div class="text-danger">description is required!</div>
         }
@@ -54,11 +55,14 @@
         />
 
         <!-- preiew image -->
-        @if(cover){
+        <!-- @if(cover){       //changed becasue of signals-->
+        @if(cover()){
         <div class="imageDiv">
-          <img [src]="cover" alt="" />
+          <!-- <img [src]="cover" alt="" />   //changed becasue of signal-->
+          <img [src]="cover()" alt="" />
         </div>
-        } @if(imageFlag){
+        <!-- } @if(imageFlag){    //changed becasue of signal-->
+        } @if(imageFlag()){
         <div class="text-danger">image required!</div>
         }
       </div>
@@ -69,14 +73,26 @@
   </div>
 </div>
 
-<div class="row m-0 mt-2">
+<app-courses [isAdmin]="true"></app-courses>
+
+<!-- <app-courses
+  [coursess]="courses"
+  [isAdmin]="true"
+  (del)="delete_item($event)"
+></app-courses> -->
+
+<!-- <div class="row m-0 mt-5">
   @for(course of courses; track $index){
-  <div class="col-lg-3 col-sm-6 mb-3">
-    <app-courses [coursess]="course" [isDelete]="true"></app-courses>
+  <div class="col-lg-3 col-sm-6 mb-3 px-3">
+    <app-courses
+      [coursess]="course"
+      [isDelete]="true"
+      (del)="delete_item($event)"
+    ></app-courses>
   </div>
   } @empty {
   <div class="text-center">
     <p>No course Added yet.</p>
   </div>
   }
-</div>
+</div> -->
