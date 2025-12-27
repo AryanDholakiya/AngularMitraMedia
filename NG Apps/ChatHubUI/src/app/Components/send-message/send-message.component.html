@@ -1,0 +1,41 @@
+<div class="p-2 container">
+  <div class="row m-0">
+    <div class="col-md-4 border border-secondary-subtle p-3 rounded-3">
+      <form [formGroup]="senderForm">
+        <input
+          type="text"
+          formControlName="user"
+          class="form-control border border-secondary-subtle mb-2"
+          placeholder="sender"
+        />
+        <input
+          type="text"
+          formControlName="message"
+          class="form-control border border-secondary-subtle mb-2"
+          placeholder="Type a Message..."
+        />
+        <button class="btn btn-primary w-100" (click)="sendmsg()">Send</button>
+      </form>
+    </div>
+    <div class="col-md-4">
+      <ul class="list-unstyled">
+        @for (item of messageList; track $index) {
+        <li
+          [class.text-end]="item.userName === senderForm.get('user')?.value"
+          class="lh-lg"
+        >
+          <span
+            [ngClass]="
+              item.userName === senderForm.get('user')?.value
+                ? 'bg-secondary'
+                : 'bg-success'
+            "
+            class="badge"
+            >{{ item.userName }} : {{ item.message }}</span
+          >
+        </li>
+        }
+      </ul>
+    </div>
+  </div>
+</div>

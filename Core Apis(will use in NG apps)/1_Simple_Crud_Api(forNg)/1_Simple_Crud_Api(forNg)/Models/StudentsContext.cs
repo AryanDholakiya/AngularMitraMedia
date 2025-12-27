@@ -10,5 +10,6 @@ namespace _1_Simple_Crud_Api_forNg_.Models
             
         }
         public DbSet<Student> Students { get; set; }
+        public DbSet<Teacher> Teachers { get; set; }
     }
 }

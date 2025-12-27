@@ -1,19 +1,25 @@
-﻿using _1_Simple_Crud_Api_forNg_.Models;
+﻿using _1_Simple_Crud_Api_forNg_.Hubs;
+using _1_Simple_Crud_Api_forNg_.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 
 namespace _1_Simple_Crud_Api_forNg_.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class StudentApiController : ControllerBase
     {
         private readonly StudentsContext _context;
+        private readonly IHubContext<StudentHub> _hub;
 
-        public StudentApiController(StudentsContext context)
+        public StudentApiController(StudentsContext context, IHubContext<StudentHub> hub)
         {
             _context = context;
+            _hub = hub;
         }
 
         [HttpGet]
@@ -50,6 +56,9 @@ namespace _1_Simple_Crud_Api_forNg_.Controllers
         {
             await _context.Students.AddAsync(student);
             await _context.SaveChangesAsync();
+
+            await _hub.Clients.All.SendAsync("StudentChanged", student);
+
             return Ok(student);
         }
 
@@ -70,6 +79,9 @@ namespace _1_Simple_Crud_Api_forNg_.Controllers
             //updated_Student.Sage = student.Sage;
             //updated_Student.Sgender = student.Sgender;
             await _context.SaveChangesAsync();
+
+            await _hub.Clients.All.SendAsync("StudentChanged",student);
+
             return Ok(student);
         }
 
@@ -85,6 +97,8 @@ namespace _1_Simple_Crud_Api_forNg_.Controllers
             }
             _context.Students.Remove(find_student);
             await _context.SaveChangesAsync();
+
+            await _hub.Clients.All.SendAsync("Studentdeleted",id);
 
             return Ok("Student Removed!");
         }

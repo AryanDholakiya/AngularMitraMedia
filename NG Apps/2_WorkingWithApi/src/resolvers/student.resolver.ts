@@ -2,12 +2,17 @@ import { ResolveFn } from '@angular/router';
 import { Student } from '../interfaces/student.interface';
 import { inject } from '@angular/core';
 import { StudentDataService } from '../Services/student-data.service';
-import { Observable } from 'rxjs';
+import { catchError, Observable, of } from 'rxjs';
 
 export const studentResolver: ResolveFn<Student[]> = (route, state) => {
   const ser = inject(StudentDataService);
 
-  return ser.getStudent();
+  return ser.getStudent().pipe(
+    catchError((err) => {
+      console.error(err);
+      return of([]); // fallback value
+    })
+  );
   //aa rite ma observable mukvani mathakut nathi.. aa observable<student[]> type no data j mokle 6
   //direct service inject kro ane method call maro
 };

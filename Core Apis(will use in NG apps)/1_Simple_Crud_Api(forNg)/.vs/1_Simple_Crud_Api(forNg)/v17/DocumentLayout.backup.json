@@ -1,28 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "E:\\AngularMitraMedia\\Core Apis(will use in NG apps)\\1_Simple_Crud_Api(forNg)\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|e:\\angularmitramedia\\core apis(will use in ng apps)\\1_simple_crud_api(forng)\\1_simple_crud_api(forng)\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|solutionrelative:1_simple_crud_api(forng)\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|e:\\angularmitramedia\\core apis(will use in ng apps)\\1_simple_crud_api(forng)\\1_simple_crud_api(forng)\\controllers\\studentapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|solutionrelative:1_simple_crud_api(forng)\\controllers\\studentapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|e:\\angularmitramedia\\core apis(will use in ng apps)\\1_simple_crud_api(forng)\\1_simple_crud_api(forng)\\models\\studentscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|solutionrelative:1_simple_crud_api(forng)\\models\\studentscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|e:\\angularmitramedia\\core apis(will use in ng apps)\\1_simple_crud_api(forng)\\1_simple_crud_api(forng)\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|solutionrelative:1_simple_crud_api(forng)\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|e:\\angularmitramedia\\core apis(will use in ng apps)\\1_simple_crud_api(forng)\\1_simple_crud_api(forng)\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|solutionrelative:1_simple_crud_api(forng)\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -30,76 +9,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Student.cs",
-              "DocumentMoniker": "E:\\AngularMitraMedia\\Core Apis(will use in NG apps)\\1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg)\\Models\\Student.cs",
-              "RelativeDocumentMoniker": "1_Simple_Crud_Api(forNg)\\Models\\Student.cs",
-              "ToolTip": "E:\\AngularMitraMedia\\Core Apis(will use in NG apps)\\1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg)\\Models\\Student.cs",
-              "RelativeToolTip": "1_Simple_Crud_Api(forNg)\\Models\\Student.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-18T10:24:40.573Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "StudentApiController.cs",
-              "DocumentMoniker": "E:\\AngularMitraMedia\\Core Apis(will use in NG apps)\\1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg)\\Controllers\\StudentApiController.cs",
-              "RelativeDocumentMoniker": "1_Simple_Crud_Api(forNg)\\Controllers\\StudentApiController.cs",
-              "ToolTip": "E:\\AngularMitraMedia\\Core Apis(will use in NG apps)\\1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg)\\Controllers\\StudentApiController.cs",
-              "RelativeToolTip": "1_Simple_Crud_Api(forNg)\\Controllers\\StudentApiController.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAwwCEAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T07:22:13.088Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "E:\\AngularMitraMedia\\Core Apis(will use in NG apps)\\1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg)\\appsettings.json",
-              "RelativeDocumentMoniker": "1_Simple_Crud_Api(forNg)\\appsettings.json",
-              "ToolTip": "E:\\AngularMitraMedia\\Core Apis(will use in NG apps)\\1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg)\\appsettings.json",
-              "RelativeToolTip": "1_Simple_Crud_Api(forNg)\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-12-17T07:21:12.995Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "StudentsContext.cs",
-              "DocumentMoniker": "E:\\AngularMitraMedia\\Core Apis(will use in NG apps)\\1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg)\\Models\\StudentsContext.cs",
-              "RelativeDocumentMoniker": "1_Simple_Crud_Api(forNg)\\Models\\StudentsContext.cs",
-              "ToolTip": "E:\\AngularMitraMedia\\Core Apis(will use in NG apps)\\1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg)\\Models\\StudentsContext.cs",
-              "RelativeToolTip": "1_Simple_Crud_Api(forNg)\\Models\\StudentsContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T07:12:16.183Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\AngularMitraMedia\\Core Apis(will use in NG apps)\\1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg)\\Program.cs",
-              "RelativeDocumentMoniker": "1_Simple_Crud_Api(forNg)\\Program.cs",
-              "ToolTip": "E:\\AngularMitraMedia\\Core Apis(will use in NG apps)\\1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg)\\Program.cs",
-              "RelativeToolTip": "1_Simple_Crud_Api(forNg)\\Program.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T07:09:46.452Z",
-              "EditorCaption": ""
             }
           ]
         }

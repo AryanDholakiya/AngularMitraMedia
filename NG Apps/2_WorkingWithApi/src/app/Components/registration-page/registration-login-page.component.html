@@ -1,0 +1,127 @@
+<div
+  class="main-auth-container d-flex justify-content-center align-items-center vh-100 bg-light"
+>
+  <div
+    class="card auth-card shadow-lg border-0 p-4 p-md-5 rounded-4 col-11 col-sm-8 col-md-6 col-lg-4"
+  >
+    <div class="text-center mb-3">
+      <h2 class="fw-bold text-primary">
+        {{ isRegisterMode ? "Create Account" : "Welcome Back" }}
+      </h2>
+      <p class="text-muted small">
+        {{
+          isRegisterMode
+            ? "Register to manage student information"
+            : "Please login to your account"
+        }}
+      </p>
+      <p class="text-danger" *ngIf="UsernotFound">
+        {{ UsernotFound }}
+      </p>
+    </div>
+
+    <form [formGroup]="registerform">
+      <div class="mb-3">
+        <label for="UserName" class="form-label fw-semibold">UserName</label>
+        <div class="input-group">
+          <span
+            class="input-group-text bg-transparent border border-secondary-subtle"
+            ><i class="bi bi-person"></i
+          ></span>
+          <input
+            type="text"
+            formControlName="UserName"
+            class="form-control border border-secondary-subtle ps-1"
+            placeholder="Enter username"
+            [class.is-invalid]="
+              registerform.get('UserName')?.invalid &&
+              registerform.get('UserName')?.touched
+            "
+          />
+        </div>
+        <div
+          *ngIf="
+            registerform.get('UserName')?.invalid &&
+            registerform.get('UserName')?.touched
+          "
+        >
+          <span
+            *ngIf="registerform.get('UserName')?.errors?.['required']"
+            class="text-danger"
+            >*UserName is requires!</span
+          >
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label for="password" class="form-label fw-semibold">Password</label>
+        <div class="input-group">
+          <span
+            class="input-group-text bg-transparent border border-secondary-subtle"
+            ><i class="bi bi-lock"></i
+          ></span>
+          <input
+            [type]="ViewPass ? 'text' : 'password'"
+            formControlName="Password"
+            class="form-control border border-secondary-subtle ps-1 border-end-0"
+            [class.is-invalid]="
+              registerform.get('Password')?.invalid &&
+              registerform.get('Password')?.touched
+            "
+            placeholder="Enter password"
+          />
+          <span
+            class="input-group-text border border-secondary-subtle border-start-0"
+            (click)="ViewPasswordFn()"
+          >
+            @if(ViewPass){
+            <i class="bi bi-eye-slash-fill"></i>
+            } @else {
+            <i class="bi bi-eye-fill"></i>
+            }
+          </span>
+        </div>
+        <div
+          *ngIf="
+            registerform.get('Password')?.invalid &&
+            registerform.get('Password')?.touched
+          "
+        >
+          <span
+            *ngIf="registerform.get('Password')?.errors?.['required']"
+            class="text-danger"
+            >*Password is requires!</span
+          >
+          <span
+            *ngIf="registerform.get('Password')?.errors?.['minlength']"
+            class="text-danger"
+            >*Password must be of 6 letters minimum!</span
+          >
+        </div>
+      </div>
+
+      <div class="d-grid shadow-sm">
+        <button
+          class="btn btn-primary btn-lg fw-bold rounded-3 py-2 transition-all"
+          (click)="LoginMethod()"
+        >
+          {{ isRegisterMode ? "Register" : "Login" }}
+        </button>
+      </div>
+    </form>
+
+    <div class="text-center mt-4">
+      <span class="text-muted">
+        {{
+          isRegisterMode ? "Already have an account?" : "Don't have an account?"
+        }}
+      </span>
+      <a
+        [routerLink]="isRegisterMode ? '/login' : '/register'"
+        class="text-primary fw-bold text-decoration-none ms-1"
+      >
+        {{ isRegisterMode ? "Login here" : "Register here" }}
+      </a>
+    </div>
+  </div>
+</div>

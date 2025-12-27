@@ -17,6 +17,8 @@ Control Panel → Programs and Features
 
 //Angular Basics:
 
+//error showing bootstrap class wich we can appy on div and span to show an error: invalid-feedback 
+//angular.json file ma koi pn change kro to project run thyelo hoi to ek var bnd kri fri ng s kro.
 
 //in module project: if we find any error in ngIf, ngFor, ngStyle decorators just check the "app.module.ts" file there should be error in components path.
 aslo check that you have imported the commonModule or BrowserModule.
@@ -537,3 +539,131 @@ Why TWO variables are needed?
 | ----------------- | --------------------- |
 | `studentsSubject` | Internal data control |
 | `students$`       | Read-only data stream |
+
+
+
+// function ma injection krti vkhte aagal "private" keyword nai lage tya "const" aapvo pdsse.
+
+
+
+// JwT
+
+--> JwT use krva mate aapne 1 Guard bnavvo pde jema localstorage.get() kri ne 1 variable ma store kri devano. jo varible ma token mle 
+to j router.navigate thva devanu nkr return false krr devanu.
+--> guard pn alg jem component bnavie tem bne. --> ng g guard 
+--> aa authguard no use app.route.module.ts ma niche pramane krvo pde.
+{
+    path: 'students',
+    component: StudentsComponent,
+    canActivate: [authGuardGuard],
+    resolve: {
+      students: studentResolver,
+    },
+},
+
+actually what happnes is, students compo ma navigate thaya pela e authguard ma check krse k token 6. jo hse to j students ma jai
+skse nkr login ma redirect thse. 
+
+check project: 2_WORKINGWITHAPI
+check : https://chatgpt.com/share/694a32f4-d7cc-800c-b403-f638fc05055c
+
+
+//interceptor: 
+==> app.module.ts file ma niche mujab krvu j pde
+providers: [
+  { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+]
+
+==> interceptor bnavo etle api call prr e automatically call thy j jay. 
+==> inshort aapne interceptor ni need etle pde bcz jyare token generate thyelo hoi te pachhi aapne koi api ne call marie (let ex: getAll())
+to te smye tene token provide krre jethi e user authorize thy
+
+
+
+//Toaster:
+1.Install packages
+npm install ngx-toastr
+npm install @angular/animations (for specific Ng version like ng19: npm install @angular/animations@19)
+
+2.Add CSS in angular.json
+"styles": [
+  "node_modules/ngx-toastr/toastr.css", 
+]
+
+3. Register in app.module.ts (for standalone: app.config.ts)
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideToastr } from 'ngx-toastr';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideAnimations(), // જરૂરી છે
+    provideToastr(),    // Toastr પ્રોવાઈડર
+  ]
+};
+
+
+
+// SignalR Architecture: Gptlink: https://chatgpt.com/share/694a32f4-d7cc-800c-b403-f638fc05055c
+SignalR has 3 main parts:
+
+Hub (Server side)
+Like a controller for real-time. SignalR માં "Hub" એ મુખ્ય કેન્દ્ર છે. તે એક એવી પાઇપલાઇન છે જે સર્વર અને ક્લાયન્ટને જોડે છે.
+
+Connection
+Persistent connection (WebSocket preferred)
+
+Client
+Angular / JS client that listens for events
+
+inshort: Angular Client  ⇄  SignalR Hub  ⇄  ASP.NET Core 
+SignalR એક એવી લાઈબ્રેરી છે જે તમારી એપને "Real-time" બનાવે છે. એટલે કે, સર્વર પર કંઈ પણ નવું થાય, તો યુઝરે પેજ રિફ્રેશ કરવાની જરૂર નથી, ડેટા આપોઆપ તેની સ્ક્રીન પર આવી જશે.
+
+
+Step-1: Add SignalR to ASP.NET Core API
+Step-2: Create SignalR Hub
+/Hubs
+   └── StudentHub.cs
+   
+StudentHub.cs:
+
+using Microsoft.AspNetCore.SignalR;
+namespace _1_Simple_Crud_Api_forNg_.Hubs
+{
+    public class StudentHub : Hub
+    {
+        public async Task NotifyStudentChanged()
+        {
+            await Clients.All.SendAsync("StudentChanged");
+        }
+    }
+}
+
+Step-3: Register SignalR in Program.cs ==> builder.Services.AddSignalR();
+Add Endpoint: app.MapHub<StudentHub>("/studentHub");
+
+Step-4: Inject Hub into StudentApiController
+ private readonly IHubContext<StudentHub> _hub;
+
+program.cs ma :
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngular",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:4200")       
+                  .AllowAnyHeader()
+                  .AllowAnyMethod()
+                   .AllowCredentials();
+        });
+});
+
+
+
+
+// Angular Side (Conceptual Flow):
+1.Create SignalR connection
+2.Listen for "StudentChanged"
+3.Reload students automatically
+
+//Install:--> npm install @microsoft/signalr
+

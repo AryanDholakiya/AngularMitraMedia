@@ -9,6 +9,7 @@ import { StudentDataService } from '../../../Services/student-data.service';
 import { Student } from '../../../interfaces/student.interface';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { StudentSignalrService } from '../../../Services/student-signalr.service';
 
 @Component({
   selector: 'app-students',
@@ -28,11 +29,11 @@ export class StudentsComponent implements OnInit {
   private studentService = inject(StudentDataService);
 
   private route = inject(ActivatedRoute);
+  private signalr = inject(StudentSignalrService);
 
   studentModal?: Student;
 
   studentForm = new FormGroup({
-    sphoto: new FormControl(''),
     grNum: new FormControl(0, [Validators.required]),
     name: new FormControl('', [Validators.required]),
     gender: new FormControl('', [Validators.required]),
@@ -52,10 +53,6 @@ export class StudentsComponent implements OnInit {
 
       reader.onload = () => {
         this.photoBase64 = reader.result!.toString();
-        // debugger;
-        // this.studentForm.patchValue({
-        //   sphoto: base64Img,
-        // });
       };
     }
   }
@@ -88,7 +85,6 @@ export class StudentsComponent implements OnInit {
   }
 
   saveStudent() {
-    debugger;
     const data: Student = {
       sphoto: this.photoBase64 ?? '',
       grNumber: this.studentForm.getRawValue().grNum ?? 0,
@@ -97,14 +93,6 @@ export class StudentsComponent implements OnInit {
       sname: this.studentForm.value.name ?? '',
       sstd: this.studentForm.value.std ?? 0,
     };
-    // const data = new FormData();
-    // data.append('GrNumber',this.studentForm.getRawValue().grNum?.toString() ?? '0');
-    // data.append('Sname',this.studentForm.getRawValue().grNum?.toString() ?? '0');
-    // data.append('Sgender',this.studentForm.getRawValue().grNum?.toString() ?? '0');
-    // data.append('Sage',this.studentForm.getRawValue().grNum?.toString() ?? '0');
-    // data.append('Sstd',this.studentForm.getRawValue().grNum?.toString() ?? '0');
-    // data.append('Sphoto',this.studentForm.getRawValue().grNum?.toString() ?? '0');
-
     if (
       this.isEditMode &&
       this.studentForm.getRawValue().grNum &&
@@ -139,7 +127,6 @@ export class StudentsComponent implements OnInit {
   }
 
   delete(id: number) {
-    debugger;
     if (confirm('Are you sure that you want to delete this record?')) {
       this.studentService.DeleteStudent(id).subscribe({
         next: (res) => {
@@ -176,6 +163,33 @@ export class StudentsComponent implements OnInit {
     this.route.data.subscribe((res) => {
       //note that we have to take here: this.route.data
       this.TotalStudents = res['students'];
+    });
+
+    this.signalr.startConnection();
+
+    this.signalr.onStudentChanged((data) => {
+      debugger;
+      if (data) {
+        const selectedInedex = this.TotalStudents.findIndex(
+          (x) => x.grNumber === data.grNumber
+        );
+        if (selectedInedex != -1) {
+          this.TotalStudents[selectedInedex] = data;
+        } else {
+          this.TotalStudents.push(data);
+        }
+      }
+    });
+    this.signalr.onStudentDeleted((grNumber) => {
+      debugger;
+      if (grNumber) {
+        const selectedInedex = this.TotalStudents.findIndex(
+          (x) => x.grNumber === grNumber
+        );
+        if (selectedInedex != -1) {
+          this.TotalStudents.splice(selectedInedex, 1);
+        }
+      }
     });
   }
 }
