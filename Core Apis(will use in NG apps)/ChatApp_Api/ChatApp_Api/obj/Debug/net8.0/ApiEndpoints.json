@@ -1,0 +1,18 @@
+[
+  {
+    "ContainingType": "ChatApp_Api.Controllers.ChatController",
+    "Method": "send",
+    "RelativePath": "api/Chat/send",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "sendMessage",
+        "Type": "ChatApp_Api.Models.SendMessage",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

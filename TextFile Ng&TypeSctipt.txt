@@ -667,3 +667,11 @@ builder.Services.AddCors(options =>
 
 //Install:--> npm install @microsoft/signalr
 
+
+angular asset ma image add kro tyare angular json ma asset pr right click ki path copy kro. aa copied path ne angular.json file ma
+Build and test na asset[{}, "src/assets"] aa rite add kro
+
+
+//Connectify:
+gemini: https://gemini.google.com/app/7b4ddd6324642b8f
+chatgpt : https://chatgpt.com/share/695209e3-5dbc-800c-b47f-45ac4946b44d

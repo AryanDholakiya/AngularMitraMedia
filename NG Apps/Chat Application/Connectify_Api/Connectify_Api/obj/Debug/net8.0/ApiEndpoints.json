@@ -1,0 +1,18 @@
+[
+  {
+    "ContainingType": "Connectify_Api.Controllers.ConectifyMainController",
+    "Method": "send",
+    "RelativePath": "api/ConectifyMain/Send",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "Connectify_Api.Models.User",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
