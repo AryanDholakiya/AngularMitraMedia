@@ -8,7 +8,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddCors(options =>  //Added
+builder.Services.AddCors(options =>  //Added for signalr
 {
     options.AddPolicy(name: "BuiltConnection",
         policy =>
@@ -20,11 +20,11 @@ builder.Services.AddCors(options =>  //Added
         });
 });
 
-builder.Services.AddSignalR(); //Added
+builder.Services.AddSignalR(); //Added for signalr
 
 var app = builder.Build();
 
-app.UseCors("BuiltConnection"); //Added
+app.UseCors("BuiltConnection"); //Added for signalr
 
 if (app.Environment.IsDevelopment())
 {
@@ -37,6 +37,6 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-app.MapHub<ChatsHub>("/connectify"); //Added
+app.MapHub<ChatsHub>("/connectify"); //Added for signalr
 
 app.Run();

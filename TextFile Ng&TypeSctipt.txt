@@ -675,3 +675,35 @@ Build and test na asset[{}, "src/assets"] aa rite add kro
 //Connectify:
 gemini: https://gemini.google.com/app/7b4ddd6324642b8f
 chatgpt : https://chatgpt.com/share/695209e3-5dbc-800c-b47f-45ac4946b44d
+
+
+//prevent user to add the char in field
+ onlyNumbers(event: any) {
+   const pattern = /[0-9]/;
+
+   const inputChar = String.fromCharCode(event.charCode);
+
+   if (!pattern.test(inputChar)) {
+   event.preventDefault(); // જો નંબર ન હોય તો ટાઈપ થવા જ ન દેશે
+   }
+}
+
+//another way:
+  enterOnlyNumber(event: any) {
+    const pattern = /[0-9]/;
+    const inputChar = String.fromCharCode(event.charCode);
+    if (!pattern.test(inputChar)) {
+      event.preventDefault(); // જો નંબર ન હોય તો ટાઈપ થવા જ ન દેશે
+    }
+  }
+
+//event.stopPropagation();  --> //parent ni event fire nai thva dese hve
+
+//email validation:
+
+UserEmail: new FormControl('', [
+      Validators.required,
+      Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/),
+      // always pass the regex only not with the string, if you want to add the string in it then: we have to do like this:
+	  Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$')
+    ]),

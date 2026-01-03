@@ -1,0 +1,113 @@
+[
+  {
+    "ContainingType": "_1_Simple_Crud_Api_forNg_.Controllers.JWTController",
+    "Method": "AddTeacher",
+    "RelativePath": "api/JWT/Add_Teacher",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "teacher",
+        "Type": "_1_Simple_Crud_Api_forNg_.Models.Teacher",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "_1_Simple_Crud_Api_forNg_.Controllers.JWTController",
+    "Method": "login",
+    "RelativePath": "api/JWT/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "_1_Simple_Crud_Api_forNg_.Models.TeacherDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "_1_Simple_Crud_Api_forNg_.Controllers.StudentApiController",
+    "Method": "AddStudent",
+    "RelativePath": "api/StudentApi/Add_Student",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "student",
+        "Type": "_1_Simple_Crud_Api_forNg_.Models.Student",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "_1_Simple_Crud_Api_forNg_.Controllers.StudentApiController",
+    "Method": "GetStudents",
+    "RelativePath": "api/StudentApi/AllStudents",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "_1_Simple_Crud_Api_forNg_.Controllers.StudentApiController",
+    "Method": "DeleteStudent",
+    "RelativePath": "api/StudentApi/DeleteStudent/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "_1_Simple_Crud_Api_forNg_.Controllers.StudentApiController",
+    "Method": "EditStudent",
+    "RelativePath": "api/StudentApi/Edit_Student/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "student",
+        "Type": "_1_Simple_Crud_Api_forNg_.Models.Student",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "_1_Simple_Crud_Api_forNg_.Controllers.StudentApiController",
+    "Method": "GetStudent",
+    "RelativePath": "api/StudentApi/student/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

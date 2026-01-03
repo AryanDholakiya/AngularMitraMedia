@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SendMessageComponent } from './Components/send-message/send-message.component';
+import { RegistrationComponent } from './Components/registration/registration.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'SendMessage',
+    redirectTo: 'Register',
     pathMatch: 'full',
+  },
+  {
+    path: 'Register',
+    component: RegistrationComponent,
   },
   {
     path: 'SendMessage',

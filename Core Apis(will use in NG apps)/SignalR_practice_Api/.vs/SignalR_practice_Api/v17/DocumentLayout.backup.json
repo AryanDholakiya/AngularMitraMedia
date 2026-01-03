@@ -42,8 +42,7 @@
               "RelativeToolTip": "SignalR_practice_Api\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-12-26T08:39:54.04Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-26T08:39:54.04Z"
             },
             {
               "$type": "Document",
@@ -53,7 +52,7 @@
               "RelativeDocumentMoniker": "SignalR_practice_Api\\Controllers\\ChatingController.cs",
               "ToolTip": "E:\\AngularMitraMedia\\Core Apis(will use in NG apps)\\SignalR_practice_Api\\SignalR_practice_Api\\Controllers\\ChatingController.cs",
               "RelativeToolTip": "SignalR_practice_Api\\Controllers\\ChatingController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABYAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-26T06:41:19.632Z",
               "EditorCaption": ""
@@ -68,8 +67,7 @@
               "RelativeToolTip": "SignalR_practice_Api\\Hubs\\chatHub.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-25T05:58:00.452Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-25T05:58:00.452Z"
             },
             {
               "$type": "Document",
@@ -81,8 +79,7 @@
               "RelativeToolTip": "SignalR_practice_Api\\Program.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAABwAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-25T05:55:56.656Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-25T05:55:56.656Z"
             }
           ]
         }

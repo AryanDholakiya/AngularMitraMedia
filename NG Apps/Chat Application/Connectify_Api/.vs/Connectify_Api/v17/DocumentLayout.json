@@ -3,24 +3,36 @@
   "WorkspaceRootPath": "E:\\AngularMitraMedia\\NG Apps\\Chat Application\\Connectify_Api\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3BE9E29E-F60A-446F-AA07-8C7E3AE4A05F}|Connectify_Api\\Connectify_Api.csproj|e:\\angularmitramedia\\ng apps\\chat application\\connectify_api\\connectify_api\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3BE9E29E-F60A-446F-AA07-8C7E3AE4A05F}|Connectify_Api\\Connectify_Api.csproj|solutionrelative:connectify_api\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3BE9E29E-F60A-446F-AA07-8C7E3AE4A05F}|Connectify_Api\\Connectify_Api.csproj|e:\\angularmitramedia\\ng apps\\chat application\\connectify_api\\connectify_api\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BE9E29E-F60A-446F-AA07-8C7E3AE4A05F}|Connectify_Api\\Connectify_Api.csproj|solutionrelative:connectify_api\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BE9E29E-F60A-446F-AA07-8C7E3AE4A05F}|Connectify_Api\\Connectify_Api.csproj|e:\\angularmitramedia\\ng apps\\chat application\\connectify_api\\connectify_api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{3BE9E29E-F60A-446F-AA07-8C7E3AE4A05F}|Connectify_Api\\Connectify_Api.csproj|solutionrelative:connectify_api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3BE9E29E-F60A-446F-AA07-8C7E3AE4A05F}|Connectify_Api\\Connectify_Api.csproj|e:\\angularmitramedia\\ng apps\\chat application\\connectify_api\\connectify_api\\controllers\\conectifymaincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3BE9E29E-F60A-446F-AA07-8C7E3AE4A05F}|Connectify_Api\\Connectify_Api.csproj|solutionrelative:connectify_api\\controllers\\conectifymaincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{3BE9E29E-F60A-446F-AA07-8C7E3AE4A05F}|Connectify_Api\\Connectify_Api.csproj|e:\\angularmitramedia\\ng apps\\chat application\\connectify_api\\connectify_api\\models\\otpverification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BE9E29E-F60A-446F-AA07-8C7E3AE4A05F}|Connectify_Api\\Connectify_Api.csproj|solutionrelative:connectify_api\\models\\otpverification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3BE9E29E-F60A-446F-AA07-8C7E3AE4A05F}|Connectify_Api\\Connectify_Api.csproj|e:\\angularmitramedia\\ng apps\\chat application\\connectify_api\\connectify_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3BE9E29E-F60A-446F-AA07-8C7E3AE4A05F}|Connectify_Api\\Connectify_Api.csproj|solutionrelative:connectify_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BE9E29E-F60A-446F-AA07-8C7E3AE4A05F}|Connectify_Api\\Connectify_Api.csproj|e:\\angularmitramedia\\ng apps\\chat application\\connectify_api\\connectify_api\\models\\registrationrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BE9E29E-F60A-446F-AA07-8C7E3AE4A05F}|Connectify_Api\\Connectify_Api.csproj|solutionrelative:connectify_api\\models\\registrationrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3BE9E29E-F60A-446F-AA07-8C7E3AE4A05F}|Connectify_Api\\Connectify_Api.csproj|e:\\angularmitramedia\\ng apps\\chat application\\connectify_api\\connectify_api\\hubs\\chatshub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3BE9E29E-F60A-446F-AA07-8C7E3AE4A05F}|Connectify_Api\\Connectify_Api.csproj|solutionrelative:connectify_api\\hubs\\chatshub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3BE9E29E-F60A-446F-AA07-8C7E3AE4A05F}|Connectify_Api\\Connectify_Api.csproj|e:\\angularmitramedia\\ng apps\\chat application\\connectify_api\\connectify_api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{3BE9E29E-F60A-446F-AA07-8C7E3AE4A05F}|Connectify_Api\\Connectify_Api.csproj|solutionrelative:connectify_api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{3BE9E29E-F60A-446F-AA07-8C7E3AE4A05F}|Connectify_Api\\Connectify_Api.csproj|e:\\angularmitramedia\\ng apps\\chat application\\connectify_api\\connectify_api\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BE9E29E-F60A-446F-AA07-8C7E3AE4A05F}|Connectify_Api\\Connectify_Api.csproj|solutionrelative:connectify_api\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,7 +50,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "EmailService.cs",
+              "DocumentMoniker": "E:\\AngularMitraMedia\\NG Apps\\Chat Application\\Connectify_Api\\Connectify_Api\\Services\\EmailService.cs",
+              "RelativeDocumentMoniker": "Connectify_Api\\Services\\EmailService.cs",
+              "ToolTip": "E:\\AngularMitraMedia\\NG Apps\\Chat Application\\Connectify_Api\\Connectify_Api\\Services\\EmailService.cs",
+              "RelativeToolTip": "Connectify_Api\\Services\\EmailService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-02T12:20:43.913Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RegistrationRequest.cs",
+              "DocumentMoniker": "E:\\AngularMitraMedia\\NG Apps\\Chat Application\\Connectify_Api\\Connectify_Api\\Models\\RegistrationRequest.cs",
+              "RelativeDocumentMoniker": "Connectify_Api\\Models\\RegistrationRequest.cs",
+              "ToolTip": "E:\\AngularMitraMedia\\NG Apps\\Chat Application\\Connectify_Api\\Connectify_Api\\Models\\RegistrationRequest.cs",
+              "RelativeToolTip": "Connectify_Api\\Models\\RegistrationRequest.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAA1wAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-02T10:14:24.54Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "OtpVerification.cs",
+              "DocumentMoniker": "E:\\AngularMitraMedia\\NG Apps\\Chat Application\\Connectify_Api\\Connectify_Api\\Models\\OtpVerification.cs",
+              "RelativeDocumentMoniker": "Connectify_Api\\Models\\OtpVerification.cs",
+              "ToolTip": "E:\\AngularMitraMedia\\NG Apps\\Chat Application\\Connectify_Api\\Connectify_Api\\Models\\OtpVerification.cs",
+              "RelativeToolTip": "Connectify_Api\\Models\\OtpVerification.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-02T10:14:20.85Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "ConectifyMainController.cs",
               "DocumentMoniker": "E:\\AngularMitraMedia\\NG Apps\\Chat Application\\Connectify_Api\\Connectify_Api\\Controllers\\ConectifyMainController.cs",
               "RelativeDocumentMoniker": "Connectify_Api\\Controllers\\ConectifyMainController.cs",
@@ -51,53 +102,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "ChatsHub.cs",
               "DocumentMoniker": "E:\\AngularMitraMedia\\NG Apps\\Chat Application\\Connectify_Api\\Connectify_Api\\Hubs\\ChatsHub.cs",
               "RelativeDocumentMoniker": "Connectify_Api\\Hubs\\ChatsHub.cs",
               "ToolTip": "E:\\AngularMitraMedia\\NG Apps\\Chat Application\\Connectify_Api\\Connectify_Api\\Hubs\\ChatsHub.cs",
               "RelativeToolTip": "Connectify_Api\\Hubs\\ChatsHub.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-29T04:38:26.999Z"
+              "WhenOpened": "2025-12-29T04:38:26.999Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\AngularMitraMedia\\NG Apps\\Chat Application\\Connectify_Api\\Connectify_Api\\Program.cs",
               "RelativeDocumentMoniker": "Connectify_Api\\Program.cs",
               "ToolTip": "E:\\AngularMitraMedia\\NG Apps\\Chat Application\\Connectify_Api\\Connectify_Api\\Program.cs",
               "RelativeToolTip": "Connectify_Api\\Program.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAACcAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACcAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-29T04:34:43.951Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 7,
               "Title": "User.cs",
               "DocumentMoniker": "E:\\AngularMitraMedia\\NG Apps\\Chat Application\\Connectify_Api\\Connectify_Api\\Models\\User.cs",
               "RelativeDocumentMoniker": "Connectify_Api\\Models\\User.cs",
               "ToolTip": "E:\\AngularMitraMedia\\NG Apps\\Chat Application\\Connectify_Api\\Connectify_Api\\Models\\User.cs",
               "RelativeToolTip": "Connectify_Api\\Models\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAIAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-29T04:33:10.307Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-29T04:33:10.307Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "appsettings.json",
               "DocumentMoniker": "E:\\AngularMitraMedia\\NG Apps\\Chat Application\\Connectify_Api\\Connectify_Api\\appsettings.json",
               "RelativeDocumentMoniker": "Connectify_Api\\appsettings.json",
               "ToolTip": "E:\\AngularMitraMedia\\NG Apps\\Chat Application\\Connectify_Api\\Connectify_Api\\appsettings.json",
               "RelativeToolTip": "Connectify_Api\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-12-29T04:28:16.564Z"
+              "WhenOpened": "2025-12-29T04:28:16.564Z",
+              "EditorCaption": ""
             }
           ]
         }

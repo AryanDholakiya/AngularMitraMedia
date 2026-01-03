@@ -21,7 +21,7 @@ export class SendMessageComponent implements OnInit {
     this.signrService.RecieveMessage();
 
     this.signrService.RecivedMessage$.subscribe((data: Sender) => {
-      debugger;
+      // debugger;
       if (data.message) {
         const currentUser = this.senderForm.get('senderName')?.value;
         const previousMessage = this.messageList[this.messageList.length - 1];
@@ -31,7 +31,7 @@ export class SendMessageComponent implements OnInit {
           IsMe: data.sender === currentUser,
           isGrouped: previousMessage?.sender === data.sender,
         };
-        console.log('isgrouped: ', newMessage.isGrouped);
+        // console.log('isgrouped: ', newMessage.isGrouped);
         this.messageList.push(newMessage);
       }
     });
