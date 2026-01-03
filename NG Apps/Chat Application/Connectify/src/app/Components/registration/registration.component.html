@@ -81,23 +81,21 @@
             </span>
             <input
               type="email"
-              formControlName="UserEmail"
+              formControlName="email"
               class="form-control border border-secondary p-2 brInput"
               placeholder="Enter Email Address"
               [class.is-invalid]="
-                Connectify_Registration.get('UserEmail')?.invalid &&
-                Connectify_Registration.get('UserEmail')?.touched
+                Connectify_Registration.get('email')?.invalid &&
+                Connectify_Registration.get('email')?.touched
               "
             />
-            @if(Connectify_Registration.get('UserEmail')?.invalid &&
-            Connectify_Registration.get('UserEmail')?.touched) {
-            @if(Connectify_Registration.get('UserEmail')?.errors?.['required'])
-            {
+            @if(Connectify_Registration.get('email')?.invalid &&
+            Connectify_Registration.get('email')?.touched) {
+            @if(Connectify_Registration.get('email')?.errors?.['required']) {
             <div class="invalid-feedback text-danger text-start">
               Email is Required!
             </div>
-            } @if(Connectify_Registration.get('UserEmail')?.errors?.['pattern'])
-            {
+            } @if(Connectify_Registration.get('email')?.errors?.['pattern']) {
             <div class="invalid-feedback text-danger text-start">
               Email structure is not valid!
             </div>

@@ -14,4 +14,18 @@ export class ApiServiceService {
       formdata
     );
   }
+
+  sendOtp(data: any) {
+    return this.client.post(
+      'https://localhost:7132/api/ConectifyMain/send-otp',
+      data
+    );
+  }
+
+  verifyOtp(data: any) {
+    return this.client.post(
+      'https://localhost:7132/api/ConectifyMain/verify-otp',
+      data
+    );
+  }
 }

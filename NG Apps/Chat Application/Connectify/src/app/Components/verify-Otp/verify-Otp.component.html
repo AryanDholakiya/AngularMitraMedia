@@ -1,0 +1,47 @@
+<div class="otp-page">
+  <div class="otp-card">
+    <h4>Email Verification</h4>
+    <p>
+      We have sent a 6-digit verification code to
+      <strong>{{ email }}</strong>
+    </p>
+
+    <form [formGroup]="otpForm">
+      <input
+        type="text"
+        maxlength="6"
+        class="form-control otp-input"
+        placeholder="Enter OTP"
+        formControlName="otp"
+        (keypress)="onlyNumber($event)"
+      />
+
+      <div
+        class="error"
+        *ngIf="otpForm.get('otp')?.invalid && otpForm.get('otp')?.touched"
+      >
+        OTP must be 6 digits
+      </div>
+
+      <button
+        class="btn verify-btn"
+        [disabled]="otpForm.invalid"
+        (click)="verifyOtp()"
+      >
+        Verify OTP
+      </button>
+    </form>
+
+    <div class="timer">
+      <span *ngIf="timeLeft > 0"> Resend OTP in {{ formattedTime() }} </span>
+
+      <button
+        class="btn resend-btn"
+        *ngIf="timeLeft === 0"
+        (click)="resendOtp()"
+      >
+        Resend OTP
+      </button>
+    </div>
+  </div>
+</div>

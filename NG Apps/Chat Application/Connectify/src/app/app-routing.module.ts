@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SendMessageComponent } from './Components/send-message/send-message.component';
 import { RegistrationComponent } from './Components/registration/registration.component';
+import { VerifyOtpComponent } from './Components/verify-Otp/verify-Otp.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'SendMessage',
     component: SendMessageComponent,
+  },
+  {
+    path: 'Verify-Otp',
+    component: VerifyOtpComponent,
   },
 ];
 

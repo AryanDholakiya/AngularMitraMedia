@@ -1,4 +1,5 @@
 using Connectify_Api.Hubs;
+using Connectify_Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,8 @@ builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<EmailService>();
 
 builder.Services.AddCors(options =>  //Added for signalr
 {

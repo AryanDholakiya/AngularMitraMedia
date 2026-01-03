@@ -1,0 +1,55 @@
+.otp-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f4f6f8;
+}
+
+.otp-card {
+  background: #fff;
+  padding: 30px;
+  width: 360px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+  h4 {
+    color: #2ca73c;
+    font-weight: 700;
+  }
+
+  p {
+    font-size: 14px;
+    color: #555;
+  }
+}
+
+.otp-input {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 22px;
+  letter-spacing: 6px;
+  border-radius: 12px;
+}
+
+.verify-btn {
+  margin-top: 20px;
+  width: 100%;
+  border-radius: 20px;
+  background: #2ca73c;
+  color: #fff;
+  font-weight: 600;
+}
+
+.timer {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.resend-btn {
+  background: transparent;
+  color: #2ca73c;
+  border: none;
+  font-weight: 600;
+}

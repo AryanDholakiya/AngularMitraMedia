@@ -5,6 +5,9 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { ApiServiceService } from '../../../Services/api-service.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -13,6 +16,10 @@ import {
   styleUrl: './registration.component.scss',
 })
 export class RegistrationComponent {
+  private apiService = inject(ApiServiceService);
+  private toastr = inject(ToastrService);
+  private router = inject(Router);
+
   Connectify_Registration = new FormGroup({
     countryCode: new FormControl('', [Validators.required]),
     mobileNumber: new FormControl('', [
@@ -20,7 +27,7 @@ export class RegistrationComponent {
       Validators.pattern('^[0-9]{10}$'),
       Validators.maxLength(10),
     ]),
-    UserEmail: new FormControl('', [
+    email: new FormControl('', [
       Validators.required,
       Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/),
       // always pass the regex only not with the string, if you want to add the string in it then: we have to do like this: Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$')
@@ -69,6 +76,23 @@ export class RegistrationComponent {
   SubmitRegiForm() {
     if (this.Connectify_Registration.invalid) {
       this.Connectify_Registration.markAllAsTouched();
+      return;
     }
+
+    this.apiService.sendOtp(this.Connectify_Registration.value).subscribe({
+      next: (res: any) => {
+        this.toastr.success(res.status);
+        this.router.navigate(['/Verify-Otp'], {
+          queryParams: {
+            countryCode: this.Connectify_Registration.value.countryCode,
+            mobileNumber: this.Connectify_Registration.value.mobileNumber,
+            email: this.Connectify_Registration.value.email,
+          },
+        });
+      },
+      error: (e) => {
+        this.toastr.error(e);
+      },
+    });
   }
 }
