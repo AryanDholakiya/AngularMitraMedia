@@ -28,4 +28,33 @@ export class ApiServiceService {
       data
     );
   }
+
+  //send login otp:
+  sendLoginOtp(data: any) {
+    // debugger;
+    return this.client.post(
+      'https://localhost:7132/api/ConectifyMain/Login-otp',
+      data
+    );
+  }
+  verifyLoginOtp(data: any) {
+    return this.client.post(
+      'https://localhost:7132/api/ConectifyMain/verify-Login-otp',
+      data
+    );
+  }
+
+  //profile :
+  updateProfile(data: FormData) {
+    return this.client.post(
+      'https://localhost:7132/api/ConectifyMain/update-profile',
+      data
+    );
+  }
+
+  getProfile(userId: number) {
+    return this.client.get(
+      `https://localhost:7132/api/ConectifyMain/get-profile/${userId}`
+    );
+  }
 }

@@ -36,7 +36,6 @@ export class RegistrationComponent {
 
   //registration: prevent user to add the char in field
   onlyNumber(event: any) {
-    // debugger;
     let pressedKey = event.key;
     const pattern = /[0-9]/;
     if (!pattern.test(pressedKey)) {
@@ -65,7 +64,6 @@ export class RegistrationComponent {
   }
 
   selectCountry(event: Event, country: any) {
-    // debugger;
     //NOTE: event.stopPropagation() : event must be of type Event
     event.stopPropagation(); //parent ni event fire nai thva dese hve
     this.Connectify_Registration.get('countryCode')?.setValue(country.code);
@@ -74,6 +72,7 @@ export class RegistrationComponent {
   }
 
   SubmitRegiForm() {
+    // debugger;
     if (this.Connectify_Registration.invalid) {
       this.Connectify_Registration.markAllAsTouched();
       return;
@@ -81,7 +80,6 @@ export class RegistrationComponent {
 
     this.apiService.sendOtp(this.Connectify_Registration.value).subscribe({
       next: (res: any) => {
-        this.toastr.success(res.status);
         this.router.navigate(['/Verify-Otp'], {
           queryParams: {
             countryCode: this.Connectify_Registration.value.countryCode,
@@ -91,7 +89,8 @@ export class RegistrationComponent {
         });
       },
       error: (e) => {
-        this.toastr.error(e);
+        console.log(e);
+        this.toastr.error(e.error.status);
       },
     });
   }

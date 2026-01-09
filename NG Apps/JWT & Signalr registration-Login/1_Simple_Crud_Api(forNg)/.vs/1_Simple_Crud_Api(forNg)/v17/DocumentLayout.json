@@ -3,28 +3,36 @@
   "WorkspaceRootPath": "E:\\AngularMitraMedia\\NG Apps\\JWT \u0026 Signalr registration-Login\\1_Simple_Crud_Api(forNg)\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|e:\\angularmitramedia\\ng apps\\jwt \u0026 signalr registration-login\\1_simple_crud_api(forng)\\1_simple_crud_api(forng)\\controllers\\jwtcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|solutionrelative:1_simple_crud_api(forng)\\controllers\\jwtcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|e:\\angularmitramedia\\ng apps\\jwt \u0026 signalr registration-login\\1_simple_crud_api(forng)\\1_simple_crud_api(forng)\\controllers\\studentapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|solutionrelative:1_simple_crud_api(forng)\\controllers\\studentapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|e:\\angularmitramedia\\ng apps\\jwt \u0026 signalr registration-login\\1_simple_crud_api(forng)\\1_simple_crud_api(forng)\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|solutionrelative:1_simple_crud_api(forng)\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|e:\\angularmitramedia\\ng apps\\jwt \u0026 signalr registration-login\\1_simple_crud_api(forng)\\1_simple_crud_api(forng)\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|solutionrelative:1_simple_crud_api(forng)\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|e:\\angularmitramedia\\ng apps\\jwt \u0026 signalr registration-login\\1_simple_crud_api(forng)\\1_simple_crud_api(forng)\\1_simple_crud_api(forng).csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|solutionrelative:1_simple_crud_api(forng)\\1_simple_crud_api(forng).csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|e:\\angularmitramedia\\ng apps\\jwt \u0026 signalr registration-login\\1_simple_crud_api(forng)\\1_simple_crud_api(forng)\\models\\studentscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|solutionrelative:1_simple_crud_api(forng)\\models\\studentscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|e:\\angularmitramedia\\ng apps\\jwt \u0026 signalr registration-login\\1_simple_crud_api(forng)\\1_simple_crud_api(forng)\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|solutionrelative:1_simple_crud_api(forng)\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|e:\\angularmitramedia\\ng apps\\jwt \u0026 signalr registration-login\\1_simple_crud_api(forng)\\1_simple_crud_api(forng)\\hubs\\studenthub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|solutionrelative:1_simple_crud_api(forng)\\hubs\\studenthub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|e:\\angularmitramedia\\ng apps\\jwt \u0026 signalr registration-login\\1_simple_crud_api(forng)\\1_simple_crud_api(forng)\\models\\studentscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|solutionrelative:1_simple_crud_api(forng)\\models\\studentscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|e:\\angularmitramedia\\ng apps\\jwt \u0026 signalr registration-login\\1_simple_crud_api(forng)\\1_simple_crud_api(forng)\\controllers\\studentapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|solutionrelative:1_simple_crud_api(forng)\\controllers\\studentapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|e:\\angularmitramedia\\ng apps\\jwt \u0026 signalr registration-login\\1_simple_crud_api(forng)\\1_simple_crud_api(forng)\\controllers\\jwtcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|solutionrelative:1_simple_crud_api(forng)\\controllers\\jwtcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|e:\\angularmitramedia\\ng apps\\jwt \u0026 signalr registration-login\\1_simple_crud_api(forng)\\1_simple_crud_api(forng)\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|solutionrelative:1_simple_crud_api(forng)\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|e:\\angularmitramedia\\ng apps\\jwt \u0026 signalr registration-login\\1_simple_crud_api(forng)\\1_simple_crud_api(forng)\\models\\teacherdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -33,10 +41,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|e:\\angularmitramedia\\ng apps\\jwt \u0026 signalr registration-login\\1_simple_crud_api(forng)\\1_simple_crud_api(forng)\\models\\teacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|solutionrelative:1_simple_crud_api(forng)\\models\\teacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|e:\\angularmitramedia\\ng apps\\jwt \u0026 signalr registration-login\\1_simple_crud_api(forng)\\1_simple_crud_api(forng)\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{338A5802-E7F2-469B-B968-8577FE83FF58}|1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj|solutionrelative:1_simple_crud_api(forng)\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,6 +58,19 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "1_Simple_Crud_Api(forNg)",
+              "DocumentMoniker": "E:\\AngularMitraMedia\\NG Apps\\JWT \u0026 Signalr registration-Login\\1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj",
+              "RelativeDocumentMoniker": "1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj",
+              "ToolTip": "E:\\AngularMitraMedia\\NG Apps\\JWT \u0026 Signalr registration-Login\\1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj",
+              "RelativeToolTip": "1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg).csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-01-06T08:45:42.042Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 4,
               "Title": "StudentHub.cs",
               "DocumentMoniker": "E:\\AngularMitraMedia\\NG Apps\\JWT \u0026 Signalr registration-Login\\1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg)\\Hubs\\StudentHub.cs",
@@ -62,11 +79,12 @@
               "RelativeToolTip": "1_Simple_Crud_Api(forNg)\\Hubs\\StudentHub.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-24T12:02:10.639Z"
+              "WhenOpened": "2025-12-24T12:02:10.639Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "Teacher.cs",
               "DocumentMoniker": "E:\\AngularMitraMedia\\NG Apps\\JWT \u0026 Signalr registration-Login\\1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg)\\Models\\Teacher.cs",
               "RelativeDocumentMoniker": "1_Simple_Crud_Api(forNg)\\Models\\Teacher.cs",
@@ -78,7 +96,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "TeacherDto.cs",
               "DocumentMoniker": "E:\\AngularMitraMedia\\NG Apps\\JWT \u0026 Signalr registration-Login\\1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg)\\Models\\TeacherDto.cs",
               "RelativeDocumentMoniker": "1_Simple_Crud_Api(forNg)\\Models\\TeacherDto.cs",
@@ -90,46 +108,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "appsettings.json",
               "DocumentMoniker": "E:\\AngularMitraMedia\\NG Apps\\JWT \u0026 Signalr registration-Login\\1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg)\\appsettings.json",
               "RelativeDocumentMoniker": "1_Simple_Crud_Api(forNg)\\appsettings.json",
               "ToolTip": "E:\\AngularMitraMedia\\NG Apps\\JWT \u0026 Signalr registration-Login\\1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg)\\appsettings.json",
               "RelativeToolTip": "1_Simple_Crud_Api(forNg)\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-12-22T11:38:31.907Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\AngularMitraMedia\\NG Apps\\JWT \u0026 Signalr registration-Login\\1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg)\\Program.cs",
               "RelativeDocumentMoniker": "1_Simple_Crud_Api(forNg)\\Program.cs",
               "ToolTip": "E:\\AngularMitraMedia\\NG Apps\\JWT \u0026 Signalr registration-Login\\1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg)\\Program.cs",
               "RelativeToolTip": "1_Simple_Crud_Api(forNg)\\Program.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAACAAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAAAG8AAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-22T11:33:32.265Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "JWTController.cs",
               "DocumentMoniker": "E:\\AngularMitraMedia\\NG Apps\\JWT \u0026 Signalr registration-Login\\1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg)\\Controllers\\JWTController.cs",
               "RelativeDocumentMoniker": "1_Simple_Crud_Api(forNg)\\Controllers\\JWTController.cs",
               "ToolTip": "E:\\AngularMitraMedia\\NG Apps\\JWT \u0026 Signalr registration-Login\\1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg)\\Controllers\\JWTController.cs",
               "RelativeToolTip": "1_Simple_Crud_Api(forNg)\\Controllers\\JWTController.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAowCwAAABDAAAAAAAAAA==",
+              "ViewState": "AgIAACoAAAAAAAAAAAAowEUAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-22T11:31:22.742Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 3,
               "Title": "Student.cs",
               "DocumentMoniker": "E:\\AngularMitraMedia\\NG Apps\\JWT \u0026 Signalr registration-Login\\1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg)\\Models\\Student.cs",
               "RelativeDocumentMoniker": "1_Simple_Crud_Api(forNg)\\Models\\Student.cs",
@@ -137,24 +155,25 @@
               "RelativeToolTip": "1_Simple_Crud_Api(forNg)\\Models\\Student.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-18T10:24:40.573Z"
+              "WhenOpened": "2025-12-18T10:24:40.573Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "StudentApiController.cs",
               "DocumentMoniker": "E:\\AngularMitraMedia\\NG Apps\\JWT \u0026 Signalr registration-Login\\1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg)\\Controllers\\StudentApiController.cs",
               "RelativeDocumentMoniker": "1_Simple_Crud_Api(forNg)\\Controllers\\StudentApiController.cs",
               "ToolTip": "E:\\AngularMitraMedia\\NG Apps\\JWT \u0026 Signalr registration-Login\\1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg)\\Controllers\\StudentApiController.cs",
               "RelativeToolTip": "1_Simple_Crud_Api(forNg)\\Controllers\\StudentApiController.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAIwDsAAAA8AAAAAAAAAA==",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAcwDUAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-17T07:22:13.088Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "StudentsContext.cs",
               "DocumentMoniker": "E:\\AngularMitraMedia\\NG Apps\\JWT \u0026 Signalr registration-Login\\1_Simple_Crud_Api(forNg)\\1_Simple_Crud_Api(forNg)\\Models\\StudentsContext.cs",
               "RelativeDocumentMoniker": "1_Simple_Crud_Api(forNg)\\Models\\StudentsContext.cs",
@@ -162,7 +181,8 @@
               "RelativeToolTip": "1_Simple_Crud_Api(forNg)\\Models\\StudentsContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T07:12:16.183Z"
+              "WhenOpened": "2025-12-17T07:12:16.183Z",
+              "EditorCaption": ""
             }
           ]
         }

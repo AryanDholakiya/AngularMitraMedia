@@ -1,0 +1,38 @@
+/* left-sidebar */
+.left-sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.sidebar-top i:hover,
+.sidebar-bottom i:hover {
+  color: #00a884;
+}
+
+.sidebar-bottom,
+.sidebar-top {
+  i {
+    display: block;
+    font-size: 22px;
+    color: #aebac1;
+    text-align: center;
+    margin: 20px 0;
+    cursor: pointer;
+  }
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.Connectify-icon {
+  margin-top: 20px;
+  width: 30px;
+  height: 30px;
+}
+.profile-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+}

@@ -25,7 +25,7 @@ export class SignalRService {
   }
 
   RecieveMessage() {
-    this.hubConnection.on('RecieveMessage', (msg: Sender) => {
+    this.hubConnection.on('ReceiveMessage', (msg: Sender) => {
       this.recievedMessage.next(msg);
     });
   }

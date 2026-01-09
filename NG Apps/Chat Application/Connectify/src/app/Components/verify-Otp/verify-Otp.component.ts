@@ -43,8 +43,55 @@ export class VerifyOtpComponent {
       this.email = params['email'];
     });
 
-    debugger;
     this.startTimer();
+  }
+
+  verifyOtp() {
+    if (this.otpForm.invalid) {
+      return;
+    }
+
+    const payload = {
+      email: this.email,
+      mobileNumber: this.mobileNumber,
+      countryCode: this.countryCode,
+      otpCode: this.otpForm.value.otp,
+    };
+
+    this.api.verifyOtp(payload).subscribe({
+      next: (res: any) => {
+        console.log(res);
+        localStorage.setItem('userId', res.userId);
+        this.toastr.success('Registration successful');
+
+        localStorage.setItem(
+          'loggedIn_User',
+          JSON.stringify({
+            email: this.email,
+            mobileNumber: this.mobileNumber,
+            countryCode: this.countryCode,
+          })
+        );
+        this.router.navigateByUrl('/Set-profile');
+      },
+      error: () => {
+        this.toastr.error('Invalid or expired OTP');
+      },
+    });
+  }
+
+  resendOtp() {
+    this.timeLeft = 300;
+    this.startTimer();
+
+    const payload = {
+      email: this.email,
+      countryCode: this.countryCode,
+      mobileNumber: this.mobileNumber,
+    };
+    this.api.sendOtp(payload).subscribe(() => {
+      this.toastr.success('OTP resent successfully');
+    });
   }
 
   startTimer() {
@@ -57,12 +104,6 @@ export class VerifyOtpComponent {
         this.clearTimer();
       }
     }, 1000);
-  }
-
-  clearTimer() {
-    if (this.timerInterval) {
-      clearInterval(this.timerInterval);
-    }
   }
 
   formattedTime(): string {
@@ -81,32 +122,9 @@ export class VerifyOtpComponent {
       event.preventDefault();
     }
   }
-
-  verifyOtp() {
-    if (this.otpForm.invalid) return;
-
-    const payload = {
-      email: this.email,
-      mobileNumber: this.mobileNumber,
-      countryCode: this.countryCode,
-      otpCode: this.otpForm.value.otp,
-    };
-
-    this.api.verifyOtp(payload).subscribe({
-      next: () => {
-        this.toastr.success('Registration successful');
-        this.router.navigateByUrl('/SendMessage');
-      },
-      error: () => this.toastr.error('Invalid or expired OTP'),
-    });
-  }
-
-  resendOtp() {
-    this.timeLeft = 300;
-    this.startTimer();
-
-    this.api.sendOtp({ email: this.email }).subscribe(() => {
-      alert('OTP resent');
-    });
+  clearTimer() {
+    if (this.timerInterval) {
+      clearInterval(this.timerInterval);
+    }
   }
 }

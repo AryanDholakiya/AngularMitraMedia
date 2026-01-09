@@ -1,0 +1,115 @@
+<div class="registration-page">
+  <div class="row m-0 registrationMainForm">
+    <div
+      class="formMainDiv col-md-6 border border-secondary-subtle rounded-4 p-5"
+    >
+      <div class="innerMainDiv text-center">
+        <div class="mb-4">
+          <h4>Login</h4>
+          <p style="font-size: 12px">
+            Connectify will share a code on the Email, associated with Entered
+            <br />
+            Mobile Number to Verify.
+          </p>
+        </div>
+
+        <form [formGroup]="Connectify_Login">
+          <div class="country-dropdown" (click)="toggleDropdown()">
+            <div class="selected-country">
+              <img
+                *ngIf="selectedCountry"
+                [src]="selectedCountry.flag"
+                class="flag"
+              />
+              <span class="ps-2">
+                {{ selectedCountry?.name || "Select Your Country" }}
+              </span>
+            </div>
+
+            <div class="dropdown-list" *ngIf="isDropdownOpen">
+              <div
+                class="dropdown-item"
+                *ngFor="let country of countries"
+                (click)="selectCountry($event, country)"
+              >
+                <img [src]="country.flag" class="flag" />
+                <span>{{ country.name }} ({{ country.code }})</span>
+              </div>
+            </div>
+          </div>
+          @if(Connectify_Login.get('countryCode')?.invalid &&
+          Connectify_Login.get('countryCode')?.touched) {
+          @if(Connectify_Login.get('countryCode')?.errors?.['required']) {
+          <div class="text-danger text-start">Country is Required!</div>
+          } }
+
+          <div class="input-group mt-3">
+            <span
+              class="input-group-text bg-transparent border border-secondary brSpan"
+            >
+              @if(selectedCountry){
+              <p class="m-0" style="font-size: small !important">
+                {{ selectedCountry.code }}
+              </p>
+              } @else{
+              <i class="bi bi-person"></i>
+              }
+            </span>
+            <input
+              type="tel"
+              formControlName="mobileNumber"
+              class="form-control border border-secondary p-2 brInput"
+              placeholder="Enter Mobile Number"
+              maxlength="10"
+              (keypress)="onlyNumber($event)"
+              [class.is-invalid]="
+                Connectify_Login.get('mobileNumber')?.invalid &&
+                Connectify_Login.get('mobileNumber')?.touched
+              "
+            />
+            @if(Connectify_Login.get('mobileNumber')?.invalid &&
+            Connectify_Login.get('mobileNumber')?.touched) {
+            @if(Connectify_Login.get('mobileNumber')?.errors?.['required']) {
+            <div class="invalid-feedback text-danger text-start">
+              Mobile Number is Required!
+            </div>
+            } }
+          </div>
+
+          @if(SendOtp){
+          <div class="mt-4 email_verification">
+            <h6 class="verify_heading">Email Verification :</h6>
+            <p class="verify_text">
+              We have sent a 6-digit verification code to
+              <!-- <strong>{{ formatEmail(LoggedUser_email) }}</strong> -->
+            </p>
+            <input
+              type="text"
+              maxlength="6"
+              class="form-control otp-input"
+              placeholder="Enter OTP"
+              formControlName="LoginOtp"
+              (keypress)="onlyNumber($event)"
+            />
+
+            <div
+              class="error"
+              *ngIf="
+                Connectify_Login.get('LoginOtp')?.invalid &&
+                Connectify_Login.get('LoginOtp')?.touched
+              "
+            >
+              OTP must be 6 digits
+            </div>
+          </div>
+          }
+        </form>
+        <div class="mt-4">
+          <button class="btn registerbtn" (click)="VerifyLogin()">
+            {{ SendOtp ? "Verify" : "Login" }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

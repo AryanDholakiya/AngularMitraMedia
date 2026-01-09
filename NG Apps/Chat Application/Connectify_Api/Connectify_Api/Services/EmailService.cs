@@ -58,7 +58,7 @@ namespace Connectify_Api.Services
             </body>
             </html>";
 
-            message.IsBodyHtml = true;
+            message.IsBodyHtml = true; //html add krva we need to add this.
 
             using var smtp = new SmtpClient("smtp.gmail.com", 587)
             {

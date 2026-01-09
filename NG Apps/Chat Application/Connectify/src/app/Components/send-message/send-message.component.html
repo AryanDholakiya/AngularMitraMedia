@@ -1,47 +1,62 @@
-<div class="p-2">
-  <div class="row m-0">
-    <div class="col-md-4 border border-secondary-subtle p-2">
-      <form [formGroup]="senderForm">
-        <input
-          type="text"
-          formControlName="senderName"
-          class="form-control mt-2 border border-secondary-subtle"
-          placeholder="Sender.."
-        />
-        <input
-          type="text"
-          formControlName="message"
-          class="form-control mt-2 border border-secondary-subtle"
-          placeholder="Type a Message..."
-        />
-        <button class="btn btn-primary w-100 mt-2" (click)="send()">
-          Send
-        </button>
-      </form>
+<div class="chat-container">
+  <!-- LEFT SIDEBAR -->
+  <div class="chat-sidebar">
+    <div class="sidebar-header">
+      <img [src]="profileImage" class="sidebar-profile" />
+      <span class="sidebar-username">{{ username }}</span>
     </div>
-    <div class="col-md-8 p-1">
-      <ul class="list-unstyled">
-        @for (sender of messageList; track $index) {
-        <li
-          [class.text-end]="
-            sender.sender === senderForm.get('senderName')?.value
-          "
-        >
+
+    <div class="sidebar-placeholder">Chats coming soon...</div>
+  </div>
+
+  <!-- CHAT AREA -->
+  <div class="chat-main">
+    <!-- HEADER -->
+    <div class="chat-header">
+      <div class="chat-user">
+        <img [src]="profileImage" />
+        <div>
+          <p class="name">{{ username }}</p>
+          <p class="email">{{ email }}</p>
+        </div>
+      </div>
+
+      <button class="logout-btn" (click)="LogOut()">Logout</button>
+    </div>
+
+    <!-- MESSAGES -->
+    <div class="chat-body">
+      <ul>
+        @for (msg of messageList; track $index) {
+        <li [class.me]="msg.IsMe">
           <span
+            class="badge lh-sm message-bubble"
             [ngClass]="{
-              'bg-success SenderBorder': sender.IsMe,
-              'bg-secondary ': !sender.IsMe,
-              'mt-1': sender.isGrouped,
-              'mt-3 ': !sender.isGrouped,
-              RecieverBorder: !sender.isGrouped && !sender.IsMe,
-              SenderBorder: !sender.isGrouped && sender.IsMe
+              'bg-success SenderBorder': msg.IsMe,
+              'bg-secondary': !msg.IsMe,
+              'mt-1': msg.isGrouped,
+              'mt-3': !msg.isGrouped,
+              RecieverBorder: !msg.isGrouped && !msg.IsMe,
+              SenderBorder: !msg.isGrouped && msg.IsMe
             }"
-            class="badge lh-sm"
-            >{{ sender.message }}</span
           >
+            {{ msg.message }}
+          </span>
         </li>
         }
       </ul>
+    </div>
+
+    <!-- INPUT -->
+    <div class="chat-input">
+      <form [formGroup]="senderForm" (ngSubmit)="send()">
+        <input
+          type="text"
+          formControlName="message"
+          placeholder="Type a message"
+        />
+        <button type="submit">➤</button>
+      </form>
     </div>
   </div>
 </div>

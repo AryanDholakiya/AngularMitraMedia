@@ -1,0 +1,84 @@
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid #2a3942;
+  h4 {
+    margin: 0px !important;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.chat-header .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+// message body
+.chat-messages {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  background-color: #0b141a;
+  color: #8696a0;
+}
+.placeholder {
+  text-align: center;
+  margin-top: 50px;
+}
+
+// Messsage typing input
+.chat-input {
+  margin: 0px 10px 10px;
+  display: flex;
+
+  input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #e9edef;
+    font-size: 14px;
+    padding: 2px;
+    font-size: 18px;
+    margin: 0px 2px;
+  }
+  button {
+    background: none;
+    border: none;
+    color: #00a884;
+    font-size: 23px;
+    cursor: pointer;
+    padding: 0 10px;
+  }
+  .sendfileBtn {
+    border-right: 1px solid rgba(77, 76, 76, 0.863);
+    border-radius: opx;
+  }
+  .sendMessageBtn {
+    border: 1px solid rgba(77, 76, 76, 0.514);
+    border-radius: 50%;
+  }
+}
+.chat-input button:hover {
+  opacity: 0.8;
+}
+.addAndInput {
+  width: 100%;
+  display: flex;
+  border: 1px solid rgba(77, 76, 76, 0.514);
+  border-radius: 10px;
+  padding: 5px;
+  margin-right: 4px;
+}

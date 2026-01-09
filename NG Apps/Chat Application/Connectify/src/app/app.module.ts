@@ -11,6 +11,13 @@ import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { VerifyOtpComponent } from './Components/verify-Otp/verify-Otp.component';
+import { LoginComponent } from './Components/login/login.component';
+import { SetProfileComponent } from './Components/set-profile/set-profile.component';
+import { ChatLayoutComponent } from './Components/chat/chat-layout/chat-layout.component';
+import { LeftSidebarComponent } from './Components/chat/left-sidebar/left-sidebar.component';
+import { MiddlePanelComponent } from './Components/chat/middle-panel/middle-panel.component';
+import { ChatListComponent } from './Components/chat/middle-panel/chat-list/chat-list.component';
+import { RightChatPanelComponent } from './Components/chat/right-chat-panel/right-chat-panel.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +25,13 @@ import { VerifyOtpComponent } from './Components/verify-Otp/verify-Otp.component
     SendMessageComponent,
     RegistrationComponent,
     VerifyOtpComponent,
+    LoginComponent,
+    SetProfileComponent,
+    ChatLayoutComponent,
+    LeftSidebarComponent,
+    MiddlePanelComponent,
+    ChatListComponent,
+    RightChatPanelComponent,
   ],
   imports: [
     BrowserModule,

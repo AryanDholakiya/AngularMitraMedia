@@ -1,0 +1,57 @@
+<div class="profile-page">
+  <div class="profile-card">
+    <h4>Set Your Profile</h4>
+    <p class="subtitle">Add photo,username and About you</p>
+
+    <!-- Profile Image -->
+    <div class="image-wrapper">
+      <img
+        [src]="imagePreview || 'assets/default_profile_pic.jpg'"
+        class="profile-img"
+      />
+      <label class="upload-btn">
+        Change
+        <input type="file" hidden (change)="onImageSelect($event)" />
+      </label>
+    </div>
+
+    <!-- Form -->
+    <form [formGroup]="profileForm">
+      <div class="form-group">
+        <label>Username</label>
+        <input
+          type="text"
+          formControlName="username"
+          placeholder="Enter username"
+        />
+        <small
+          *ngIf="
+            profileForm.get('username')?.invalid &&
+            profileForm.get('username')?.touched
+          "
+        >
+          Username is required (min 3 chars)
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label>About</label>
+        <textarea
+          formControlName="about"
+          placeholder="Tell something about you"
+          rows="3"
+        ></textarea>
+        <small
+          *ngIf="
+            profileForm.get('about')?.invalid &&
+            profileForm.get('about')?.touched
+          "
+        >
+          About is required (max 200 chars)
+        </small>
+      </div>
+    </form>
+
+    <button class="save-btn" (click)="setProfile()">Set Profile</button>
+  </div>
+</div>

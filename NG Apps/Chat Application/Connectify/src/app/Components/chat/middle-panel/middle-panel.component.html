@@ -1,0 +1,19 @@
+@switch (view$ | async) {
+@case('chat-list') {
+<div>
+    <app-chat-list></app-chat-list>
+</div>
+}
+@case('settings'){
+<div>
+    <h3>Settings</h3>
+    <p>Settings options will come here</p>
+</div>
+}
+@case('profile'){
+<div>
+    <h3>My Profile</h3>
+    <p>Profile view will come here</p>
+</div>
+}
+}

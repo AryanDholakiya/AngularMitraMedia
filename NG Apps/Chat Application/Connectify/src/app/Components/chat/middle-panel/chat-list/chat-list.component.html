@@ -1,0 +1,21 @@
+<div class="chat-list">
+    <h2 class="title">Chats</h2>
+
+    @for(chat of chats;track chat.id){
+    <div class="chat-item" (click)="selectChat(chat)" [class.active]="chat.id == activeChatId">
+        <img [src]="chat.profileImage" alt="Profile" class="avatar" />
+
+        <div class="chat-info">
+            <div class="chat-header">
+                <span class="username">{{ chat.username }}</span>
+                <span class="time">{{ chat.lastMessageTime }}</span>
+            </div>
+
+            <p class="last-message">
+                {{ chat.lastMessage }}
+            </p>
+        </div>
+    </div>
+    }
+
+</div>

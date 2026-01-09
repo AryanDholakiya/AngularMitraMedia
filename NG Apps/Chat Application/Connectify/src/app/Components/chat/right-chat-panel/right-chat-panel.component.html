@@ -1,0 +1,38 @@
+@switch(activatedChat$ | async)
+{
+@case(null) {
+<div class="welcome">
+    <div class="welcome-icon">
+        <img src="assets/ConnectifyLogo.png" class="Connectify-icon" alt="Connectify" />
+    </div>
+    <h2>Welcome to Connectify</h2>
+    <p>Make your conversation Easy</p>
+</div>
+}
+
+@default(){
+<div class="chat-container">
+    <!-- header part -->
+    <div class="chat-header">
+        <img [src]="(activatedChat$ | async)?.profileImage" class="avatar" alt="User image">
+        <h4>{{(activatedChat$ | async)?.username}}</h4>
+    </div>
+    <!-- message body -->
+    <div class="chat-messages">
+        <p class="placeholder">Messages will appear here</p>
+    </div>
+    <!-- Messsage typing input  -->
+    <div class="chat-input">
+        <div class="addAndInput">
+            <button class="sendfileBtn">
+                <i class="bi bi-patch-plus"></i>
+            </button>
+            <input type="text" placeholder="Type a message" />
+        </div>
+        <button class="sendMessageBtn">
+            <i class="bi bi-send-fill"></i>
+        </button>
+    </div>
+</div>
+}
+}

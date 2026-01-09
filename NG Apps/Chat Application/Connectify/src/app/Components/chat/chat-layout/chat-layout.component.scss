@@ -1,0 +1,52 @@
+.chat-layout {
+  display: flex;
+  height: 100vh;
+  background-color: #111b21;
+  color: #e9edef;
+  overflow: hidden;
+}
+
+/* left-panel */
+.left-panel {
+  width: 70px;
+  background-color: #202c33;
+}
+
+/* middle-panel */
+.middle-panel {
+  width: 28%;
+  background-color: #111b21;
+  border-right: 1px solid #2a3942;
+  padding: 10px;
+}
+
+/* right panel */
+.chat-panel {
+  flex: 1;
+  background-color: #0b141a;
+  position: relative;
+}
+
+::ng-deep {
+  .welcome {
+    text-align: center;
+    max-width: 400px;
+    opacity: 0.6;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .welcome-icon {
+    // font-size: 64px;
+    margin-bottom: 20px;
+
+    img {
+      height: 200px;
+      width: auto;
+      object-fit: cover;
+    }
+  }
+}
