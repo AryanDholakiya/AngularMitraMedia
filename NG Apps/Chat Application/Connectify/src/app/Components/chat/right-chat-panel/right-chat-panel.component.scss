@@ -32,6 +32,8 @@
   overflow-y: auto;
   background-color: #0b141a;
   color: #8696a0;
+  scrollbar-width: none;
+  margin: 8px 0px;
 }
 .placeholder {
   text-align: center;
@@ -81,4 +83,36 @@
   border-radius: 10px;
   padding: 5px;
   margin-right: 4px;
+}
+//messages
+.message {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.message.me {
+  justify-content: flex-end;
+}
+
+.bubble {
+  max-width: 65%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.4;
+  position: relative;
+  background-color: #202c33;
+  color: #e9edef;
+}
+
+.message.me .bubble {
+  background-color: #005c4b;
+}
+
+.time {
+  display: block;
+  font-size: 10px;
+  color: #8696a0;
+  text-align: right;
+  margin-top: 4px;
 }

@@ -1,5 +1,5 @@
-<div class="chat-container">
-  <!-- LEFT SIDEBAR -->
+<!-- <div class="chat-container">
+
   <div class="chat-sidebar">
     <div class="sidebar-header">
       <img [src]="profileImage" class="sidebar-profile" />
@@ -9,9 +9,8 @@
     <div class="sidebar-placeholder">Chats coming soon...</div>
   </div>
 
-  <!-- CHAT AREA -->
   <div class="chat-main">
-    <!-- HEADER -->
+
     <div class="chat-header">
       <div class="chat-user">
         <img [src]="profileImage" />
@@ -24,7 +23,7 @@
       <button class="logout-btn" (click)="LogOut()">Logout</button>
     </div>
 
-    <!-- MESSAGES -->
+
     <div class="chat-body">
       <ul>
         @for (msg of messageList; track $index) {
@@ -47,7 +46,6 @@
       </ul>
     </div>
 
-    <!-- INPUT -->
     <div class="chat-input">
       <form [formGroup]="senderForm" (ngSubmit)="send()">
         <input
@@ -59,4 +57,4 @@
       </form>
     </div>
   </div>
-</div>
+</div> -->

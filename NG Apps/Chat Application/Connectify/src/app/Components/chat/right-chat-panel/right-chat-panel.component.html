@@ -18,8 +18,15 @@
         <h4>{{(activatedChat$ | async)?.username}}</h4>
     </div>
     <!-- message body -->
-    <div class="chat-messages">
-        <p class="placeholder">Messages will appear here</p>
+    <div class="chat-messages" #messagesContainer>
+        @for(msg of messages; track msg.id){
+        <div class="message" [class.me]="msg.isMe">
+            <div class="bubble">
+                {{ msg.text }}
+                <span class="time">{{ msg.time }}</span>
+            </div>
+        </div>
+        }
     </div>
     <!-- Messsage typing input  -->
     <div class="chat-input">
@@ -27,9 +34,9 @@
             <button class="sendfileBtn">
                 <i class="bi bi-patch-plus"></i>
             </button>
-            <input type="text" placeholder="Type a message" />
+            <input type="text" placeholder="Type a message" [(ngModel)]="messageText" (keyup.enter)="sendMessage()" />
         </div>
-        <button class="sendMessageBtn">
+        <button class="sendMessageBtn" (click)="sendMessage()">
             <i class="bi bi-send-fill"></i>
         </button>
     </div>

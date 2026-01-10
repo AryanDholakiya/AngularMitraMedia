@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SendMessageComponent } from './Components/send-message/send-message.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideHttpClient } from '@angular/common/http';
 import { RegistrationComponent } from './Components/registration/registration.component';
 import { CommonModule } from '@angular/common';
@@ -44,6 +44,7 @@ import { RightChatPanelComponent } from './Components/chat/right-chat-panel/righ
       positionClass: 'toast-top-center',
       preventDuplicates: true,
     }),
+    FormsModule,
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent],
