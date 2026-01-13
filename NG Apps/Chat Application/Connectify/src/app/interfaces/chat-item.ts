@@ -1,5 +1,5 @@
 export interface ChatItem {
-  id: number;
+  userId: number;
   username: string;
   profileImage: string;
   lastMessage: string;

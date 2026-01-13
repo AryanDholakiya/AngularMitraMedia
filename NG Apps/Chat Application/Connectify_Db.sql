@@ -71,29 +71,6 @@ insert into OtpVerifications(Email,OtpCode,ExpiryTime,MobileNumber) values
 end;
 
 --validate the otp entered by user
---alter PROCEDURE sp_ValidateOtp  
---    @Email NVARCHAR(255) = null, --backend mathi email na moklie to by default "null" pass kravi aagal chalva do
---	@MobileNumber nvarchar(15) = null,
---    @OtpCode NVARCHAR(6)
---AS
---BEGIN
---    SET NOCOUNT ON;
-
---    SELECT TOP 1
---        o.OtpId,
---        o.ExpiryTime,
---		u.UserId
---    FROM OtpVerifications o
---	left join Users u on (o.MobileNumber = u.MobileNumber or o.Email = u.Email)
---    WHERE (
---            (@MobileNumber IS NOT NULL AND MobileNumber = @MobileNumber)
---            OR (@MobileNumber IS NULL AND Email = @Email)
---        )
---      AND o.OtpCode = @OtpCode
---      AND o.IsUsed = 0
---    ORDER BY o.CreatedAt DESC;
---END
-
 
 ALTER PROCEDURE sp_ValidateOtp  
     @Email NVARCHAR(255) = null, 
@@ -229,6 +206,91 @@ BEGIN
     FROM Users
     WHERE UserId = @UserId;
 END
+
+--message:
+CREATE TABLE Messages (
+    MessageId INT IDENTITY PRIMARY KEY,
+    SenderId INT NOT NULL,
+    ReceiverId INT NOT NULL,
+    Content NVARCHAR(MAX) NOT NULL,
+    SentAt DATETIME NOT NULL DEFAULT GETDATE(),
+    IsDelivered BIT DEFAULT 0,
+    IsSeen BIT DEFAULT 0
+);
+
+select * from Messages
+
+
+create procedure sp_InsertMessage
+	@SenderId int,
+	@ReceiverId int,
+	@Content NVARCHAR(MAX)
+as
+begin
+	set nocount on;
+	insert into Messages(SenderId, ReceiverId, Content)
+	OUTPUT INSERTED.*
+	values(@SenderId,@ReceiverId,@Content);
+end
+go
+
+
+
+create procedure sp_GetChatHistory
+	@UserId int,
+	@ChatUserId int
+as 
+begin
+	set nocount on;
+
+	select * from Messages
+	where
+	(SenderId = @UserId AND ReceiverId = @ChatUserId) OR (SenderId = @ChatUserId AND ReceiverId = @UserId)
+	order by  SentAt asc;
+end
+
+
+
+--UserList
+ALTER PROCEDURE sp_GetChatList 2
+    @UserId INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT
+        u.UserId,
+        u.Username,
+        u.ProfileImage,
+        m.Content AS LastMessage,
+        m.SentAt AS LastMessageTime
+    FROM Users u
+    LEFT JOIN (
+        SELECT
+            CASE 
+                WHEN SenderId = @UserId THEN ReceiverId
+                ELSE SenderId
+            END AS ChatUserId,
+            Content,
+            SentAt,
+            ROW_NUMBER() OVER (
+                PARTITION BY 
+                    CASE 
+                        WHEN SenderId = @UserId THEN ReceiverId
+                        ELSE SenderId
+                    END
+                ORDER BY SentAt DESC
+            ) AS rn
+        FROM Messages
+        WHERE SenderId = @UserId OR ReceiverId = @UserId
+    ) m 
+        ON u.UserId = m.ChatUserId AND m.rn = 1
+    WHERE u.UserId <> @UserId
+    ORDER BY 
+        CASE WHEN m.SentAt IS NULL THEN 1 ELSE 0 END,
+        m.SentAt DESC;
+END
+
 
 select * from OtpVerifications
 select * from Users	

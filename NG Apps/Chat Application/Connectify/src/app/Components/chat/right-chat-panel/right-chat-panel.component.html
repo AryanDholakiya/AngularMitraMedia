@@ -14,16 +14,19 @@
 <div class="chat-container">
     <!-- header part -->
     <div class="chat-header">
-        <img [src]="(activatedChat$ | async)?.profileImage" class="avatar" alt="User image">
+        <img [src]="(activatedChat$ | async)?.profileImage ? 'data:image/jpeg;base64,' + (activatedChat$ | async)?.profileImage : 'assets/default_profile_pic.jpg'"
+            class="avatar" alt="User image">
         <h4>{{(activatedChat$ | async)?.username}}</h4>
     </div>
     <!-- message body -->
     <div class="chat-messages" #messagesContainer>
-        @for(msg of messages; track msg.id){
+        @for(msg of messages; track msg.messageId){
         <div class="message" [class.me]="msg.isMe">
             <div class="bubble">
-                {{ msg.text }}
-                <span class="time">{{ msg.time }}</span>
+                {{ msg.content }}
+                <span class="time">
+                    {{ msg.sentAt | date:'shortTime' }}
+                </span>
             </div>
         </div>
         }

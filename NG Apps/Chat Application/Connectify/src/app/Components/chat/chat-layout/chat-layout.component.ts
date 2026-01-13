@@ -1,5 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { SignalRService } from '../../../../Services/signal-r.service';
+import { CurrentUserService } from '../../../../Services/ChatPage Services/current-user.service';
 
 @Component({
   selector: 'app-chat-layout',
@@ -9,9 +10,14 @@ import { SignalRService } from '../../../../Services/signal-r.service';
 })
 export class ChatLayoutComponent implements OnInit {
   private signalR = inject(SignalRService);
+  private currentUser = inject(CurrentUserService);
 
   ngOnInit() {
-    const loggedInUserId = 1;
+    // const loggedInUserId = 1;
+    const user = this.currentUser.getCurrentUser();
+    if (!user) return;
+
+    const loggedInUserId = user.userId;
     this.signalR.startConnection(loggedInUserId);
   }
 }

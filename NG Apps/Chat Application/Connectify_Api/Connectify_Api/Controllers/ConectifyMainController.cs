@@ -28,13 +28,13 @@ namespace Connectify_Api.Controllers
 
 
         //Signalr message sending
-        [HttpPost]
-        [Route("Send")]
-        public async Task<IActionResult> send(SendMessageRequest user)
-        {
-            await _hub.Clients.All.SendAsync("ReceiveMessage", user);
-            return Ok(new { status = "Message Sent" });
-        }
+        //[HttpPost]
+        //[Route("Send")]
+        //public async Task<IActionResult> send(SendMessageRequest user)
+        //{
+        //    await _hub.Clients.All.SendAsync("ReceiveMessage", user);
+        //    return Ok(new { status = "Message Sent" });
+        //}
 
         [HttpPost]
         [Route("send-otp")]
@@ -255,6 +255,7 @@ namespace Connectify_Api.Controllers
 
             SqlCommand cmd = new SqlCommand("sp_GetUserProfile", conn);
             cmd.CommandType = CommandType.StoredProcedure;
+
             cmd.Parameters.AddWithValue("@UserId", userId);
 
             SqlDataReader reader = await cmd.ExecuteReaderAsync();

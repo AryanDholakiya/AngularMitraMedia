@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import * as signalR from '@microsoft/signalr';
-import { Sender } from '../app/interfaces/sender';
 import { BehaviorSubject } from 'rxjs';
 import { RealtimeMessage } from '../app/interfaces/realtime-message';
 
@@ -34,7 +33,7 @@ export class SignalRService {
 
   startConnection(userId: number) {
     this.hubConnection = new signalR.HubConnectionBuilder()
-      .withUrl('https://localhost:7132/connectify?userId=${userId}', {
+      .withUrl(`https://localhost:7132/connectify?userId=${userId}`, {
         withCredentials: true,
       })
       .withAutomaticReconnect()
@@ -54,11 +53,12 @@ export class SignalRService {
     });
   }
 
-  sendMessage(data: RealtimeMessage) {
-    this.hubConnection.invoke('SendMessage', data).catch((err) => {
-      console.error('Send error:', err);
-    });
-  }
+  // sendMessage(data: RealtimeMessage) {
+  //   debugger;
+  //   this.hubConnection.invoke('SendMessage', data).catch((err) => {
+  //     console.error('Send error:', err);
+  //   });
+  // }
 
   stopConnection() {
     this.hubConnection.stop();

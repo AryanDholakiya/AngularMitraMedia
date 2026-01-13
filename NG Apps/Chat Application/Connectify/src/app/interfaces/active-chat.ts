@@ -1,5 +1,5 @@
 export interface ActiveChat {
-  id: number;
+  userId: number;
   username: string;
   profileImage: string;
 }

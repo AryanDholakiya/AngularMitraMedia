@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.SignalR;
+﻿using Connectify_Api.DTOs;
+using Microsoft.AspNetCore.SignalR;
 
 namespace Connectify_Api.Hubs
 {
@@ -32,7 +33,7 @@ namespace Connectify_Api.Hubs
 
         public async Task SendMessage(ChatMessageDto message)
         {
-            if (UserConnections.TryGetValue(message.ReceiverId, out string receiverConnectionId))
+            if (UserConnections.TryGetValue(message.ReceiverId, out string? receiverConnectionId))
             {
                 await Clients.Client(receiverConnectionId)
                     .SendAsync("ReceiveMessage", message);

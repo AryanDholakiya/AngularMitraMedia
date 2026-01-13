@@ -1,14 +1,15 @@
 <div class="chat-list">
     <h2 class="title">Chats</h2>
 
-    @for(chat of chats;track chat.id){
-    <div class="chat-item" (click)="selectChat(chat)" [class.active]="chat.id == activeChatId">
-        <img [src]="chat.profileImage" alt="Profile" class="avatar" />
+    @for(chat of chats;track chat.userId){
+    <div class="chat-item" (click)="selectChat(chat)" [class.active]="chat.userId === activeChatId">
+        <img [src]="chat.profileImage ? 'data:image/jpeg;base64,' + chat.profileImage : 'assets/default_profile_pic.jpg'"
+            alt="Profile" class="avatar" />
 
         <div class="chat-info">
             <div class="chat-header">
                 <span class="username">{{ chat.username }}</span>
-                <span class="time">{{ chat.lastMessageTime }}</span>
+                <span class="time">{{ chat.lastMessageTime | date : "dd/MM/yyyy" }}</span>
             </div>
 
             <p class="last-message">

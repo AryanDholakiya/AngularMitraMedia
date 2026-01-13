@@ -3,4 +3,5 @@ export interface RealtimeMessage {
   receiverId: number;
   message: string;
   time: string;
+  content: string;
 }

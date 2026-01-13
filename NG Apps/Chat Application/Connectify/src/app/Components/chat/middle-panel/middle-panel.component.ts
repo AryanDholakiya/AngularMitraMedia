@@ -16,4 +16,8 @@ export class MiddlePanelComponent {
   constructor(private uiState: UiStateService) {
     this.view$ = this.uiState.middleView$;
   }
+
+  selectChat(userId: number) {
+    this.uiState.setSelectedChatUser(userId);
+  }
 }

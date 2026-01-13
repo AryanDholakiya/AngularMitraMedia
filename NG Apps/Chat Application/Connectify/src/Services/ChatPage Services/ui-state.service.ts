@@ -13,4 +13,11 @@ export class UiStateService {
   setView(view: MiddleView) {
     this.middleViewSubject.next(view);
   }
+
+  private selectedChatUserSubject = new BehaviorSubject<number | null>(null);
+  selectedChatUser$ = this.selectedChatUserSubject.asObservable();
+
+  setSelectedChatUser(userId: number) {
+    this.selectedChatUserSubject.next(userId);
+  }
 }
