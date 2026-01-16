@@ -8,6 +8,7 @@ export interface ChatMessage {
   senderId: number;
   receiverId: number;
   content: string;
+  attachment: string | null;
   sentAt: string;
   isMe: boolean;
 }

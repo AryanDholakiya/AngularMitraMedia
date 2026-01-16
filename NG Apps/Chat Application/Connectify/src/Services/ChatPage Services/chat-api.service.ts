@@ -18,8 +18,8 @@ export class ChatApiService {
     );
   }
 
-  SendaMessage(data: RealtimeMessage) {
-    // debugger;
+  SendaMessage(data: FormData) {
+    debugger;
     return this.http.post(`${this.baseUrl}/send`, data);
   }
 

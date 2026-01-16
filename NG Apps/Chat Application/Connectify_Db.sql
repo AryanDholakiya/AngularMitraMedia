@@ -218,19 +218,23 @@ CREATE TABLE Messages (
     IsSeen BIT DEFAULT 0
 );
 
+alter table Messages
+add Attachment nvarchar(max);
+
 select * from Messages
 
 
-create procedure sp_InsertMessage
+alter procedure sp_InsertMessage
 	@SenderId int,
 	@ReceiverId int,
-	@Content NVARCHAR(MAX)
+	@Content NVARCHAR(MAX),
+	@Attachment nvarchar(max) = null
 as
 begin
 	set nocount on;
-	insert into Messages(SenderId, ReceiverId, Content)
+	insert into Messages(SenderId, ReceiverId, Content, Attachment)
 	OUTPUT INSERTED.*
-	values(@SenderId,@ReceiverId,@Content);
+	values(@SenderId,@ReceiverId,@Content,@Attachment);
 end
 go
 
@@ -252,12 +256,12 @@ end
 
 
 --UserList
-ALTER PROCEDURE sp_GetChatList 2
+ALTER PROCEDURE sp_GetChatList 
     @UserId INT
 AS
 BEGIN
     SET NOCOUNT ON;
-
+	select * from Users
     SELECT
         u.UserId,
         u.Username,

@@ -46,6 +46,7 @@ export class ApiServiceService {
 
   //profile :
   updateProfile(data: FormData) {
+    debugger;
     return this.client.post(
       'https://localhost:7132/api/ConectifyMain/update-profile',
       data

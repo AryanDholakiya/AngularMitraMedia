@@ -35,9 +35,23 @@
     <div class="chat-input">
         <div class="addAndInput">
             <button class="sendfileBtn">
-                <i class="bi bi-patch-plus"></i>
+                <label class="bi bi-patch-plus">
+                    <!-- always use label because if input:hidden is not in label and in button directly then we have to open it using ViewChild -->
+                    <input type="file" hidden (change)="openFileInput($event)" />
+                </label>
             </button>
-            <input type="text" placeholder="Type a message" [(ngModel)]="messageText" (keyup.enter)="sendMessage()" />
+            <input type="text" class="TypeMessage" placeholder="Type a message..." [(ngModel)]="messageText"
+                (keyup.enter)="sendMessage()" />
+
+            <!-- *ngIf="FilePreview !== null" -->
+            <ng-container *ngIf="FilePreview !== null">
+                <div class="Filepreview">
+                    <img [src]="selectedFile.type.startsWith('image/') ? FilePreview : 'assets/DefaultFilePreviewImg.png'"
+                        class="profile-img" />
+                </div>
+                <div class="IndicatorPin">
+                </div>
+            </ng-container>
         </div>
         <button class="sendMessageBtn" (click)="sendMessage()">
             <i class="bi bi-send-fill"></i>

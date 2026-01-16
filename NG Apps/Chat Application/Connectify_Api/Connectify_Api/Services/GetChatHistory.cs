@@ -40,7 +40,8 @@ namespace Connectify_Api.Services
                         Content = reader.GetString(3),
                         SentAt = reader.GetDateTime(4),
                         IsDelivered = reader.GetBoolean(5),
-                        IsSeen = reader.GetBoolean(6)
+                        IsSeen = reader.GetBoolean(6),
+                        Attachment = reader.IsDBNull(7) ? null : reader.GetString(7),
                     });
                 }
 

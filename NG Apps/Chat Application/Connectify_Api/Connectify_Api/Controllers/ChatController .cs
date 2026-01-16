@@ -73,8 +73,8 @@ namespace Connectify_Api.Controllers
                     ProfileImage = reader.IsDBNull(2)
                         ? null
                         : Convert.ToBase64String((byte[])reader["ProfileImage"]),
-                    LastMessage = reader.IsDBNull(3)? null : reader.GetString(3),
-                    LastMessageTime = reader.IsDBNull(4) ? DateTime.Now :  reader.GetDateTime(4)
+                    LastMessage = reader.IsDBNull(3) ? null : reader.GetString(3),
+                    LastMessageTime = reader.IsDBNull(4) ? DateTime.Now : reader.GetDateTime(4)
                 });
             }
 

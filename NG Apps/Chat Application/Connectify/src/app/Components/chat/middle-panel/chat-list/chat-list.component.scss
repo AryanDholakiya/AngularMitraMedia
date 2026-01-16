@@ -38,6 +38,8 @@
   flex: 1;
   border-bottom: 1px solid #2a3942;
   padding-bottom: 8px;
+  min-height: 55px;
+  min-width: 0; //last message ma ellipses apply thy te mate
 }
 
 .chat-header {
@@ -56,10 +58,11 @@
 }
 
 .last-message {
+  width: 80%;
   font-size: 14px;
   color: #8696a0;
   margin: 2px 0 0;
-  white-space: nowrap;
-  overflow: hidden;
+  white-space: nowrap; //must needed for ellipses
+  overflow: hidden; //must needed for ellipses
   text-overflow: ellipsis;
 }

@@ -22,11 +22,14 @@ export class ChatListComponent implements OnInit {
     private getChatList: ChatApiService
   ) {
     this.chatState.activeChat$.subscribe((chat: ActiveChat | null) => {
-      if (chat?.userId) this.activeChatId = chat?.userId;
+      if (chat?.userId) {
+        this.activeChatId = chat?.userId;
+        console.log(this.activeChatId);
+      }
     });
   }
   ngOnInit() {
-    console.log(this.activeChatId);
+    // console.log(this.activeChatId);
     const user = this.currentUser.getCurrentUser();
     if (!user) {
       return;
@@ -38,6 +41,7 @@ export class ChatListComponent implements OnInit {
       next: (res: any) => {
         debugger;
         this.chats = res;
+        // console.log(this.chats);
       },
       error: (e) => {
         debugger;

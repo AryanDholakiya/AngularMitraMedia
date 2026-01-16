@@ -4,4 +4,5 @@ export interface RealtimeMessage {
   message: string;
   time: string;
   content: string;
+  attachment: string | null;
 }

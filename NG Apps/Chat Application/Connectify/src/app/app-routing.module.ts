@@ -27,7 +27,6 @@ const routes: Routes = [
   {
     path: 'Set-profile',
     component: SetProfileComponent,
-    canActivate: [authGuardsGuard],
   },
   {
     path: 'SendMessage',

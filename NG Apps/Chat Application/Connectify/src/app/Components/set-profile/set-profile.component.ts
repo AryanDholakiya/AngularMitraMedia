@@ -58,8 +58,10 @@ export class SetProfileComponent implements OnInit {
     reader.readAsDataURL(file);
     reader.onload = () => {
       this.imagePreview = reader.result as string;
-      // console.log('image preview: ', this.imagePreview);
+      console.log('image preview: ', this.imagePreview);
     };
+    // const objectUrl = URL.createObjectURL(file);
+    // this.imagePreview = objectUrl;
   }
 
   setProfile() {
@@ -73,6 +75,7 @@ export class SetProfileComponent implements OnInit {
     formData.append('Username', this.profileForm.value.username!);
     formData.append('About', this.profileForm.value.about!);
 
+    debugger;
     if (this.selectedImage) {
       formData.append('ProfileImage', this.selectedImage);
     } else {
@@ -81,6 +84,8 @@ export class SetProfileComponent implements OnInit {
 
     this.api.updateProfile(formData).subscribe({
       next: (res: any) => {
+        debugger;
+        console.log('Profile Image: ', res);
         this.toastr.success('Profile set successfully');
         this.router.navigate(['/SendMessage']);
       },
