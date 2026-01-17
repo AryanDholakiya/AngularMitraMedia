@@ -113,10 +113,10 @@ export class LoginComponent implements OnInit {
             //authGuard mate
             'loggedIn_User',
             JSON.stringify({
-              email: null,
+              email: res.email,
               mobileNumber: this.Connectify_Login.value.mobileNumber,
               countryCode: this.Connectify_Login.value.countryCode,
-            })
+            }),
           );
 
           this.router.navigate(['/SendMessage']);

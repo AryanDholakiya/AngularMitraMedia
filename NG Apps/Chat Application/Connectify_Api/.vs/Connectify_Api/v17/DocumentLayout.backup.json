@@ -82,8 +82,7 @@
               "RelativeToolTip": "Connectify_Api\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-01-16T03:59:49.562Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-16T03:59:49.562Z"
             },
             {
               "$type": "Document",
@@ -95,8 +94,7 @@
               "RelativeToolTip": "Connectify_Api\\DTOs\\SendMessageDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAIAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-15T14:27:28.566Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-15T14:27:28.566Z"
             },
             {
               "$type": "Document",
@@ -120,8 +118,7 @@
               "RelativeToolTip": "Connectify_Api\\Models\\Message.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-15T14:23:13.497Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-15T14:23:13.497Z"
             },
             {
               "$type": "Document",
@@ -133,8 +130,7 @@
               "RelativeToolTip": "Connectify_Api\\Controllers\\ConectifyMainController.cs",
               "ViewState": "AgIAAO8AAAAAAAAAAAAmwA0BAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-15T04:21:35.224Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-15T04:21:35.224Z"
             },
             {
               "$type": "Document",
@@ -146,8 +142,7 @@
               "RelativeToolTip": "Connectify_Api\\DTOs\\ChatListItemDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-13T11:16:55.494Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-13T11:16:55.494Z"
             },
             {
               "$type": "Document",
@@ -159,8 +154,7 @@
               "RelativeToolTip": "Connectify_Api\\DTOs\\ChatMessageDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-13T04:01:29.805Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-13T04:01:29.805Z"
             },
             {
               "$type": "Document",
@@ -172,8 +166,7 @@
               "RelativeToolTip": "Connectify_Api\\Repositories\\IGetChatHistoryAsync.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T07:32:44.387Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-12T07:32:44.387Z"
             },
             {
               "$type": "Document",
@@ -185,8 +178,7 @@
               "RelativeToolTip": "Connectify_Api\\Services\\GetChatHistory.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAxwCUAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T07:00:17.982Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-12T07:00:17.982Z"
             },
             {
               "$type": "Document",
@@ -198,8 +190,7 @@
               "RelativeToolTip": "Connectify_Api\\DTOs\\GetChatHistoryDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T06:45:43.166Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-12T06:45:43.166Z"
             },
             {
               "$type": "Document",
@@ -209,7 +200,7 @@
               "RelativeDocumentMoniker": "Connectify_Api\\Controllers\\ChatController .cs",
               "ToolTip": "E:\\AngularMitraMedia\\NG Apps\\Chat Application\\Connectify_Api\\Connectify_Api\\Controllers\\ChatController .cs",
               "RelativeToolTip": "Connectify_Api\\Controllers\\ChatController .cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAQwCAAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-12T06:04:05.663Z",
               "EditorCaption": ""
@@ -224,8 +215,7 @@
               "RelativeToolTip": "Connectify_Api\\Services\\MessageService.cs",
               "ViewState": "AgIAAB4AAAAAAAAAAAAowBUAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T04:51:17.15Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-12T04:51:17.15Z"
             },
             {
               "$type": "Document",
@@ -237,8 +227,7 @@
               "RelativeToolTip": "Connectify_Api\\Hubs\\ChatsHub.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAgwCIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-29T04:38:26.999Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-29T04:38:26.999Z"
             },
             {
               "$type": "Document",
@@ -250,8 +239,7 @@
               "RelativeToolTip": "Connectify_Api\\DTOs\\UpdateProfileRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T09:40:36.797Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-07T09:40:36.797Z"
             }
           ]
         }

@@ -33,10 +33,11 @@ export class VerifyOtpComponent {
     private router: Router,
     private toastr: ToastrService,
     private route: ActivatedRoute,
-    private api: ApiServiceService
+    private api: ApiServiceService,
   ) {}
 
   ngOnInit(): void {
+    debugger;
     this.route.queryParams.subscribe((params) => {
       this.countryCode = params['countryCode'];
       this.mobileNumber = params['mobileNumber'];
@@ -67,10 +68,10 @@ export class VerifyOtpComponent {
         localStorage.setItem(
           'loggedIn_User',
           JSON.stringify({
-            email: this.email,
+            email: res.email,
             mobileNumber: this.mobileNumber,
             countryCode: this.countryCode,
-          })
+          }),
         );
         this.router.navigateByUrl('/Set-profile');
       },

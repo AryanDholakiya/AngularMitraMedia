@@ -31,7 +31,7 @@ export class RightChatPanelComponent {
     private chatState: ChatStateService,
     private signalR: SignalRService,
     private chatApi: ChatApiService,
-    private currentUser: CurrentUserService
+    private currentUser: CurrentUserService,
   ) {
     this.activatedChat$ = this.chatState.activeChat$;
 
@@ -75,7 +75,7 @@ export class RightChatPanelComponent {
     this.signalR.message$.subscribe((msg) => {
       if (!msg) return;
       debugger;
-      if (msg.senderId !== this.loggedInUserId) {
+      if (msg.senderId === this.activeReceiverId) {
         this.messages.push({
           messageId: 0,
           senderId: msg.senderId,
@@ -96,15 +96,6 @@ export class RightChatPanelComponent {
   sendMessage() {
     debugger;
     if (!this.messageText.trim()) return;
-
-    // const messagePayload = {
-    //   senderId: this.loggedInUserId,
-    //   receiverId: this.activeReceiverId,
-    //   message: this.messageText,
-    //   content: this.messageText,
-    //   time: new Date().toISOString(),
-    //   attachment: this.selectedFile,
-    // };
 
     const formdata = new FormData();
     formdata.append('senderId', String(this.loggedInUserId));
