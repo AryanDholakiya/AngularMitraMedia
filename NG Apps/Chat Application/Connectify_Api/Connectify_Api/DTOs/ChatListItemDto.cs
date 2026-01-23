@@ -7,5 +7,6 @@
         public string? ProfileImage { get; set; }
         public string LastMessage { get; set; }
         public DateTime LastMessageTime { get; set; }
+        public string? attachmentName { get; set; }
     }
 }

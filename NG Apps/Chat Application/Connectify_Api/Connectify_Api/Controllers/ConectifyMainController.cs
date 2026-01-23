@@ -66,9 +66,11 @@ namespace Connectify_Api.Controllers
                 cmd.Parameters.AddWithValue("@Expiry", expirey);
 
                 cmd.ExecuteNonQuery();
+                //SqlDataReader reader = await cmd.ExecuteReaderAsync();
+                //await reader.ReadAsync();
             }
             await _emailService.SendOtpEmail(request.Email, otp);
-            return Ok(new { Status = "Otp Sent Successfully!" });
+            return Ok(new { Status = "Otp Sent Successfully!", request.Email, request.MobileNumber, request.CountryCode });
         }
 
 
@@ -116,10 +118,13 @@ namespace Connectify_Api.Controllers
             //await registerCmd.ExecuteNonQueryAsync();
             var result = await registerCmd.ExecuteScalarAsync(); //profile
 
-            return Ok(new {
+            return Ok(new
+            {
                 message = "Registration successful",
                 userId = result
             });
+
+
         }
 
 
@@ -145,7 +150,7 @@ namespace Connectify_Api.Controllers
 
             if (string.IsNullOrEmpty(email))
             {
-                return BadRequest(new { message = "User not registered" });
+                return BadRequest(new { message = "User not registered"  });
             }
                
             string otp = OtpGenerator.GenerateOtp();
@@ -164,7 +169,7 @@ namespace Connectify_Api.Controllers
             }
             await _emailService.SendOtpEmail(email, otp);
 
-            return Ok(new { message = "otp sent successful" });
+            return Ok(new { message = "otp sent successful", email = email });
         }
 
 

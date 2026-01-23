@@ -707,3 +707,23 @@ UserEmail: new FormControl('', [
       // always pass the regex only not with the string, if you want to add the string in it then: we have to do like this:
 	  Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$')
     ]),
+	
+	
+//LocalStorage na clear thva prr user should automatically redirect on login page. How?
+--> we have to use the  @HostListener. 
+-> note that 
+	HostListener only works in:
+	Components
+	Directives
+
+so we have to put it into app.compo.ts not in guard 
+
+
+
+//Connectify download any kind of file process --> right-chat-panel.compo.ts:  downloadAttachment() 
+
+Step    Code,            Purpose(English),                        			હેતુ (ગુજરાતી)
+1,      atob(),          Decode Base64 string to characters.,     			Base64 ને અક્ષરોમાં ફેરવે છે.
+2,      charCodeAt(),    Convert characters to numeric codes.,    			અક્ષરોને આંકડામાં (ASCII) ફેરવે છે.
+3,      Uint8Array,      Package numbers into a byte format.,     			"આંકડાઓને ""બાઈટ્સ"" માં પેક કરે છે."
+4,      Blob,            "Create a "Virtual File" ready for download.", 	"ડાઉનલોડ માટે ""વર્ચ્યુઅલ ફાઈલ"" બનાવે છે."

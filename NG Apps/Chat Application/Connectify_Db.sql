@@ -219,28 +219,66 @@ CREATE TABLE Messages (
 );
 
 alter table Messages
-add Attachment nvarchar(max);
+add Attachment VARBINARY(max);
+
+ALTER TABLE Messages
+ADD 
+    AttachmentName NVARCHAR(255),
+    AttachmentType NVARCHAR(100);
 
 select * from Messages
 
+alter table Messages alter column Content nvarchar(max) null;
 
-alter procedure sp_InsertMessage
-	@SenderId int,
-	@ReceiverId int,
-	@Content NVARCHAR(MAX),
-	@Attachment nvarchar(max) = null
+delete from Messages 
+where MessageId > 172
+
+
+ALTER PROCEDURE sp_InsertMessage
+    @SenderId INT,
+    @ReceiverId INT,
+    @Content NVARCHAR(MAX) = NULL,
+    @Attachment VARBINARY(MAX) = NULL,
+    @AttachmentName NVARCHAR(255) = NULL,
+    @AttachmentType NVARCHAR(100) = NULL
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    INSERT INTO Messages
+    (
+        SenderId,
+        ReceiverId,
+        Content,
+        Attachment,
+        AttachmentName,
+        AttachmentType
+    )
+    OUTPUT INSERTED.* --this will return the entire row from Messages table which was just inserted currently
+    VALUES
+    (
+        @SenderId,
+        @ReceiverId,
+        @Content,
+        @Attachment,
+        @AttachmentName,
+        @AttachmentType
+    );
+END
+
+--message seen or not
+create procedure messageSeen 1,10
+	@SenderId INT,
+    @ReceiverId INT
 as
 begin
-	set nocount on;
-	insert into Messages(SenderId, ReceiverId, Content, Attachment)
-	OUTPUT INSERTED.*
-	values(@SenderId,@ReceiverId,@Content,@Attachment);
+	update Messages
+	set IsSeen = 1
+	where SenderId = @SenderId AND ReceiverId = @ReceiverId;
 end
-go
 
 
-
-create procedure sp_GetChatHistory
+create procedure sp_GetChatHistory 
 	@UserId int,
 	@ChatUserId int
 as 
@@ -256,7 +294,7 @@ end
 
 
 --UserList
-ALTER PROCEDURE sp_GetChatList 
+ALTER PROCEDURE sp_GetChatList 1
     @UserId INT
 AS
 BEGIN
@@ -267,7 +305,8 @@ BEGIN
         u.Username,
         u.ProfileImage,
         m.Content AS LastMessage,
-        m.SentAt AS LastMessageTime
+        m.SentAt AS LastMessageTime,
+		m.AttachmentName AS AttachmentName
     FROM Users u
     LEFT JOIN (
         SELECT
@@ -277,6 +316,7 @@ BEGIN
             END AS ChatUserId,
             Content,
             SentAt,
+			AttachmentName,
             ROW_NUMBER() OVER (
                 PARTITION BY 
                     CASE 
@@ -298,7 +338,16 @@ END
 
 select * from OtpVerifications
 select * from Users	
+select * from Messages	
 
-truncate table OtpVerifications
-truncate table Users
-	
+--truncate table OtpVerifications
+--truncate table Users
+
+delete from Users
+where UserId = 9
+
+truncate table  Messages 
+
+
+
+

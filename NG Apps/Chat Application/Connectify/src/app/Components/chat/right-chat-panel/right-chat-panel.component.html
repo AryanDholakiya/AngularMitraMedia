@@ -1,62 +1,208 @@
-@switch(activatedChat$ | async)
-{
-@case(null) {
-<div class="welcome">
-    <div class="welcome-icon">
-        <img src="assets/ConnectifyLogo.png" class="Connectify-icon" alt="Connectify" />
+@switch (activatedChat$ | async) {
+  @case (null) {
+    <div class="welcome">
+      <div class="welcome-icon">
+        <img
+          src="assets/ConnectifyLogo.png"
+          class="Connectify-icon"
+          alt="Connectify"
+        />
+      </div>
+      <h2>Welcome to Connectify</h2>
+      <p>Make your conversation Easy</p>
     </div>
-    <h2>Welcome to Connectify</h2>
-    <p>Make your conversation Easy</p>
-</div>
-}
+  }
 
-@default(){
-<div class="chat-container">
-    <!-- header part -->
-    <div class="chat-header">
-        <img [src]="(activatedChat$ | async)?.profileImage ? 'data:image/jpeg;base64,' + (activatedChat$ | async)?.profileImage : 'assets/default_profile_pic.jpg'"
-            class="avatar" alt="User image">
-        <h4>{{(activatedChat$ | async)?.username}}</h4>
-    </div>
-    <!-- message body -->
-    <div class="chat-messages" #messagesContainer>
-        @for(msg of messages; track msg.messageId){
-        <div class="message" [class.me]="msg.isMe">
-            <div class="bubble">
-                {{ msg.content }}
-                <span class="time">
-                    {{ msg.sentAt | date:'shortTime' }}
-                </span>
+  @default {
+    <div class="chat-container">
+      <!-- header part -->
+      <div class="chat-header">
+        <img
+          [src]="
+            (activatedChat$ | async)?.profileImage
+              ? 'data:image/jpeg;base64,' +
+                (activatedChat$ | async)?.profileImage
+              : 'assets/default_profile_pic.jpg'
+          "
+          class="avatar"
+          alt="User image"
+        />
+        <h4>{{ (activatedChat$ | async)?.username }}</h4>
+      </div>
+      <!-- message body -->
+      <div class="chat-messages" #messagesContainer (scroll)="onScroll()">
+        @for (msg of messages; track msg.messageId) {
+          <div class="message" [class.me]="msg.isMe">
+            <div class="bubble" [class.specialWidth]="msg.attachment">
+              <!-- note use of  ".specialWidth"-->
+              <div class="bubble-content">
+                <!-- Image attachment -->
+                <ng-container *ngIf="msg.attachment">
+                  <div class="media-wrapper">
+                    <!-- IMAGE PREVIEW -->
+                    <img
+                      *ngIf="msg.attachmentType?.startsWith('image/')"
+                      [src]="
+                        'data:' +
+                        msg.attachmentType +
+                        ';base64,' +
+                        msg.attachment
+                      "
+                      class="media-img"
+                      alt="attachment"
+                      data-bs-toggle="modal"
+                      data-bs-target="#PhotoModal"
+                      (click)="
+                        OpenselectedPhoto(
+                          msg.attachment,
+                          msg.attachmentName,
+                          msg.attachmentType
+                        )
+                      "
+                    />
+                    <div
+                      *ngIf="!msg.attachmentType?.startsWith('image/')"
+                      class="file-card"
+                      data-bs-toggle="modal"
+                      data-bs-target="#PhotoModal"
+                      (click)="
+                        OpenselectedPhoto(
+                          msg.attachment,
+                          msg.attachmentName,
+                          msg.attachmentType
+                        )
+                      "
+                    >
+                      <img
+                        [src]="getFilePreview(msg.attachmentType)"
+                        class="media-img"
+                      />
+                      <div class="file-info">
+                        <span class="file-name" style="color: gray">{{
+                          msg.attachmentName
+                        }}</span>
+                      </div>
+                    </div>
+                  </div>
+                </ng-container>
+
+                <!-- Message text / caption -->
+                <div class="text-content" *ngIf="msg.content">
+                  {{ msg.content }}
+                </div>
+
+                <!-- Time -->
+                <div class="time d-flex">
+                  <span>
+                    {{ msg.sentAt | date: "dd/MM/yyyy" }} &nbsp;
+                    {{ msg.sentAt | date: "h:mm a" }}
+                  </span>
+                  &nbsp;
+                  <i
+                    *ngIf="msg.isMe"
+                    [class.color]="msg.isSeen"
+                    class="bi bi-check-all ms-1"
+                  ></i>
+                </div>
+              </div>
             </div>
-        </div>
+          </div>
         }
-    </div>
-    <!-- Messsage typing input  -->
-    <div class="chat-input">
+      </div>
+      <ng-container *ngIf="showScrollButton">
+        <div class="scrollToBottomBtn" (click)="scrollToBottom(true)">
+          <!-- <i class="bi bi-arrow-down-circle"></i> :>we are showing down arrow using css -->
+          @if (NewMessageNotification) {
+            <span class="custom-badge">
+              {{ NewMessageCounter }}
+            </span>
+          }
+        </div>
+      </ng-container>
+      <!-- Messsage typing input  -->
+      <div class="chat-input">
         <div class="addAndInput">
-            <button class="sendfileBtn">
-                <label class="bi bi-patch-plus">
-                    <!-- always use label because if input:hidden is not in label and in button directly then we have to open it using ViewChild -->
-                    <input type="file" hidden (change)="openFileInput($event)" />
-                </label>
-            </button>
-            <input type="text" class="TypeMessage" placeholder="Type a message..." [(ngModel)]="messageText"
-                (keyup.enter)="sendMessage()" />
+          <button class="sendfileBtn">
+            <label class="bi bi-patch-plus">
+              <!-- always use label because if input:hidden is not in label and in button directly then we have to open it using ViewChild -->
+              <input type="file" hidden (change)="openFileInput($event)" />
+            </label>
+          </button>
+          <input
+            type="text"
+            class="TypeMessage"
+            placeholder="Type a message..."
+            [(ngModel)]="messageText"
+            (keyup.enter)="sendMessage()"
+          />
 
-            <!-- *ngIf="FilePreview !== null" -->
-            <ng-container *ngIf="FilePreview !== null">
-                <div class="Filepreview">
-                    <img [src]="selectedFile.type.startsWith('image/') ? FilePreview : 'assets/DefaultFilePreviewImg.png'"
-                        class="profile-img" />
-                </div>
-                <div class="IndicatorPin">
-                </div>
-            </ng-container>
+          <!-- *ngIf="FilePreview !== null" -->
+          <ng-container *ngIf="FilePreview !== null">
+            <div class="Filepreview">
+              <img
+                [src]="getFilePreview(selectedFileType)"
+                alt="Preview"
+                class="profile-img"
+              />
+            </div>
+            <div class="IndicatorPin"></div>
+          </ng-container>
         </div>
         <button class="sendMessageBtn" (click)="sendMessage()">
-            <i class="bi bi-send-fill"></i>
+          <i class="bi bi-send-fill"></i>
         </button>
+      </div>
     </div>
+  }
+}
+<!-- PhotoModal -->
+<div
+  class="modal modal-lg fade"
+  id="PhotoModal"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+  data-bs-theme="dark"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="download-icon fs-6" (click)="downloadAttachment()">
+          <i class="bi bi-download"></i> &nbsp;
+          <span>{{ modalAttachmentName }}</span>
+        </div>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <!-- img preview -->
+        <img
+          *ngIf="selectedFileType?.startsWith('image/')"
+          [src]="'data:' + selectedFileType + ';base64,' + modalPhoto"
+          width="100%"
+          style="max-height: 500px; object-fit: contain"
+        />
+
+        <!-- file preview -->
+        <div
+          *ngIf="!selectedFileType?.startsWith('image/')"
+          class="file-preview-modal"
+        >
+          <img
+            [src]="getFilePreview(selectedFileType)"
+            width="100%"
+            style="max-height: 500px; object-fit: contain modalpopUpFile"
+          />
+          <p class="modalpopUpText">
+            {{ getDownloadFileName(selectedFileType!) }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-}
-}

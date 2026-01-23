@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-export type MiddleView = 'chat-list' | 'profile' | 'settings';
+export type MiddleView = 'chat-list' | 'profile' | 'settings' | 'add-contact';
 
 @Injectable({
   providedIn: 'root',

@@ -23,7 +23,7 @@ export class LeftSidebarComponent implements OnInit {
       next: (res: any) => {
         console.log('response from the leftsidebar getprofile service:', res);
         this.LoggedUserProfileImg = res.profileImage;
-        console.log('img:', this.LoggedUserProfileImg);
+        // console.log('img:', this.LoggedUserProfileImg);
       },
       error: (e) => {
         console.log('Error from the leftsidebar getprofile service:', e);
@@ -39,5 +39,8 @@ export class LeftSidebarComponent implements OnInit {
   }
   openProfile() {
     this.uistate.setView('profile');
+  }
+  AddContact() {
+    this.uistate.setView('add-contact');
   }
 }

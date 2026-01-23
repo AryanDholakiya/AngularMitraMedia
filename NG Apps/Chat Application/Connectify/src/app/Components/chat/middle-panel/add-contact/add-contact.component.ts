@@ -1,17 +1,17 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { ChatItem } from '../../../../interfaces/chat-item';
-import { ChatStateService } from '../../../../../Services/ChatPage Services/chat-state.service';
-import { ActiveChat } from '../../../../interfaces/active-chat';
+import { Component, OnInit } from '@angular/core';
 import { CurrentUserService } from '../../../../../Services/ChatPage Services/current-user.service';
 import { ChatApiService } from '../../../../../Services/ChatPage Services/chat-api.service';
+import { ChatItem } from '../../../../interfaces/chat-item';
+import { ActiveChat } from '../../../../interfaces/active-chat';
+import { ChatStateService } from '../../../../../Services/ChatPage Services/chat-state.service';
 
 @Component({
-  selector: 'app-chat-list',
+  selector: 'app-add-contact',
   standalone: false,
-  templateUrl: './chat-list.component.html',
-  styleUrl: './chat-list.component.scss',
+  templateUrl: './add-contact.component.html',
+  styleUrl: './add-contact.component.scss',
 })
-export class ChatListComponent implements OnInit {
+export class AddContactComponent implements OnInit {
   activeChatId: number | null = null;
   chats: ChatItem[] = [];
   CurrentLoggedInUserId = 0;

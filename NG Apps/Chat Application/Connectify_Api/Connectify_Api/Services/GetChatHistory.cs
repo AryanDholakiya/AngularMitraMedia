@@ -37,11 +37,14 @@ namespace Connectify_Api.Services
                         MessageId = reader.GetInt32(0),
                         SenderId = reader.GetInt32(1),
                         ReceiverId = reader.GetInt32(2),
-                        Content = reader.GetString(3),
+                        Content = reader.IsDBNull(3) ? null : reader.GetString(3),
                         SentAt = reader.GetDateTime(4),
                         IsDelivered = reader.GetBoolean(5),
                         IsSeen = reader.GetBoolean(6),
-                        Attachment = reader.IsDBNull(7) ? null : reader.GetString(7),
+                        Attachment = reader["Attachment"] == DBNull.Value ? null : Convert.ToBase64String((byte[])reader["Attachment"]),
+                        AttachmentName = reader.IsDBNull(8) ? null : reader.GetString(8),
+                        AttachmentType = reader.IsDBNull(9) ? null : reader.GetString(9)
+
                     });
                 }
 

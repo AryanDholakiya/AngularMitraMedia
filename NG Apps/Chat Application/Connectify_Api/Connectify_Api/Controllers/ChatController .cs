@@ -40,6 +40,17 @@ namespace Connectify_Api.Controllers
             return Ok(savedMessage);
         }
 
+        [HttpPost("MessageSeen")]
+        public async Task<IActionResult> MessageSeenAsync(IsMessageSeen request)
+        {
+            var messageSeen = await _messageService.MessageSeen(request);
+            await _hub.Clients.All.SendAsync("MessageSeen", request);
+            return Ok(new { result = "Message seen" });
+        }
+
+
+
+
         [HttpGet("history")]
         public async Task<IActionResult> GetChatHistoryAsync([FromQuery] int userId,[FromQuery] int chatUserId)
         {
@@ -64,20 +75,34 @@ namespace Connectify_Api.Controllers
 
             SqlDataReader reader = await cmd.ExecuteReaderAsync();
 
-            while (await reader.ReadAsync())
+
+            //while (await reader.ReadAsync())
+            //{
+            //    //var userIdFromUsers = reader.GetInt32(0);
+            //    //var UserCountryCode = reader.GetString(1);
+            //}
+
+            //Note: NextResultAsync() --> if our sp returning 2 result sets then we have to give this.
+
+            if (await reader.NextResultAsync())
             {
-                chats.Add(new ChatListItemDto
+                while (await reader.ReadAsync())
                 {
-                    UserId = reader.GetInt32(0),
-                    Username = reader.GetString(1),
-                    ProfileImage = reader.IsDBNull(2)
-                        ? null
-                        : Convert.ToBase64String((byte[])reader["ProfileImage"]),
-                    LastMessage = reader.IsDBNull(3) ? null : reader.GetString(3),
-                    LastMessageTime = reader.IsDBNull(4) ? DateTime.Now : reader.GetDateTime(4)
-                });
+                    chats.Add(new ChatListItemDto
+                    {
+                        UserId = reader.GetInt32(0),
+                        Username = reader.GetString(1),
+                        ProfileImage = reader.IsDBNull(2)
+                            ? null
+                            : Convert.ToBase64String((byte[])reader["ProfileImage"]),
+                        LastMessage = reader.IsDBNull(3) ? null : reader.GetString(3),
+                        LastMessageTime = reader.IsDBNull(4) ? DateTime.Now : reader.GetDateTime(4),
+                        attachmentName = reader.IsDBNull(5) ? null : reader.GetString(5)
+                    });
+                }
             }
 
+            Console.WriteLine("Chattttttsss: ",chats);
             return Ok(chats);
         }
     }

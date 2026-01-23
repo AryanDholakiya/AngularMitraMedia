@@ -80,11 +80,26 @@ export class RegistrationComponent {
 
     this.apiService.sendOtp(this.Connectify_Registration.value).subscribe({
       next: (res: any) => {
+        debugger;
+        console.log(res);
+        localStorage.setItem(
+          'loggedIn_User',
+          JSON.stringify({
+            email: res.email,
+            mobileNumber: res.mobileNumber,
+            CountryCode: res.countryCode,
+          }),
+        );
+        const storedData = localStorage.getItem('loggedIn_User');
+        console.log('storedData: ', storedData);
         this.router.navigate(['/Verify-Otp'], {
           queryParams: {
-            countryCode: this.Connectify_Registration.value.countryCode,
-            mobileNumber: this.Connectify_Registration.value.mobileNumber,
-            email: this.Connectify_Registration.value.email,
+            // countryCode: this.Connectify_Registration.value.countryCode,
+            // mobileNumber: this.Connectify_Registration.value.mobileNumber,
+            // email: this.Connectify_Registration.value.email,
+            countryCode: res.countryCode,
+            mobileNumber: res.mobileNumber,
+            email: res.email,
           },
         });
       },

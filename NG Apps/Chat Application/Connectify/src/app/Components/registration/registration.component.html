@@ -1,8 +1,6 @@
 <div class="registration-page">
   <div class="row m-0 registrationMainForm">
-    <div
-      class="formMainDiv col-md-6 border border-secondary-subtle rounded-4 p-5"
-    >
+    <div class="formMainDiv col-md-6 border border-secondary-subtle rounded-4 p-5">
       <div class="innerMainDiv text-center">
         <div class="mb-5">
           <h4>Register YourSelf</h4>
@@ -12,22 +10,14 @@
         <form [formGroup]="Connectify_Registration">
           <div class="country-dropdown" (click)="toggleDropdown()">
             <div class="selected-country">
-              <img
-                *ngIf="selectedCountry"
-                [src]="selectedCountry.flag"
-                class="flag"
-              />
+              <img *ngIf="selectedCountry" [src]="selectedCountry.flag" class="flag" />
               <span class="ps-2">
                 {{ selectedCountry?.name || "Select Your Country" }}
               </span>
             </div>
 
             <div class="dropdown-list" *ngIf="isDropdownOpen">
-              <div
-                class="dropdown-item"
-                *ngFor="let country of countries"
-                (click)="selectCountry($event, country)"
-              >
+              <div class="dropdown-item" *ngFor="let country of countries" (click)="selectCountry($event, country)">
                 <img [src]="country.flag" class="flag" />
                 <span>{{ country.name }} ({{ country.code }})</span>
               </div>
@@ -41,9 +31,7 @@
           } }
 
           <div class="input-group mt-3">
-            <span
-              class="input-group-text bg-transparent border border-secondary brSpan"
-            >
+            <span class="input-group-text bg-transparent border border-secondary brSpan">
               @if(selectedCountry){
               <p class="m-0" style="font-size: small !important">
                 {{ selectedCountry.code }}
@@ -52,18 +40,11 @@
               <i class="bi bi-person"></i>
               }
             </span>
-            <input
-              type="tel"
-              formControlName="mobileNumber"
-              class="form-control border border-secondary p-2 brInput"
-              placeholder="Enter Mobile Number"
-              maxlength="10"
-              (keypress)="onlyNumber($event)"
-              [class.is-invalid]="
+            <input type="tel" formControlName="mobileNumber" class="form-control border border-secondary p-2 brInput"
+              placeholder="Enter Mobile Number" maxlength="10" (keypress)="onlyNumber($event)" [class.is-invalid]="
                 Connectify_Registration.get('mobileNumber')?.invalid &&
                 Connectify_Registration.get('mobileNumber')?.touched
-              "
-            />
+              " />
             @if(Connectify_Registration.get('mobileNumber')?.invalid &&
             Connectify_Registration.get('mobileNumber')?.touched) {
             @if(Connectify_Registration.get('mobileNumber')?.errors?.['required'])
@@ -74,21 +55,14 @@
             } }
           </div>
           <div class="input-group mt-3">
-            <span
-              class="input-group-text bg-transparent border border-secondary brSpan"
-            >
+            <span class="input-group-text bg-transparent border border-secondary brSpan">
               <i class="bi bi-envelope"></i>
             </span>
-            <input
-              type="email"
-              formControlName="email"
-              class="form-control border border-secondary p-2 brInput"
-              placeholder="Enter Email Address"
-              [class.is-invalid]="
+            <input type="email" formControlName="email" class="form-control border border-secondary p-2 brInput"
+              placeholder="Enter Email Address" [class.is-invalid]="
                 Connectify_Registration.get('email')?.invalid &&
                 Connectify_Registration.get('email')?.touched
-              "
-            />
+              " />
             @if(Connectify_Registration.get('email')?.invalid &&
             Connectify_Registration.get('email')?.touched) {
             @if(Connectify_Registration.get('email')?.errors?.['required']) {
@@ -106,6 +80,11 @@
           <button class="btn registerbtn" (click)="SubmitRegiForm()">
             Register
           </button>
+        </div>
+        <div class="login-redirect">
+          <p class="mb-0">Already have an account?
+            <a routerLink="/Login" class="login-link">Login here</a>
+          </p>
         </div>
       </div>
     </div>

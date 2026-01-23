@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import * as signalR from '@microsoft/signalr';
 import { BehaviorSubject } from 'rxjs';
 import { RealtimeMessage } from '../app/interfaces/realtime-message';
+import { MessageSeen } from '../app/interfaces/message-seen';
 
 @Injectable({
   providedIn: 'root',
@@ -45,11 +46,21 @@ export class SignalRService {
       .catch((err) => console.error('SignalR Error:', err));
 
     this.receiveMessageListener();
+    this.MessageSeenListener();
   }
 
   private receiveMessageListener() {
     this.hubConnection.on('ReceiveMessage', (data: RealtimeMessage) => {
       this.messageSubject.next(data);
+    });
+  }
+
+  private SeenmessageSubject = new BehaviorSubject<MessageSeen | null>(null);
+  Seenmessage$ = this.SeenmessageSubject.asObservable();
+
+  private MessageSeenListener() {
+    this.hubConnection.on('MessageSeen', (data: MessageSeen) => {
+      this.SeenmessageSubject.next(data);
     });
   }
 

@@ -6,5 +6,6 @@ namespace Connectify_Api.Repositories
     public interface IMessageService
     {
         Task<Message> SaveMessageAsync(SendMessageDto dto);
+        Task<bool> MessageSeen(IsMessageSeen dto);
     }
 }

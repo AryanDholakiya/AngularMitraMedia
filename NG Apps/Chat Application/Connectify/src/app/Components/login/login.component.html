@@ -5,11 +5,10 @@
     >
       <div class="innerMainDiv text-center">
         <div class="mb-4">
-          <h4>Login</h4>
+          <h4>Welcome Back</h4>
+
           <p style="font-size: 12px">
-            Connectify will share a code on the Email, associated with Entered
-            <br />
-            Mobile Number to Verify.
+            Enter your mobile number to receive a verification code via email
           </p>
         </div>
 
@@ -21,6 +20,7 @@
                 [src]="selectedCountry.flag"
                 class="flag"
               />
+
               <span class="ps-2">
                 {{ selectedCountry?.name || "Select Your Country" }}
               </span>
@@ -33,28 +33,34 @@
                 (click)="selectCountry($event, country)"
               >
                 <img [src]="country.flag" class="flag" />
+
                 <span>{{ country.name }} ({{ country.code }})</span>
               </div>
             </div>
           </div>
-          @if(Connectify_Login.get('countryCode')?.invalid &&
-          Connectify_Login.get('countryCode')?.touched) {
-          @if(Connectify_Login.get('countryCode')?.errors?.['required']) {
-          <div class="text-danger text-start">Country is Required!</div>
-          } }
+
+          @if (
+            Connectify_Login.get("countryCode")?.invalid &&
+            Connectify_Login.get("countryCode")?.touched
+          ) {
+            @if (Connectify_Login.get("countryCode")?.errors?.["required"]) {
+              <div class="text-danger text-start">Country is Required!</div>
+            }
+          }
 
           <div class="input-group mt-3">
             <span
               class="input-group-text bg-transparent border border-secondary brSpan"
             >
-              @if(selectedCountry){
-              <p class="m-0" style="font-size: small !important">
-                {{ selectedCountry.code }}
-              </p>
-              } @else{
-              <i class="bi bi-person"></i>
+              @if (selectedCountry) {
+                <p class="m-0" style="font-size: small !important">
+                  {{ selectedCountry.code }}
+                </p>
+              } @else {
+                <i class="bi bi-person"></i>
               }
             </span>
+
             <input
               type="tel"
               formControlName="mobileNumber"
@@ -67,47 +73,60 @@
                 Connectify_Login.get('mobileNumber')?.touched
               "
             />
-            @if(Connectify_Login.get('mobileNumber')?.invalid &&
-            Connectify_Login.get('mobileNumber')?.touched) {
-            @if(Connectify_Login.get('mobileNumber')?.errors?.['required']) {
-            <div class="invalid-feedback text-danger text-start">
-              Mobile Number is Required!
-            </div>
-            } }
+
+            @if (
+              Connectify_Login.get("mobileNumber")?.invalid &&
+              Connectify_Login.get("mobileNumber")?.touched
+            ) {
+              @if (Connectify_Login.get("mobileNumber")?.errors?.["required"]) {
+                <div class="invalid-feedback text-danger text-start">
+                  Mobile Number is Required!
+                </div>
+              }
+            }
           </div>
 
-          @if(SendOtp){
-          <div class="mt-4 email_verification">
-            <h6 class="verify_heading">Email Verification :</h6>
-            <p class="verify_text">
-              We have sent a 6-digit verification code to
-              <!-- <strong>{{ formatEmail(LoggedUser_email) }}</strong> -->
-            </p>
-            <input
-              type="text"
-              maxlength="6"
-              class="form-control otp-input"
-              placeholder="Enter OTP"
-              formControlName="LoginOtp"
-              (keypress)="onlyNumber($event)"
-            />
+          @if (SendOtp) {
+            <div class="mt-4 email_verification">
+              <h6 class="verify_heading">Email Verification :</h6>
+              <p class="verify_text">
+                We have sent a 6-digit verification code to
+                <strong>{{ formatEmail(email) }}</strong>
+              </p>
 
-            <div
-              class="error"
-              *ngIf="
-                Connectify_Login.get('LoginOtp')?.invalid &&
-                Connectify_Login.get('LoginOtp')?.touched
-              "
-            >
-              OTP must be 6 digits
+              <input
+                type="text"
+                maxlength="6"
+                class="form-control otp-input"
+                placeholder="- - - - - -"
+                formControlName="LoginOtp"
+                (keypress)="onlyNumber($event)"
+              />
+
+              <div
+                class="error"
+                *ngIf="
+                  Connectify_Login.get('LoginOtp')?.invalid &&
+                  Connectify_Login.get('LoginOtp')?.touched
+                "
+              >
+                OTP must be 6 digits
+              </div>
             </div>
-          </div>
           }
         </form>
+
         <div class="mt-4">
           <button class="btn registerbtn" (click)="VerifyLogin()">
-            {{ SendOtp ? "Verify" : "Login" }}
+            {{ SendOtp ? "Verify & Continue" : "Send Login Code" }}
           </button>
+        </div>
+
+        <div class="register-redirect">
+          <p class="mb-0">
+            New to Connectify?
+            <a routerLink="/Register" class="register-link">Create Account</a>
+          </p>
         </div>
       </div>
     </div>

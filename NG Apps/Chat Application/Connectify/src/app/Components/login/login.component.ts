@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   private router = inject(Router);
 
   SendOtp: boolean = false;
+  email = '';
 
   ngOnInit(): void {
     // const Signed_User = JSON.parse(
@@ -45,13 +46,6 @@ export class LoginComponent implements OnInit {
     if (!pattern.test(pressedKey)) {
       event.preventDefault();
     }
-  }
-
-  //format email text:
-  formatEmail(email: string) {
-    const getFourChar = email.slice(0, 3);
-    const end = email.indexOf('@');
-    return getFourChar + '******' + email.slice(end);
   }
 
   countries = [
@@ -90,7 +84,8 @@ export class LoginComponent implements OnInit {
       // debugger;
       this.apiService.sendLoginOtp(this.Connectify_Login.value).subscribe({
         next: (res: any) => {
-          // comes here only if status code 200 cames from Backend
+          console.log('sent otp: ', res);
+          this.email = res.email;
           this.toastr.success(res.message);
           this.SendOtp = true;
         },
@@ -119,12 +114,21 @@ export class LoginComponent implements OnInit {
             }),
           );
 
-          this.router.navigate(['/SendMessage']);
+          this.router.navigate(['/chat']);
         },
         error: (e) => {
           this.toastr.error(e.error.message);
         },
       });
     }
+  }
+
+  //format email text:
+  formatEmail(email: string) {
+    debugger;
+    if (!email) return '';
+    const getFourChar = email.slice(0, 3);
+    const end = email.indexOf('@');
+    return getFourChar + '******' + email.slice(end);
   }
 }

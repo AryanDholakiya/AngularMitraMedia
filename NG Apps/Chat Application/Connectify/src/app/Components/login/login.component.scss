@@ -15,7 +15,6 @@
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(20px); // બેકગ્રાઉન્ડ આછું બ્લર થશે
   -webkit-backdrop-filter: blur(8px);
-
   border: 1px solid rgba(255, 255, 255, 0.4) !important;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.404);
   border-radius: 30px !important;
@@ -23,6 +22,7 @@
   width: auto;
   position: relative;
 }
+
 .innerMainDiv {
   width: 400px;
   margin: auto;
@@ -49,17 +49,21 @@
     box-shadow: 0 0 0 0.2rem rgba(44, 167, 60, 0.25) !important;
   }
 }
+
 .selectBorderadius {
   border-radius: 20px;
 }
+
 .brSpan {
   border-radius: 20px 0px 0px 20px !important;
 }
+
 .brInput {
   border-radius: 0px 20px 20px 0px !important;
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(8px);
 }
+
 .flag {
   height: 21px;
   width: 20px;
@@ -107,12 +111,13 @@
 
 .flag {
   width: 20px;
+
   height: 18px;
 }
 
 //register button
 .registerbtn {
-  width: 120px;
+  width: 180px;
   padding: 10px;
   border-radius: 25px;
   background: linear-gradient(135deg, #2ca73c 0%, #1e7a2b 100%);
@@ -130,7 +135,6 @@
 }
 
 //otp
-
 h6 {
   color: #2ca73c;
   font-weight: 600;
@@ -173,8 +177,44 @@ p {
   .verify_heading {
     text-align: left !important;
   }
+
   .verify_text {
     text-align: left !important;
     font-size: 12px;
+  }
+}
+
+//register button
+.register-redirect {
+  padding-top: 1rem;
+
+  p {
+    font-size: 0.95rem;
+    color: #666;
+    margin: 0;
+  }
+
+  .register-link {
+    color: #2ca73c;
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: #1e7a2b;
+      transform: scale(1.05);
+    }
+
+    &::after {
+      content: "→";
+      opacity: 0;
+      transition: 0.3s;
+    }
+
+    &:hover::after {
+      opacity: 1;
+      padding-left: 3px;
+    }
   }
 }

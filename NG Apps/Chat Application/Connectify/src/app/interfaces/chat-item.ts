@@ -4,4 +4,5 @@ export interface ChatItem {
   profileImage: string;
   lastMessage: string;
   lastMessageTime: string;
+  attachmentName?: string;
 }

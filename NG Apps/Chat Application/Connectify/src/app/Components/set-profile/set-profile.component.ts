@@ -42,7 +42,7 @@ export class SetProfileComponent implements OnInit {
   }
 
   //Image preview function
-  onImageSelect(event: any) {
+  async onImageSelect(event: any) {
     const file = event.target.files[0];
     if (!file) return;
 
@@ -52,16 +52,22 @@ export class SetProfileComponent implements OnInit {
       this.toastr.error('Only image files are allowed');
       return;
     }
-    this.selectedImage = file;
 
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => {
-      this.imagePreview = reader.result as string;
-      console.log('image preview: ', this.imagePreview);
-    };
-    // const objectUrl = URL.createObjectURL(file);
-    // this.imagePreview = objectUrl;
+    try {
+      // ઈમેજને 200x200 પિક્સેલમાં કોમ્પ્રેસ કરો
+      const compressedFile = await this.compressImage(file, 200, 200);
+      this.selectedImage = compressedFile;
+
+      const reader = new FileReader();
+      reader.readAsDataURL(compressedFile);
+      reader.onload = () => {
+        this.imagePreview = reader.result as string;
+      };
+      // const objectUrl = URL.createObjectURL(compressedFile); instead of FileReader
+      // this.imagePreview = objectUrl;
+    } catch (error) {
+      console.error('Compression error:', error);
+    }
   }
 
   setProfile() {
@@ -87,11 +93,66 @@ export class SetProfileComponent implements OnInit {
         debugger;
         console.log('Profile Image: ', res);
         this.toastr.success('Profile set successfully');
-        this.router.navigate(['/SendMessage']);
+        this.router.navigate(['/chat']);
       },
       error: () => {
         this.toastr.error('Failed to update profile');
       },
+    });
+  }
+
+  //to resolve the chatlist users dp warning :
+  compressImage(
+    file: File,
+    maxWidth: number,
+    maxHeight: number,
+  ): Promise<File> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = (event: any) => {
+        const img = new Image();
+        img.src = event.target.result;
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          let width = img.width;
+          let height = img.height;
+
+          // Aspect ratio જાળવી રાખીને સાઈઝ નક્કી કરવી
+          if (width > height) {
+            if (width > maxWidth) {
+              height *= maxWidth / width;
+              width = maxWidth;
+            }
+          } else {
+            if (height > maxHeight) {
+              width *= maxHeight / height;
+              height = maxHeight;
+            }
+          }
+
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          ctx?.drawImage(img, 0, 0, width, height);
+
+          // Canvas ને Blob માં ફેરવવું (Quality 0.7 એટલે કે 70%)
+          canvas.toBlob(
+            (blob) => {
+              if (blob) {
+                const compressedFile = new File([blob], file.name, {
+                  type: 'image/jpeg',
+                  lastModified: Date.now(),
+                });
+                resolve(compressedFile);
+              }
+            },
+            'image/jpeg',
+            0.7,
+          );
+        };
+      };
+      reader.onerror = (error) => reject(error);
     });
   }
 }

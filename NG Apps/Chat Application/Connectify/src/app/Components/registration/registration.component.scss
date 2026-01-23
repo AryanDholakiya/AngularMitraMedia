@@ -128,3 +128,38 @@
     color: white;
   }
 }
+
+//login link::after
+.login-redirect {
+  padding-top: 1rem;
+
+  p {
+    font-size: 0.95rem;
+    color: #666;
+    margin: 0;
+  }
+
+  .login-link {
+    color: #2ca73c;
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: #1e7a2b;
+      transform: scale(1.05);
+    }
+
+    &::after {
+      content: "→";
+      opacity: 0;
+      transition: 0.3s;
+    }
+
+    &:hover::after {
+      opacity: 1;
+      padding-left: 3px;
+    }
+  }
+}

@@ -1,13 +1,25 @@
 <div class="left-sidebar">
   <div class="sidebar-top">
-    <img src="assets/ConnectifyLogo.png" class="Connectify-icon" alt="Connectify" />
-    <i class="bi bi-chat" (click)="openChats()"></i>
+    <img
+      src="assets/ConnectifyLogo.png"
+      class="Connectify-icon"
+      alt="Connectify"
+    />
+    <i class="bi bi-chat-right-dots" (click)="openChats()"></i>
+    <i class="bi bi-person-add" (click)="AddContact()"></i>
   </div>
 
   <div class="sidebar-bottom">
     <i class="bi bi-gear" (click)="openSettings()"></i>
     <img
-      [src]="LoggedUserProfileImg != null ? 'data:image/png;base64,'+LoggedUserProfileImg : 'assets/default_profile_pic.jpg'"
-      alt="Profile" class="profile-icon" (click)="openProfile()" />
+      [src]="
+        LoggedUserProfileImg != null
+          ? 'data:image/png;base64,' + LoggedUserProfileImg
+          : 'assets/default_profile_pic.jpg'
+      "
+      alt="Profile"
+      class="profile-icon"
+      (click)="openProfile()"
+    />
   </div>
 </div>

@@ -18,6 +18,7 @@ import { LeftSidebarComponent } from './Components/chat/left-sidebar/left-sideba
 import { MiddlePanelComponent } from './Components/chat/middle-panel/middle-panel.component';
 import { ChatListComponent } from './Components/chat/middle-panel/chat-list/chat-list.component';
 import { RightChatPanelComponent } from './Components/chat/right-chat-panel/right-chat-panel.component';
+import { AddContactComponent } from './Components/chat/middle-panel/add-contact/add-contact.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { RightChatPanelComponent } from './Components/chat/right-chat-panel/righ
     MiddlePanelComponent,
     ChatListComponent,
     RightChatPanelComponent,
+    AddContactComponent,
   ],
   imports: [
     BrowserModule,

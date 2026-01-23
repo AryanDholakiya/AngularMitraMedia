@@ -61,18 +61,19 @@ export class VerifyOtpComponent {
 
     this.api.verifyOtp(payload).subscribe({
       next: (res: any) => {
+        debugger;
         console.log(res);
         localStorage.setItem('userId', res.userId);
         this.toastr.success('Registration successful');
 
-        localStorage.setItem(
-          'loggedIn_User',
-          JSON.stringify({
-            email: res.email,
-            mobileNumber: this.mobileNumber,
-            countryCode: this.countryCode,
-          }),
-        );
+        // localStorage.setItem(
+        //   'loggedIn_User',
+        //   JSON.stringify({
+        //     email: res.email,
+        //     mobileNumber: this.mobileNumber,
+        //     countryCode: this.countryCode,
+        //   }),
+        // );
         this.router.navigateByUrl('/Set-profile');
       },
       error: () => {
