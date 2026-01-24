@@ -33,11 +33,11 @@ export class VerifyOtpComponent {
     private router: Router,
     private toastr: ToastrService,
     private route: ActivatedRoute,
-    private api: ApiServiceService,
+    private api: ApiServiceService
   ) {}
 
   ngOnInit(): void {
-    debugger;
+    // debugger;
     this.route.queryParams.subscribe((params) => {
       this.countryCode = params['countryCode'];
       this.mobileNumber = params['mobileNumber'];
@@ -61,7 +61,7 @@ export class VerifyOtpComponent {
 
     this.api.verifyOtp(payload).subscribe({
       next: (res: any) => {
-        debugger;
+        // debugger;
         console.log(res);
         localStorage.setItem('userId', res.userId);
         this.toastr.success('Registration successful');

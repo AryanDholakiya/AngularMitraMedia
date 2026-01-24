@@ -42,7 +42,7 @@ export class RightChatPanelComponent {
     private chatState: ChatStateService,
     private signalR: SignalRService,
     private chatApi: ChatApiService,
-    private currentUser: CurrentUserService,
+    private currentUser: CurrentUserService
   ) {
     this.activatedChat$ = this.chatState.activeChat$;
 
@@ -88,7 +88,6 @@ export class RightChatPanelComponent {
     this.signalR.message$.subscribe((msg) => {
       if (!msg) return;
       debugger;
-
       if (msg.senderId === this.activeReceiverId) {
         this.messages.push({
           messageId: msg.messageId,

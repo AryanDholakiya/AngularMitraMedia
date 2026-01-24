@@ -80,7 +80,7 @@ export class RegistrationComponent {
 
     this.apiService.sendOtp(this.Connectify_Registration.value).subscribe({
       next: (res: any) => {
-        debugger;
+        // debugger;
         console.log(res);
         localStorage.setItem(
           'loggedIn_User',
@@ -88,7 +88,7 @@ export class RegistrationComponent {
             email: res.email,
             mobileNumber: res.mobileNumber,
             CountryCode: res.countryCode,
-          }),
+          })
         );
         const storedData = localStorage.getItem('loggedIn_User');
         console.log('storedData: ', storedData);

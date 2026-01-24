@@ -81,7 +81,7 @@ export class SetProfileComponent implements OnInit {
     formData.append('Username', this.profileForm.value.username!);
     formData.append('About', this.profileForm.value.about!);
 
-    debugger;
+    // debugger;
     if (this.selectedImage) {
       formData.append('ProfileImage', this.selectedImage);
     } else {
@@ -90,7 +90,7 @@ export class SetProfileComponent implements OnInit {
 
     this.api.updateProfile(formData).subscribe({
       next: (res: any) => {
-        debugger;
+        // debugger;
         console.log('Profile Image: ', res);
         this.toastr.success('Profile set successfully');
         this.router.navigate(['/chat']);
@@ -105,7 +105,7 @@ export class SetProfileComponent implements OnInit {
   compressImage(
     file: File,
     maxWidth: number,
-    maxHeight: number,
+    maxHeight: number
   ): Promise<File> {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
@@ -148,7 +148,7 @@ export class SetProfileComponent implements OnInit {
               }
             },
             'image/jpeg',
-            0.7,
+            0.7
           );
         };
       };

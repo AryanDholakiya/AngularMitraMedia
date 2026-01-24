@@ -19,7 +19,7 @@ export class ChatListComponent implements OnInit {
   constructor(
     private chatState: ChatStateService,
     private currentUser: CurrentUserService,
-    private getChatList: ChatApiService,
+    private getChatList: ChatApiService
   ) {
     this.chatState.activeChat$.subscribe((chat: ActiveChat | null) => {
       if (chat?.userId) {
@@ -40,7 +40,7 @@ export class ChatListComponent implements OnInit {
 
     this.getChatList.GetChatList(this.CurrentLoggedInUserId).subscribe({
       next: (res: any) => {
-        debugger;
+        // debugger;
         console.log('response from chatlist', res);
         this.chats = res;
         // console.log(this.chats);

@@ -95,10 +95,9 @@ export class LoginComponent implements OnInit {
         },
       });
     } else {
-      // debugger;
       this.apiService.verifyLoginOtp(this.Connectify_Login.value).subscribe({
         next: (res: any) => {
-          debugger;
+          // debugger;
           console.log('response after login: ', res);
           localStorage.setItem('userId', res.userId);
           this.toastr.success(res.message);
@@ -111,7 +110,7 @@ export class LoginComponent implements OnInit {
               email: res.email,
               mobileNumber: this.Connectify_Login.value.mobileNumber,
               countryCode: this.Connectify_Login.value.countryCode,
-            }),
+            })
           );
 
           this.router.navigate(['/chat']);
@@ -125,7 +124,7 @@ export class LoginComponent implements OnInit {
 
   //format email text:
   formatEmail(email: string) {
-    debugger;
+    // debugger;
     if (!email) return '';
     const getFourChar = email.slice(0, 3);
     const end = email.indexOf('@');
