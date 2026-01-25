@@ -30,7 +30,7 @@ export class RightChatPanelComponent {
   FilePreview: string | null = null;
 
   activatedChat$: Observable<ActiveChat | null>;
-  activeReceiverId: number = 0; //same as activatedChat$ but "activerecieverId" only contains the Id
+  MsgReceivingFrom: number = 0; //same as activatedChat$ but "activerecieverId" only contains the Id
   IsFileInputOpen: boolean = false;
 
   messages: ChatMessage[] = [];
@@ -54,13 +54,14 @@ export class RightChatPanelComponent {
 
     // Load history when chat changes
     this.chatState.activeChat$.subscribe((chat) => {
-      // debugger;
+      debugger;
       if (!chat) {
         this.messages = [];
         this.resetDraftState();
         return;
       }
-      this.activeReceiverId = chat.userId;
+      this.MsgReceivingFrom = chat.userId;
+      console.log('this.MsgReceivingFrom: ', this.MsgReceivingFrom);
 
       this.resetDraftState();
 
@@ -88,7 +89,11 @@ export class RightChatPanelComponent {
     this.signalR.message$.subscribe((msg) => {
       if (!msg) return;
       debugger;
-      if (msg.senderId === this.activeReceiverId) {
+
+      if (
+        msg.senderId === this.MsgReceivingFrom &&
+        msg.receiverId === this.loggedInUserId
+      ) {
         this.messages.push({
           messageId: msg.messageId,
           senderId: msg.senderId,
@@ -118,8 +123,8 @@ export class RightChatPanelComponent {
 
     // Message Seen or not
     this.signalR.Seenmessage$.subscribe((data) => {
-      debugger;
-      if (data?.senderId === this.activeReceiverId) {
+      // debugger;
+      if (data?.senderId === this.MsgReceivingFrom) {
         for (let msg of this.messages) {
           msg.isSeen = true;
         }
@@ -135,7 +140,7 @@ export class RightChatPanelComponent {
 
     const formdata = new FormData();
     formdata.append('senderId', String(this.loggedInUserId));
-    formdata.append('receiverId', String(this.activeReceiverId));
+    formdata.append('receiverId', String(this.MsgReceivingFrom));
     formdata.append('message', this.messageText);
     formdata.append('content', this.messageText ?? null);
     formdata.append('time', new Date().toISOString());
@@ -161,7 +166,7 @@ export class RightChatPanelComponent {
         this.messages.push({
           messageId: res.messageId,
           senderId: this.loggedInUserId,
-          receiverId: this.activeReceiverId,
+          receiverId: this.MsgReceivingFrom,
           content: this.messageText,
           sentAt: new Date().toISOString(),
           isMe: true,
@@ -242,7 +247,7 @@ export class RightChatPanelComponent {
     debugger;
     const data: MessageSeen = {
       senderId: this.loggedInUserId,
-      receiverId: this.activeReceiverId,
+      receiverId: this.MsgReceivingFrom,
     };
     this.chatApi.MessageSeen(data).subscribe({
       next: (res: any) => {

@@ -8,25 +8,6 @@ import { MessageSeen } from '../app/interfaces/message-seen';
   providedIn: 'root',
 })
 export class SignalRService {
-  // private hubConnection!: signalR.HubConnection;
-  // recievedMessage = new BehaviorSubject<Sender>({ sender: '', message: '' });
-  // RecivedMessage$ = this.recievedMessage.asObservable();
-  // startConnection() {
-  //   this.hubConnection = new signalR.HubConnectionBuilder()
-  //     .withUrl('https://localhost:7132/connectify')
-  //     .withAutomaticReconnect()
-  //     .build();
-  //   this.hubConnection
-  //     .start()
-  //     .then(() => console.log('SingnalR started!'))
-  //     .catch((e) => console.log(e));
-  // }
-  // RecieveMessage() {
-  //   this.hubConnection.on('ReceiveMessage', (msg: Sender) => {
-  //     this.recievedMessage.next(msg);
-  //   });
-  // }
-
   private hubConnection!: signalR.HubConnection;
 
   private messageSubject = new BehaviorSubject<RealtimeMessage | null>(null);
@@ -63,13 +44,6 @@ export class SignalRService {
       this.SeenmessageSubject.next(data);
     });
   }
-
-  // sendMessage(data: RealtimeMessage) {
-  //   debugger;
-  //   this.hubConnection.invoke('SendMessage', data).catch((err) => {
-  //     console.error('Send error:', err);
-  //   });
-  // }
 
   stopConnection() {
     this.hubConnection.stop();

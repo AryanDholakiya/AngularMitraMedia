@@ -53,7 +53,7 @@ export class ChatListComponent implements OnInit {
   }
 
   selectChat(chatUser: ChatItem) {
-    // debugger;
+    debugger;
     this.chatState.setActiveChat({
       userId: chatUser.userId,
       username: chatUser.username,
