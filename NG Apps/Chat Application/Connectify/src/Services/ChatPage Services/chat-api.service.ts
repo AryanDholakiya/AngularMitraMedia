@@ -15,12 +15,11 @@ export class ChatApiService {
 
   getChatHistory(userId: number, chatUserId: number) {
     return this.http.get<ChatMessage[]>(
-      `${this.baseUrl}/history?userId=${userId}&chatUserId=${chatUserId}`,
+      `${this.baseUrl}/history?userId=${userId}&chatUserId=${chatUserId}`
     );
   }
 
   SendaMessage(data: FormData) {
-    // debugger;
     return this.http.post(`${this.baseUrl}/send`, data);
   }
   MessageSeen(data: MessageSeen) {

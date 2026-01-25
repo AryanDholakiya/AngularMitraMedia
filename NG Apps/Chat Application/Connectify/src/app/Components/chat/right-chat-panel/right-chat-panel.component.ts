@@ -54,7 +54,7 @@ export class RightChatPanelComponent {
 
     // Load history when chat changes
     this.chatState.activeChat$.subscribe((chat) => {
-      debugger;
+      // debugger;
       if (!chat) {
         this.messages = [];
         this.resetDraftState();
@@ -80,7 +80,7 @@ export class RightChatPanelComponent {
 
           setTimeout(() => {
             // debugger;
-            this.scrollToBottom(true);
+            this.scrollToBottom(false);
           }, 5);
         });
     });
@@ -109,13 +109,13 @@ export class RightChatPanelComponent {
         this.IsSeenMessage();
       }
 
-      // debugger;
+      debugger;
       if (this.showScrollButton) {
         this.NewMessageNotification = true;
         this.NewMessageCounter++;
       } else {
         setTimeout(() => {
-          this.scrollToBottom();
+          this.scrollToBottom(false);
         }, 50);
       }
       // setTimeout(() => this.scrollToBottom(), 5);
@@ -123,7 +123,7 @@ export class RightChatPanelComponent {
 
     // Message Seen or not
     this.signalR.Seenmessage$.subscribe((data) => {
-      // debugger;
+      debugger;
       if (data?.senderId === this.MsgReceivingFrom) {
         for (let msg of this.messages) {
           msg.isSeen = true;
@@ -177,7 +177,7 @@ export class RightChatPanelComponent {
           attachmentName: res.attachmentName,
         });
         this.messageText = '';
-        setTimeout(() => this.scrollToBottom(), 5);
+        setTimeout(() => this.scrollToBottom(false), 5); //false
       },
       error: (e) => {
         // debugger;
@@ -226,7 +226,7 @@ export class RightChatPanelComponent {
     }
   }
   scrollToBottom(isSeen = false) {
-    // debugger;
+    debugger;
     if (this.messagesContainer) {
       this.messagesContainer.nativeElement.scrollTo({
         top: this.messagesContainer.nativeElement.scrollHeight,
