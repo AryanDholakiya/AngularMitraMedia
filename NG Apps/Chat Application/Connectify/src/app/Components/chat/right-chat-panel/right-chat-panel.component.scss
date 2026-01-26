@@ -7,12 +7,12 @@
   // message body
   .chat-messages {
     flex: 1;
-    padding: 16px;
+    padding: 10px;
     overflow-y: auto;
     background-color: #0b141a;
     color: #8696a0;
     scrollbar-width: none;
-    margin: 0px;
+    margin: 10px;
   }
 
   .scrollToBottomBtn {
@@ -38,15 +38,15 @@
 
     .custom-badge {
       position: absolute;
-      top: -7px; // Position it on the top-right edge of the circle
+      top: -7px;
       left: -8px;
-      background-color: #00a884; // WhatsApp green
+      background-color: #00a884;
       color: white;
       font-size: 12px;
       padding: 2px 6px;
       border-radius: 10px;
       font-weight: bold;
-      border: 2px solid #0b141a; // Matches background to make it "pop"
+      border: 2px solid #0b141a;
     }
 
     &:hover {
@@ -262,7 +262,6 @@
   cursor: pointer;
 }
 
-//
 .file-card {
   // display: flex;
   align-items: center;

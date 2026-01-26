@@ -11,10 +11,14 @@ namespace Connectify_Api.Hubs
         {
             var userId = Context.GetHttpContext()?.Request.Query["userId"];
 
+            //if (!string.IsNullOrEmpty(userId))
+            //{
+            //    int uid = int.Parse(userId);
+            //    UserConnections[uid] = Context.ConnectionId;
+            //}
             if (!string.IsNullOrEmpty(userId))
             {
-                int uid = int.Parse(userId);
-                UserConnections[uid] = Context.ConnectionId;
+                await Groups.AddToGroupAsync(Context.ConnectionId, userId);
             }
 
             await base.OnConnectedAsync();
@@ -22,10 +26,15 @@ namespace Connectify_Api.Hubs
 
         public override async Task OnDisconnectedAsync(Exception? exception)
         {
-            var item = UserConnections.FirstOrDefault(x => x.Value == Context.ConnectionId);
-            if (item.Key != 0)
+            //var item = UserConnections.FirstOrDefault(x => x.Value == Context.ConnectionId);
+            var userId = Context.GetHttpContext()?.Request.Query["userId"];
+            //if (item.Key != 0)
+            //{
+            //    UserConnections.Remove(item.Key);
+            //}
+            if (!string.IsNullOrEmpty(userId))
             {
-                UserConnections.Remove(item.Key);
+                await Groups.RemoveFromGroupAsync(Context.ConnectionId, userId);
             }
 
             await base.OnDisconnectedAsync(exception);

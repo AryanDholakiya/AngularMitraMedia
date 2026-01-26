@@ -149,7 +149,7 @@
           </ng-container>
         </div>
         <button class="sendMessageBtn" (click)="sendMessage()">
-          <i class="bi bi-send-fill"></i>
+          <i class="bi bi-send-fill" (keyup.enter)="sendMessage()"></i>
         </button>
       </div>
     </div>

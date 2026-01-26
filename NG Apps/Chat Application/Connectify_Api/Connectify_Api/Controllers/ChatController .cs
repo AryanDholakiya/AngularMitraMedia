@@ -33,8 +33,11 @@ namespace Connectify_Api.Controllers
         {
             var savedMessage = await _messageService.SaveMessageAsync(dto);
 
+            //await _hub.Clients
+            //    .All
+            //    .SendAsync("ReceiveMessage", savedMessage);
             await _hub.Clients
-                .All
+                .Groups(dto.SenderId.ToString(), dto.ReceiverId.ToString())
                 .SendAsync("ReceiveMessage", savedMessage);
 
             return Ok(savedMessage);
@@ -44,7 +47,10 @@ namespace Connectify_Api.Controllers
         public async Task<IActionResult> MessageSeenAsync(IsMessageSeen request)
         {
             var messageSeen = await _messageService.MessageSeen(request);
-            await _hub.Clients.All.SendAsync("MessageSeen", request);
+            //await _hub.Clients.All.SendAsync("MessageSeen", request);
+            await _hub.Clients
+             .Groups(request.SenderId.ToString(), request.ReceiverId.ToString())
+             .SendAsync("MessageSeen", request);
             return Ok(new { result = "Message seen" });
         }
 

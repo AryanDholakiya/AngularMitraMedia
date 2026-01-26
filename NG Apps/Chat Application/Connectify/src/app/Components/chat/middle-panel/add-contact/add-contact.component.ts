@@ -13,7 +13,8 @@ import { ChatStateService } from '../../../../../Services/ChatPage Services/chat
 })
 export class AddContactComponent implements OnInit {
   activeChatId: number | null = null;
-  chats: ChatItem[] = [];
+  chats: ChatItem[] = []; //this will be used in html
+  allChats: ChatItem[] = []; // this is for the filter
   CurrentLoggedInUserId = 0;
 
   constructor(
@@ -40,10 +41,11 @@ export class AddContactComponent implements OnInit {
 
     this.getChatList.GetChatList(this.CurrentLoggedInUserId).subscribe({
       next: (res: any) => {
-        debugger;
+        // debugger;
         console.log('response from chatlist', res);
         this.chats = res;
-        // console.log(this.chats);
+        this.allChats = res;
+        console.log('chats:', this.chats);
       },
       error: (e) => {
         debugger;
@@ -59,5 +61,18 @@ export class AddContactComponent implements OnInit {
       username: chatUser.username,
       profileImage: chatUser.profileImage,
     });
+  }
+
+  searchPerson(event: any) {
+    let word = event.target.value.toLowerCase();
+    // let word = (event.target as HTMLInputElement).value.toLowerCase();
+    console.log('Full word:', word);
+
+    this.chats = this.allChats;
+    this.chats = this.chats.filter(
+      (chat) =>
+        chat.username.toString().toLowerCase().includes(word) ||
+        chat.userId.toString().includes(word),
+    );
   }
 }

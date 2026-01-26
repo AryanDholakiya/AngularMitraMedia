@@ -90,8 +90,6 @@ namespace Connectify_Api.Services
 
            await cmd.ExecuteNonQueryAsync();
 
-
-
             await _connection.CloseAsync();
             return true;
         }

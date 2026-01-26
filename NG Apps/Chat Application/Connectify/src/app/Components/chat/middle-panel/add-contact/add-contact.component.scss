@@ -1,13 +1,34 @@
 .chat-list {
   display: flex;
   flex-direction: column;
+  height: 100%;
+  // padding: 15px 15px 5px 15px;
+
+  //scrollbar
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
 }
 
-.title {
+.title,
+.searchBox {
   margin-top: 5px;
   margin-bottom: 12px;
   font-size: 18px;
   font-weight: 600;
+
+  position: sticky;
+  top: 0;
+  background-color: #111b21;
+  z-index: 10;
 }
 
 .chat-item {
@@ -20,6 +41,15 @@
 
   &:hover {
     background-color: #202c33;
+    .chat-info {
+      border-bottom: 1px solid transparent;
+    }
+  }
+  &.active {
+    background-color: #2a3942;
+    .chat-info {
+      border-bottom: 1px solid transparent;
+    }
   }
 }
 
@@ -54,7 +84,7 @@
 
 .time {
   font-size: 12px;
-  color: #8696a0;
+  color: #819099;
 }
 
 .last-message {
@@ -62,7 +92,55 @@
   font-size: 14px;
   color: #8696a0;
   margin: 2px 0 0;
-  white-space: nowrap; //must needed for ellipses
-  overflow: hidden; //must needed for ellipses
+  white-space: nowrap;
+  overflow: hidden;
   text-overflow: ellipsis;
+}
+
+//searchbox scss:
+.searchBox {
+  padding: 8px;
+  position: sticky;
+  top: 45px; // Approximate height of the title
+  background-color: #111b21;
+  z-index: 10;
+
+  .input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: #202c33;
+    border-radius: 8px;
+    padding: 2px 12px;
+    transition: background-color 0.2s ease;
+
+    .search-icon {
+      color: #8696a0;
+      font-size: 16px;
+      margin-right: 15px;
+    }
+
+    .inptutBox {
+      width: 100%;
+      padding: 8px 0;
+      background-color: transparent;
+      color: #d1d7db;
+      border: none;
+      outline: none;
+      font-size: 16px;
+
+      &::placeholder {
+        color: #8696a0;
+        font-size: 14px;
+      }
+    }
+
+    &:focus-within {
+      background-color: #2a3942;
+
+      .search-icon {
+        color: #00a884;
+      }
+    }
+  }
 }

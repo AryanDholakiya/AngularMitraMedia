@@ -1,5 +1,17 @@
 <div class="chat-list">
-  <h2 class="title">Chats</h2>
+  <h2 class="title">Find People</h2>
+
+  <div class="searchBox">
+    <div class="input-wrapper">
+      <i class="bi bi-search search-icon"></i>
+      <input
+        type="text"
+        placeholder="Search or start new chat"
+        class="inptutBox"
+        (input)="searchPerson($event)"
+      />
+    </div>
+  </div>
 
   @for (chat of chats; track chat.userId) {
     <div
@@ -21,21 +33,21 @@
         <div class="chat-header">
           <span class="username">{{ chat.username }}</span>
           @if (chat.lastMessage) {
-            <span class="time">
+            <!-- <span class="time">
               {{ chat.lastMessageTime | date: "dd/MM/yyyy" }}&nbsp;{{
                 chat.lastMessageTime | date: "hh:mm a"
               }}
-            </span>
+            </span> -->
           }
         </div>
 
         @if (chat.attachmentName) {
           <p class="last-message">
-            {{ chat.attachmentName }}
+            <!-- {{ chat.attachmentName }} -->
           </p>
         } @else {
           <p class="last-message">
-            {{ chat.lastMessage }}
+            <!-- {{ chat.lastMessage }} -->
           </p>
         }
       </div>

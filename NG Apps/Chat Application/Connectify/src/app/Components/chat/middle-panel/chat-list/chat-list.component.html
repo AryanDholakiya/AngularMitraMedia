@@ -20,7 +20,7 @@
       <div class="chat-info">
         <div class="chat-header">
           <span class="username">{{ chat.username }}</span>
-          @if (chat.lastMessage) {
+          @if (chat.lastMessage || chat.attachmentName) {
             <span class="time">
               {{ chat.lastMessageTime | date: "dd/MM/yyyy" }}&nbsp;{{
                 chat.lastMessageTime | date: "hh:mm a"

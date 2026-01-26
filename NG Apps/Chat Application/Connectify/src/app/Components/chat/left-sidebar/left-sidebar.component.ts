@@ -15,6 +15,8 @@ export class LeftSidebarComponent implements OnInit {
   LoggedInUserId: number = 0;
   LoggedUserProfileImg: string | null = null;
 
+  currentActiveState: string = 'chat-list';
+
   ngOnInit() {
     this.LoggedInUserId = Number(localStorage.getItem('userId'));
     console.log('LoggedInUserId from left sidebar: ', this.LoggedInUserId);
@@ -33,14 +35,18 @@ export class LeftSidebarComponent implements OnInit {
 
   openChats() {
     this.uistate.setView('chat-list');
+    this.currentActiveState = 'chat-list';
   }
   openSettings() {
     this.uistate.setView('settings');
-  }
-  openProfile() {
-    this.uistate.setView('profile');
+    this.currentActiveState = 'settings';
   }
   AddContact() {
     this.uistate.setView('add-contact');
+    this.currentActiveState = 'add-contact';
+  }
+  openProfile() {
+    this.uistate.setView('profile');
+    this.currentActiveState = 'profile';
   }
 }

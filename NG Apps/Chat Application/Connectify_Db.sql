@@ -267,14 +267,14 @@ BEGIN
 END
 
 --message seen or not
-create procedure messageSeen 1,10
+alter procedure messageSeen 
 	@SenderId INT,
     @ReceiverId INT
 as
 begin
 	update Messages
 	set IsSeen = 1
-	where SenderId = @SenderId AND ReceiverId = @ReceiverId;
+	where SenderId = @ReceiverId AND ReceiverId =@SenderId ;
 end
 
 
@@ -294,7 +294,7 @@ end
 
 
 --UserList
-ALTER PROCEDURE sp_GetChatList 1
+ALTER PROCEDURE sp_GetChatList 
     @UserId INT
 AS
 BEGIN
@@ -344,10 +344,24 @@ select * from Messages
 --truncate table Users
 
 delete from Users
-where UserId = 9
+
+
+
+
+
+
+
+
+
+select * from Users	
+select * from Messages	
+
+
+
+
 
 truncate table  Messages 
-
+truncate table  Users 
 
 
 

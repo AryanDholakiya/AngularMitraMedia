@@ -42,7 +42,7 @@ export class RightChatPanelComponent {
     private chatState: ChatStateService,
     private signalR: SignalRService,
     private chatApi: ChatApiService,
-    private currentUser: CurrentUserService
+    private currentUser: CurrentUserService,
   ) {
     this.activatedChat$ = this.chatState.activeChat$;
 
@@ -80,7 +80,7 @@ export class RightChatPanelComponent {
 
           setTimeout(() => {
             // debugger;
-            this.scrollToBottom(false);
+            this.scrollToBottom(true);
           }, 5);
         });
     });
@@ -123,7 +123,7 @@ export class RightChatPanelComponent {
 
     // Message Seen or not
     this.signalR.Seenmessage$.subscribe((data) => {
-      debugger;
+      // debugger;
       if (data?.senderId === this.MsgReceivingFrom) {
         for (let msg of this.messages) {
           msg.isSeen = true;
@@ -135,7 +135,7 @@ export class RightChatPanelComponent {
   messageText = ''; // data comes using [(ngModel)]
 
   sendMessage() {
-    // debugger;
+    debugger;
     if (!this.selectedFile && !this.messageText.trim()) return;
 
     const formdata = new FormData();
@@ -153,8 +153,8 @@ export class RightChatPanelComponent {
     // this.signalR.sendMessage(messagePayload);
     this.chatApi.SendaMessage(formdata).subscribe({
       next: (res: any) => {
-        // debugger;
-        console.log(res);
+        debugger;
+        console.log('sendMessage response:', res);
 
         this.FilePreview = null; // hide preview
         this.selectedFile = undefined;
@@ -230,7 +230,7 @@ export class RightChatPanelComponent {
     if (this.messagesContainer) {
       this.messagesContainer.nativeElement.scrollTo({
         top: this.messagesContainer.nativeElement.scrollHeight,
-        behavior: 'smooth', // Optional: adds a nice smooth glide
+        behavior: 'smooth',
       });
 
       if (this.NewMessageNotification) {

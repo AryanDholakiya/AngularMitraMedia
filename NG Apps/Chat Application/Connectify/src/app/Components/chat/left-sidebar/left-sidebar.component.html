@@ -5,21 +5,44 @@
       class="Connectify-icon"
       alt="Connectify"
     />
-    <i class="bi bi-chat-right-dots" (click)="openChats()"></i>
-    <i class="bi bi-person-add" (click)="AddContact()"></i>
+    <div
+      class="States"
+      (click)="openChats()"
+      [class.active]="currentActiveState === 'chat-list'"
+    >
+      <i class="bi bi-chat-right-dots"></i>
+      <span>Chats</span>
+    </div>
+    <div
+      class="States"
+      (click)="AddContact()"
+      [class.active]="currentActiveState === 'add-contact'"
+    >
+      <i class="bi bi-person-add"></i>
+      <span>Search</span>
+    </div>
   </div>
 
   <div class="sidebar-bottom">
-    <i class="bi bi-gear" (click)="openSettings()"></i>
-    <img
-      [src]="
-        LoggedUserProfileImg != null
-          ? 'data:image/png;base64,' + LoggedUserProfileImg
-          : 'assets/default_profile_pic.jpg'
-      "
-      alt="Profile"
-      class="profile-icon"
-      (click)="openProfile()"
-    />
+    <div
+      class="States"
+      (click)="openSettings()"
+      [class.active]="currentActiveState === 'settings'"
+    >
+      <i class="bi bi-gear"></i>
+      <span>Settings</span>
+    </div>
+    <div class="profile-section" (click)="openProfile()">
+      <img
+        [src]="
+          LoggedUserProfileImg != null
+            ? 'data:image/png;base64,' + LoggedUserProfileImg
+            : 'assets/default_profile_pic.jpg'
+        "
+        alt="Profile"
+        class="profile-icon"
+      />
+      <span class="profile-text">Profile</span>
+    </div>
   </div>
 </div>
