@@ -3,16 +3,29 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  background-color: var(--bg-main);
 
   // message body
   .chat-messages {
     flex: 1;
     padding: 10px;
     overflow-y: auto;
-    background-color: #0b141a;
+    background-color: var(--bg-main);
+    background-image: radial-gradient(var(--text-muted) 0.5px, transparent 0);
+    background-size: 24px 24px;
+    background-color: var(--bg-main);
     color: #8696a0;
-    scrollbar-width: none;
-    margin: 10px;
+    scrollbar-width: thin;
+    margin: 10px 0px;
+    opacity: 0.95;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: var(--border-color);
+      border-radius: 10px;
+    }
   }
 
   .scrollToBottomBtn {
@@ -65,36 +78,33 @@
       font-size: 20px;
     }
   }
-  // .newMessageIndicator {
-  //   display: inline;
-  //   position: absolute;
-  //   right: 45px;
-  //   bottom: 97px;
-  //   z-index: 10;
-  //   cursor: pointer;
-  //   color: red;
-  // }
 }
 
 .chat-header {
   display: flex;
   align-items: center;
-  padding: 12px;
+  padding: 10px;
   border-bottom: 1px solid #2a3942;
+  background-color: var(--bg-sidebar);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 10;
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+  }
   h4 {
     margin: 0px !important;
-    font-size: 20px;
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: var(--text-primary);
   }
-}
-
-.chat-header .avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-right: 10px;
 }
 
 .placeholder {
@@ -104,8 +114,10 @@
 
 // Messsage typing input
 .chat-input {
-  margin: 0px 10px 10px;
+  padding: 10px 15px;
+  margin: 0px;
   display: flex;
+  align-items: center;
 
   button {
     background: none;
@@ -120,23 +132,38 @@
     border-radius: opx;
   }
   .sendMessageBtn {
-    border: 1px solid rgba(77, 76, 76, 0.514);
+    background-color: #00a884;
+    color: #111b21;
+    border: none;
     border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    i {
+      font-size: 18px;
+      color: #111b21;
+    }
+    &:hover {
+      background-color: #06cf9c;
+    }
   }
-  // .TypeMessage {
-  //   width: 100%;
-  // }
 }
 .chat-input button:hover {
   opacity: 0.8;
 }
 .addAndInput {
+  background-color: #2a3942; // Lighter than the bar
+  border: none; // Removed the gray border
+  border-radius: 25px; // Fully rounded "pill" shape
+  padding: 5px 15px;
+
   position: relative;
   width: 100%;
   display: flex;
-  border: 1px solid rgba(77, 76, 76, 0.514);
-  border-radius: 10px;
-  padding: 5px;
   margin-right: 4px;
 
   .TypeMessage {
@@ -144,7 +171,7 @@
     border: none;
     outline: none;
     color: #e9edef;
-    font-size: 18px;
+    font-size: 15px;
     margin: 0px 5px;
     flex: 1;
   }
@@ -153,10 +180,20 @@
 .message {
   display: flex;
   margin-bottom: 10px;
-}
+  width: 100%;
 
-.message.me {
-  justify-content: flex-end;
+  &.me {
+    justify-content: flex-end;
+
+    .bubble {
+      background-color: #005c4b; /* WhatsApp Dark Green */
+      color: #e9edef;
+      border-radius: 8px 0px 8px 8px;
+    }
+  }
+  &:not(.me) .bubble {
+    border-radius: 0px 8px 8px 8px;
+  }
 }
 
 .bubble {
@@ -164,16 +201,14 @@
   padding: 6px 6px;
   border-radius: 8px;
   background-color: #202c33;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
   color: #e9edef;
   position: relative;
+  border-top-left-radius: 0;
 }
 
 .specialWidth {
   max-width: 320px;
-}
-
-.message.me .bubble {
-  background-color: #005c4b;
 }
 
 .bubble-content {
@@ -183,6 +218,9 @@
 
 /* Image wrapper */
 .media-wrapper {
+  margin: -4px -4px 4px -4px; // Pulls image to bubble edges
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
   max-width: 320px;
   border-radius: 8px;
   overflow: hidden;
@@ -194,7 +232,7 @@
   height: auto;
   display: block;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 4px 4px 0 0;
 }
 
 /* Caption / text */
@@ -218,14 +256,18 @@
   }
 }
 .Filepreview {
-  width: 12rem;
-  height: 7rem;
+  width: 15rem; // Slightly wider
+  height: 9rem;
   position: absolute;
-  bottom: 110%;
-  border: 1px solid whitesmoke;
-  border-radius: 10px;
+  bottom: 120%;
+  left: 10px;
   overflow: hidden;
   z-index: 5;
+  background-color: rgba(32, 44, 51, 0.9);
+  backdrop-filter: blur(10px); // Glassmorphism effect
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
 }
 .profile-img {
   object-fit: cover;
@@ -238,8 +280,8 @@
   height: 0.7rem;
   width: 0.7rem;
   rotate: 45deg;
-  bottom: calc(110% - 0.4rem);
-  left: 20px;
+  bottom: calc(110% - 0.1rem);
+  left: 30px;
 
   background-color: #0b141a;
   border-right: 1px solid whitesmoke;
@@ -268,9 +310,10 @@
   gap: 10px;
   padding: 8px 12px 0px 12px;
   border-radius: 10px;
-  background: #f1f1f1;
+  background: rgba(0, 0, 0, 0.2);
   cursor: pointer;
   max-width: 260px;
+  color: #e9edef;
 }
 
 .file-icon {

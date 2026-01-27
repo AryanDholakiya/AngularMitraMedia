@@ -1,0 +1,73 @@
+<div class="settings-container">
+  <h2 class="title">Settings</h2>
+
+  <div class="profile-header">
+    <div class="image-container">
+      <img
+        [src]="
+          profile.profileImage
+            ? 'data:image/png;base64,' + profile.profileImage
+            : 'assets/default_profile_pic.jpg'
+        "
+        alt="Profile"
+      />
+    </div>
+    <h3 class="display-name">{{ profile.username }}</h3>
+    <p class="display-status">{{ profile.about }}</p>
+  </div>
+
+  <div class="settings-section">
+    <h4 class="section-label">Personal Information</h4>
+    <div class="info-row">
+      <i class="bi bi-person"></i>
+      <div class="info-content">
+        <span class="label">Username</span>
+        <span class="value">{{ profile.username }}</span>
+      </div>
+    </div>
+
+    <div class="info-row">
+      <i class="bi bi-envelope"></i>
+      <div class="info-content">
+        <span class="label">Email Address</span>
+        <span class="value">{{ profile.email }}</span>
+      </div>
+    </div>
+
+    <div class="info-row">
+      <i class="bi bi-phone"></i>
+      <div class="info-content">
+        <span class="label">Mobile</span>
+        <span class="value">{{ profile.mobile }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="settings-section">
+    <h4 class="section-label">Appearance</h4>
+    <div class="info-row between">
+      <div class="d-flex align-items-center gap-3">
+        <i class="bi bi-moon-stars"></i>
+        <div class="info-content">
+          <span class="value">Dark Mode</span>
+        </div>
+      </div>
+      <label class="switch">
+        <input
+          type="checkbox"
+          [checked]="isDarkMode"
+          (change)="toggleTheme()"
+        />
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+  <div class="settings-section logout-section">
+    <div class="info-row logout-row" (click)="logout()">
+      <i class="bi bi-box-arrow-left"></i>
+      <div class="info-content">
+        <span class="value">Log out</span>
+      </div>
+    </div>
+  </div>
+</div>

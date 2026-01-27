@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "E:\\AngularMitraMedia\\NG Apps\\Chat Application\\Connectify_Api\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3BE9E29E-F60A-446F-AA07-8C7E3AE4A05F}|Connectify_Api\\Connectify_Api.csproj|e:\\angularmitramedia\\ng apps\\chat application\\connectify_api\\connectify_api\\controllers\\chatcontroller .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BE9E29E-F60A-446F-AA07-8C7E3AE4A05F}|Connectify_Api\\Connectify_Api.csproj|solutionrelative:connectify_api\\controllers\\chatcontroller .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3BE9E29E-F60A-446F-AA07-8C7E3AE4A05F}|Connectify_Api\\Connectify_Api.csproj|e:\\angularmitramedia\\ng apps\\chat application\\connectify_api\\connectify_api\\controllers\\conectifymaincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3BE9E29E-F60A-446F-AA07-8C7E3AE4A05F}|Connectify_Api\\Connectify_Api.csproj|solutionrelative:connectify_api\\controllers\\conectifymaincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3BE9E29E-F60A-446F-AA07-8C7E3AE4A05F}|Connectify_Api\\Connectify_Api.csproj|e:\\angularmitramedia\\ng apps\\chat application\\connectify_api\\connectify_api\\services\\messageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3BE9E29E-F60A-446F-AA07-8C7E3AE4A05F}|Connectify_Api\\Connectify_Api.csproj|solutionrelative:connectify_api\\services\\messageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BE9E29E-F60A-446F-AA07-8C7E3AE4A05F}|Connectify_Api\\Connectify_Api.csproj|e:\\angularmitramedia\\ng apps\\chat application\\connectify_api\\connectify_api\\controllers\\chatcontroller .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3BE9E29E-F60A-446F-AA07-8C7E3AE4A05F}|Connectify_Api\\Connectify_Api.csproj|solutionrelative:connectify_api\\controllers\\chatcontroller .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3BE9E29E-F60A-446F-AA07-8C7E3AE4A05F}|Connectify_Api\\Connectify_Api.csproj|e:\\angularmitramedia\\ng apps\\chat application\\connectify_api\\connectify_api\\repositories\\imessageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -62,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
@@ -78,8 +78,7 @@
               "RelativeToolTip": "Connectify_Api\\Hubs\\ChatsHub.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAB8AAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-26T04:25:23.334Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-26T04:25:23.334Z"
             },
             {
               "$type": "Document",
@@ -127,18 +126,17 @@
               "RelativeToolTip": "Connectify_Api\\Repositories\\IMessageService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-15T14:24:47.872Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-15T14:24:47.872Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "ConectifyMainController.cs",
               "DocumentMoniker": "E:\\AngularMitraMedia\\NG Apps\\Chat Application\\Connectify_Api\\Connectify_Api\\Controllers\\ConectifyMainController.cs",
               "RelativeDocumentMoniker": "Connectify_Api\\Controllers\\ConectifyMainController.cs",
               "ToolTip": "E:\\AngularMitraMedia\\NG Apps\\Chat Application\\Connectify_Api\\Connectify_Api\\Controllers\\ConectifyMainController.cs",
               "RelativeToolTip": "Connectify_Api\\Controllers\\ConectifyMainController.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAjwDcAAAA0AAAAAAAAAA==",
+              "ViewState": "AgIAAAABAAAAAAAAAAASwJwAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-15T04:21:35.224Z",
               "EditorCaption": ""
@@ -193,20 +191,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "ChatController .cs",
               "DocumentMoniker": "E:\\AngularMitraMedia\\NG Apps\\Chat Application\\Connectify_Api\\Connectify_Api\\Controllers\\ChatController .cs",
               "RelativeDocumentMoniker": "Connectify_Api\\Controllers\\ChatController .cs",
               "ToolTip": "E:\\AngularMitraMedia\\NG Apps\\Chat Application\\Connectify_Api\\Connectify_Api\\Controllers\\ChatController .cs",
               "RelativeToolTip": "Connectify_Api\\Controllers\\ChatController .cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAowC8AAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAcwG4AAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-12T06:04:05.663Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MessageService.cs",
               "DocumentMoniker": "E:\\AngularMitraMedia\\NG Apps\\Chat Application\\Connectify_Api\\Connectify_Api\\Services\\MessageService.cs",
               "RelativeDocumentMoniker": "Connectify_Api\\Services\\MessageService.cs",
@@ -214,8 +212,7 @@
               "RelativeToolTip": "Connectify_Api\\Services\\MessageService.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAtwBcAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T04:51:17.15Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-12T04:51:17.15Z"
             },
             {
               "$type": "Document",

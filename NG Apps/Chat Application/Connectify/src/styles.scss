@@ -6,3 +6,45 @@
   font-weight: 400;
   font-style: normal;
 }
+
+/* =========================
+LIGHT MODE (DEFAULT)
+========================= */
+:root {
+  --bg-main: #f0f2f5; /* Light gray background */
+  --bg-panel: #ffffff; /* White cards/sections */
+  --bg-sidebar: #ffffff;
+
+  --text-primary: #111b21; /* Nearly black */
+  --text-secondary: #667781; /* Muted gray-blue */
+  --text-muted: #8696a0;
+
+  --border-color: #d1d7db;
+  --accent: #00a884; /* WhatsApp Green */
+  --danger: #ea0038;
+
+  --bg-hover: #ebebeb; /* Very light, clear Mint Green */
+  --active-selection: #dcf1ec; /* Slightly deeper Mint for active state */
+  --accent: #00a884; /* Primary WhatsApp Green */
+}
+
+/* =========================
+DARK MODE
+========================= */
+body.dark-theme {
+  --bg-main: #0c1317; /* Very dark blue-black */
+  --bg-panel: #111b21; /* Slightly lighter for sections */
+  --bg-sidebar: #202c33; /* Sidebar color */
+
+  --text-primary: #e9edef; /* Off-white */
+  --text-secondary: #d1d7db; /* Light gray */
+  --text-muted: #8696a0; /* Muted gray */
+
+  --border-color: rgba(134, 150, 160, 0.15); /* Subtle dark border */
+  --accent: #00a884;
+  --danger: #f15c5c;
+
+  --bg-hover: rgba(0, 168, 132, 0.1); /* 10% Green glow */
+  --active-selection: rgba(0, 168, 132, 0.2); /* 20% Green glow (Noticeable) */
+  --accent: #00e6b6;
+}

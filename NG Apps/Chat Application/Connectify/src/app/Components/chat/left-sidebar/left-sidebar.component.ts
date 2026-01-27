@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { UiStateService } from '../../../../Services/ChatPage Services/ui-state.service';
 import { ApiServiceService } from '../../../../Services/api-service.service';
+import { ThemeService } from '../../../../Services/theme.service';
 
 @Component({
   selector: 'app-left-sidebar',
@@ -11,6 +12,7 @@ import { ApiServiceService } from '../../../../Services/api-service.service';
 export class LeftSidebarComponent implements OnInit {
   private uistate = inject(UiStateService);
   private apiService = inject(ApiServiceService);
+  private Mode = inject(ThemeService);
 
   LoggedInUserId: number = 0;
   LoggedUserProfileImg: string | null = null;
@@ -18,6 +20,10 @@ export class LeftSidebarComponent implements OnInit {
   currentActiveState: string = 'chat-list';
 
   ngOnInit() {
+    this.Mode.IsDarkTheme$.subscribe(() => {
+      this.Mode.loadTheme();
+    });
+
     this.LoggedInUserId = Number(localStorage.getItem('userId'));
     console.log('LoggedInUserId from left sidebar: ', this.LoggedInUserId);
 

@@ -108,7 +108,7 @@ namespace Connectify_Api.Controllers
                 }
             }
 
-            Console.WriteLine("Chattttttsss: ",chats);
+           
             return Ok(chats);
         }
     }

@@ -1,66 +1,81 @@
-/* left-sidebar */
 .left-sidebar {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
+  background-color: var(--bg-sidebar); /* Dynamically switches */
+  border-right: 1px solid var(--border-color);
+  width: 70px; /* Standard WhatsApp Web sidebar width */
+  transition: background-color 0.3s ease;
 }
 
-.sidebar-bottom,
-.sidebar-top {
+.sidebar-top,
+.sidebar-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 10px;
+
   .States {
-    margin: 20px 0;
+    width: 55px;
+    height: 55px;
+    margin: 12px 0;
     display: flex;
     flex-direction: column;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%; /* Circular hover effect looks cleaner */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
 
-    span {
-      font-size: 14px;
-      cursor: pointer;
-      color: #aebac1;
-      margin-top: -5px;
-
-      opacity: 0.7;
-      transition:
-        opacity 0.3s ease,
-        color 0.3s ease;
+    i {
+      font-size: 22px;
+      color: var(--icon-inactive);
+      transition: all 0.3s ease;
     }
 
-    i,
     span {
-      transition: color 0.3s ease;
-      transition:
-        transform 0.2s ease,
-        color 0.3s ease;
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-top: 2px;
+      transition: all 0.3s ease;
     }
 
+    /* Active & Hover States */
     &:hover,
     &.active {
-      background-color: rgba(0, 168, 132, 0.1);
+      background-color: var(--bg-hover);
+
       i {
-        color: #01a07d;
+        color: var(--accent);
         transform: scale(1.1);
       }
       span {
-        color: #029172;
-        margin-top: -5px;
-
+        color: var(--accent);
         opacity: 1;
-        color: #00a884;
       }
     }
-  }
 
-  i {
-    display: block;
-    font-size: 22px;
-    color: #aebac1;
-    text-align: center;
-    cursor: pointer;
+    /* Small indicator line for the active state (Optional Pro Touch) */
+    &.active::before {
+      content: "";
+      position: absolute;
+      left: -5px;
+      height: 35px;
+      width: 3px;
+      background-color: var(--accent);
+      border-radius: 0 4px 4px 0;
+    }
   }
-  text-align: center;
-  margin-bottom: 15px;
+}
+
+.Connectify-icon {
+  margin: 20px 0;
+  width: 34px;
+  height: 34px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 .profile-section {
@@ -68,30 +83,38 @@
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  margin-top: 15px;
-  font-size: 14px;
+  margin: 15px 0 25px 0;
+  width: 100%;
 
-  &:hover .profile-text {
-    color: #00a884;
+  .profile-icon {
+    width: 36px;
+    height: 36px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+    background-color: var(--bg-panel);
   }
 
-  &:hover .profile-icon {
-    border-color: #00a884;
+  .profile-text {
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 5px;
+    transition: color 0.3s ease;
+  }
+
+  &:hover {
+    .profile-icon {
+      border-color: var(--accent);
+      transform: scale(1.05);
+    }
+    .profile-text {
+      color: var(--accent);
+    }
   }
 }
 
-.Connectify-icon {
-  margin-top: 20px;
-  width: 30px;
-  height: 30px;
-}
-.profile-icon {
-  width: 36px;
-  height: 36px;
-  border: 1px solid rgb(168, 165, 165);
-  border-radius: 50%;
-  cursor: pointer;
-}
+/* Specific icon size fix */
 .bi-person-add {
-  font-size: 25px !important;
+  font-size: 24px !important;
 }
