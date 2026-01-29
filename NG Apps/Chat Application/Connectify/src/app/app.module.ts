@@ -20,6 +20,7 @@ import { ChatListComponent } from './Components/chat/middle-panel/chat-list/chat
 import { RightChatPanelComponent } from './Components/chat/right-chat-panel/right-chat-panel.component';
 import { AddContactComponent } from './Components/chat/middle-panel/add-contact/add-contact.component';
 import { SettingsPageComponent } from './Components/chat/middle-panel/settings-page/settings-page.component';
+import { ProfilePageComponent } from './Components/chat/middle-panel/profile-page/profile-page.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { SettingsPageComponent } from './Components/chat/middle-panel/settings-p
     RightChatPanelComponent,
     AddContactComponent,
     SettingsPageComponent,
+    ProfilePageComponent,
   ],
   imports: [
     BrowserModule,

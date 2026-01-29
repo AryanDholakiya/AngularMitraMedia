@@ -1,0 +1,127 @@
+<div class="profile-panel">
+  <div class="panel-header">
+    <h2 class="title">My Profile</h2>
+  </div>
+
+  <div class="scrollable-content">
+    <div class="visual-header">
+      <div class="avatar-container">
+        <img
+          [src]="
+            imagePreview !== null
+              ? imagePreview
+              : 'assets/default_profile_pic.jpg'
+          "
+          alt="Profile"
+          class="profile-img"
+        />
+        <label class="camera-btn" title="Change profile photo">
+          <i class="bi bi-camera-fill"></i>
+          <input
+            type="file"
+            hidden
+            (change)="selectProfilePic($event)"
+            accept="image/*"
+          />
+        </label>
+      </div>
+      <h3 class="name-display">{{ profileForm.get("username")?.value }}</h3>
+      <!-- <h3 class="name-display">{{ profileForm.value.username }}</h3> :==> this is not recommended-->
+      <p class="status-display">{{ profileForm.get("about")?.value }}</p>
+    </div>
+
+    <form [formGroup]="profileForm" class="info-section">
+      <h4 class="section-label">Personal Information</h4>
+
+      <div class="input-row">
+        <i class="bi bi-person icon-lead"></i>
+        <div class="field-container">
+          <label>Username</label>
+          <div class="input-group">
+            <input
+              type="text"
+              formControlName="username"
+              placeholder="Your name"
+            />
+            <i class="bi bi-pencil-fill edit-icon"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <i class="bi bi-chat-dots icon-lead"></i>
+        <div class="field-container">
+          <label>About</label>
+          <div class="input-group">
+            <input
+              type="text"
+              formControlName="about"
+              placeholder="Hey there! I am using Connectify."
+            />
+            <i class="bi bi-pencil-fill edit-icon"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <i class="bi bi-envelope icon-lead"></i>
+        <div class="field-container">
+          <label>Email Address</label>
+          <div class="input-group">
+            <input
+              type="email"
+              formControlName="email"
+              [placeholder]="
+                profileForm.get('email')?.value || 'abc99@gmail.com'
+              "
+            />
+            <i class="bi bi-pencil-fill edit-icon"></i>
+          </div>
+        </div>
+      </div>
+      <small
+        *ngIf="
+          profileForm.get('email')?.errors?.['required'] &&
+          (profileForm.get('email')?.dirty || profileForm.get('email')?.touched)
+        "
+        class="text-danger"
+      >
+        Email is required
+      </small>
+
+      <small
+        *ngIf="
+          profileForm.get('email')?.errors?.['pattern'] &&
+          (profileForm.get('email')?.dirty || profileForm.get('email')?.touched)
+        "
+        class="text-danger"
+      >
+        Invalid email format
+      </small>
+
+      <div class="input-row readonly-row">
+        <i class="bi bi-phone icon-lead"></i>
+        <div class="field-container">
+          <label>Mobile</label>
+          <div class="input-group">
+            <span class="static-value">{{
+              profileForm.get("MobileNumber")?.value
+            }}</span>
+            <i class="bi bi-lock-fill lock-icon"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-footer">
+        <button
+          class="save-btn"
+          (click)="updateProfile()"
+          [disabled]="!profileForm.valid"
+        >
+          <span>Update Profile</span>
+          <i class="bi bi-check2-circle"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

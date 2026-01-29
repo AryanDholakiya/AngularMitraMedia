@@ -1,0 +1,218 @@
+/* Color palette for consistency */
+:host {
+  --soft-green: #00a884;
+  --hover-green: #069475;
+  --panel-bg: #111b21; /* Matches your screenshot background */
+}
+
+.profile-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: var(--bg-panel);
+  color: var(--text-primary);
+
+  .panel-header {
+    padding: 20px 25px 5px;
+    .title {
+      font-size: 19px;
+      font-weight: 700;
+      margin: 0;
+    }
+  }
+}
+
+.scrollable-content {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 20px;
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+  }
+}
+
+/* Visual Header Alignment */
+.visual-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+
+  .avatar-container {
+    position: relative;
+    margin-bottom: 15px;
+
+    .profile-img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--bg-main);
+    }
+
+    .camera-btn {
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+      background: var(--soft-green);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: 0.2s ease;
+
+      &:hover {
+        background-color: var(--hover-green);
+      }
+    }
+  }
+
+  .name-display {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+  }
+  .status-display {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+}
+
+/* Form Section - THE FIX IS HERE */
+.info-section {
+  padding: 0 25px;
+
+  .section-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--soft-green);
+    margin: 25px 0 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  .input-row {
+    display: flex;
+    align-items: center; /* Vertical alignment for the whole row */
+    gap: 15px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-color);
+
+    .icon-lead {
+      font-size: 18px;
+      color: var(--text-muted);
+      width: 24px;
+      text-align: center;
+      margin-top: 15px; /* Aligns icon with the input text, not the label */
+    }
+
+    .field-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+
+      label {
+        font-size: 11px;
+        color: var(--text-muted);
+        margin-bottom: 0px; /* Reduced to bring label closer to input */
+      }
+
+      .input-group {
+        display: flex;
+        align-items: center; /* Keeps input and pencil on the SAME LINE */
+        width: 100%;
+
+        input {
+          flex: 1;
+          background: transparent;
+          border: none;
+          outline: none;
+          color: var(--text-primary);
+          font-size: 15px;
+          padding: 4px 0;
+
+          &:focus ~ .edit-icon {
+            color: var(--soft-green);
+            opacity: 1;
+          }
+        }
+
+        .edit-icon {
+          font-size: 13px;
+          color: var(--text-muted);
+          opacity: 0.5;
+          margin-left: 10px;
+          cursor: pointer;
+          transition: 0.2s;
+
+          &:hover {
+            opacity: 1;
+            color: var(--soft-green);
+          }
+        }
+
+        .static-value {
+          font-size: 15px;
+          color: var(--text-secondary);
+          flex: 1;
+        }
+        .lock-icon {
+          font-size: 12px;
+          color: var(--text-muted);
+          opacity: 0.4;
+        }
+      }
+    }
+
+    &.readonly-row {
+      border-bottom: 1px solid transparent; /* Mobile usually doesn't have a bottom border */
+      margin-top: 5px;
+    }
+  }
+}
+
+/* Button Refinement */
+.action-footer {
+  padding: 30px 0;
+  display: flex;
+  justify-content: center;
+
+  .save-btn {
+    width: 90%;
+    height: 48px;
+    background-color: var(--soft-green);
+    color: white;
+    border: none;
+    border-radius: 24px; /* Clean pill shape */
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(0, 168, 132, 0.2);
+    transition: 0.3s;
+
+    &:hover:not(:disabled) {
+      background-color: var(--hover-green);
+      transform: translateY(-1px);
+    }
+
+    &:disabled {
+      background-color: #2a3942;
+      color: #8696a0;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+  }
+}

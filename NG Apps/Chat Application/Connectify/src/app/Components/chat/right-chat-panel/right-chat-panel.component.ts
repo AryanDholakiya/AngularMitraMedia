@@ -8,6 +8,7 @@ import { SignalRService } from '../../../../Services/signal-r.service';
 import { ChatApiService } from '../../../../Services/ChatPage Services/chat-api.service';
 import { CurrentUserService } from '../../../../Services/ChatPage Services/current-user.service';
 import { MessageSeen } from '../../../interfaces/message-seen';
+import { ThemeService } from '../../../../Services/theme.service';
 
 @Component({
   selector: 'app-right-chat-panel',
@@ -43,6 +44,7 @@ export class RightChatPanelComponent {
     private signalR: SignalRService,
     private chatApi: ChatApiService,
     private currentUser: CurrentUserService,
+    private Mode: ThemeService,
   ) {
     this.activatedChat$ = this.chatState.activeChat$;
 

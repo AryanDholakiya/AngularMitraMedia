@@ -15,15 +15,14 @@
     background-size: 24px 24px;
     background-color: var(--bg-main);
     color: #8696a0;
-    scrollbar-width: thin;
     margin: 10px 0px;
     opacity: 0.95;
 
     &::-webkit-scrollbar {
-      width: 6px;
+      width: 6px !important;
     }
     &::-webkit-scrollbar-thumb {
-      background: var(--border-color);
+      background: var(--border-color) !important;
       border-radius: 10px;
     }
   }

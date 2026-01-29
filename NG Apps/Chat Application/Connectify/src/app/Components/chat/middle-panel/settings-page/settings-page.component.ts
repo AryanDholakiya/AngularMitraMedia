@@ -33,9 +33,6 @@ export class SettingsPageComponent {
       this.isDarkMode = true;
     }
     this.loadProfile();
-    this.Mode.IsDarkTheme$.subscribe(() => {
-      this.Mode.loadTheme();
-    });
   }
 
   loadProfile() {
@@ -59,14 +56,6 @@ export class SettingsPageComponent {
       this.Mode.toggleTheme(true);
     }
   }
-
-  // loadTheme() {
-  //   const theme = localStorage.getItem('theme');
-  //   if (theme === 'dark') {
-  //     this.isDarkMode = true;
-  //     document.body.classList.add('dark-theme');
-  //   }
-  // }
 
   logout() {
     localStorage.clear();

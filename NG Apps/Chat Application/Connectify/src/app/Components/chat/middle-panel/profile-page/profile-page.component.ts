@@ -1,79 +1,98 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, ElementRef, inject, ViewChild } from '@angular/core';
+import { ApiServiceService } from '../../../../../Services/api-service.service';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
-import { ApiServiceService } from '../../../Services/api-service.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Toast, ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-set-profile',
+  selector: 'app-profile-page',
   standalone: false,
-  templateUrl: './set-profile.component.html',
-  styleUrl: './set-profile.component.scss',
+  templateUrl: './profile-page.component.html',
+  styleUrl: './profile-page.component.scss',
 })
-export class SetProfileComponent implements OnInit {
+export class ProfilePageComponent {
   private api = inject(ApiServiceService);
-  private router = inject(Router);
   private toastr = inject(ToastrService);
+  private router = inject(Router);
 
-  MobileNumber: string = '';
-  selectedImage!: File;
-  imagePreview: string | null = null;
+  loggedInUser!: any;
+  userId!: number;
+  mobileNumber!: string;
+
   profileForm!: FormGroup;
+  profileImage!: File | null;
+  imagePreview: string | null = null;
 
-  //UserId must be stored after register / login
-  userId = JSON.parse(localStorage.getItem('userId') || '{}');
+  ngOnInit() {
+    this.userId = Number(localStorage.getItem('userId'));
 
-  ngOnInit(): void {
-    if (!this.userId) {
-      this.router.navigate(['/Register']);
-    }
-    const UserData = JSON.parse(localStorage.getItem('loggedIn_User') || '{}');
-    // console.log(UserData);
-    this.MobileNumber = UserData.mobileNumber;
-    console.log(this.MobileNumber);
+    this.loggedInUser = JSON.parse(localStorage.getItem('loggedIn_User') ?? '');
+    this.mobileNumber = this.loggedInUser.mobileNumber;
 
+    //edit profile
     this.profileForm = new FormGroup({
-      username: new FormControl(this.MobileNumber, [
-        Validators.required,
-        Validators.minLength(3),
-      ]),
+      username: new FormControl(this.mobileNumber),
+      MobileNumber: new FormControl(this.mobileNumber),
       about: new FormControl('Busy...', [Validators.maxLength(200)]),
+      email: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(200),
+        Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/),
+      ]),
+    });
+
+    this.loadProfile();
+  }
+
+  loadProfile() {
+    debugger;
+    this.api.getProfile(this.userId).subscribe((res: any) => {
+      console.log('after Load profile: ', res);
+      this.profileImage = res.profileImage;
+      this.imagePreview = res.profileImage
+        ? 'data:image/png;base64,' + res.profileImage
+        : null;
+      this.profileForm.patchValue({
+        username: res.username,
+        email: res.email,
+        about: res.about,
+        MobileNumber: res.mobileNumber,
+      });
     });
   }
 
-  //Image preview function
-  async onImageSelect(event: any) {
-    const file = event.target.files[0];
-    if (!file) return;
+  async selectProfilePic(event: any) {
+    let profile = event.target.files[0];
 
-    //NOTE
-    if (!file.type.startsWith('image/')) {
-      // console.log('file type: ', file.type);
-      this.toastr.error('Only image files are allowed');
+    if (!profile) {
+      return;
+    }
+
+    if (!profile.type.startsWith('image/')) {
+      this.toastr.error('Selected file should be Image!', '', {
+        positionClass: 'toast-top-left',
+      });
       return;
     }
 
     try {
-      // ઈમેજને 200x200 પિક્સેલમાં કોમ્પ્રેસ કરો
-      const compressedFile = await this.compressImage(file, 200, 200);
-      this.selectedImage = compressedFile;
+      const compressedFile = await this.compressImage(profile, 200, 200);
+      this.profileImage = compressedFile;
 
       const reader = new FileReader();
       reader.readAsDataURL(compressedFile);
       reader.onload = () => {
         this.imagePreview = reader.result as string;
       };
-      // const objectUrl = URL.createObjectURL(compressedFile); instead of FileReader
-      // this.imagePreview = objectUrl;
-    } catch (error) {
-      console.error('Compression error:', error);
+    } catch (e) {
+      console.log(e);
     }
   }
 
-  setProfile() {
-    const loggedInUser = JSON.parse(
-      localStorage.getItem('loggedIn_User') ?? '',
-    );
+  onFileSelected(event: any) {}
+
+  updateProfile() {
+    debugger;
     if (this.profileForm.invalid) {
       this.profileForm.markAllAsTouched();
       return;
@@ -81,23 +100,23 @@ export class SetProfileComponent implements OnInit {
 
     const formData = new FormData();
     formData.append('UserId', this.userId.toString());
-    formData.append('Username', this.profileForm.value.username!);
+    formData.append('Username', this.profileForm.value.username);
     formData.append('About', this.profileForm.value.about!);
-    formData.append('Email', loggedInUser.email);
+    formData.append('Email', this.profileForm.value.email!);
 
-    // debugger;
-    if (this.selectedImage) {
-      formData.append('ProfileImage', this.selectedImage);
+    debugger;
+    if (this.profileImage) {
+      formData.append('ProfileImage', this.profileImage);
     } else {
       formData.append('ProfileImage', '');
     }
 
     this.api.updateProfile(formData).subscribe({
       next: (res: any) => {
-        // debugger;
-        console.log('Profile Image: ', res);
         this.toastr.success('Profile set successfully');
-        this.router.navigate(['/chat']);
+        this.router.navigateByUrl('/chat');
+        this.loadProfile();
+        console.log('\n\n update profile response came:');
       },
       error: () => {
         this.toastr.error('Failed to update profile');
@@ -105,7 +124,6 @@ export class SetProfileComponent implements OnInit {
     });
   }
 
-  //to resolve the chatlist users dp warning :
   compressImage(
     file: File,
     maxWidth: number,

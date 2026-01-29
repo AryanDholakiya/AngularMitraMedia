@@ -176,7 +176,8 @@ ALTER PROCEDURE sp_UpdateUserProfile
     @UserId INT,
     @Username NVARCHAR(100),
     @About NVARCHAR(300) = null,
-    @ProfileImage VARBINARY(MAX) = null
+    @ProfileImage VARBINARY(MAX) = null,
+	@Email varchar(max) 
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -186,7 +187,8 @@ BEGIN
         Username = @Username,
         About = @About,
         ProfileImage = @ProfileImage,
-		IsProfileCompleted = 1
+		IsProfileCompleted = 1,
+		Email = @Email
     WHERE UserId = @UserId;
 END
 

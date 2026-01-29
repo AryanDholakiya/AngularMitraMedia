@@ -241,9 +241,10 @@ namespace Connectify_Api.Controllers
 
             cmd.Parameters.AddWithValue("@UserId", request.UserId);
             cmd.Parameters.AddWithValue("@Username", request.Username);
-            cmd.Parameters.AddWithValue("@About", request.About);
+            cmd.Parameters.AddWithValue("@About", string.IsNullOrWhiteSpace(request.About)? "working" : request.About);
             cmd.Parameters.Add("@ProfileImage", SqlDbType.VarBinary).Value =
                 (object?)imageBytes ?? DBNull.Value;
+            cmd.Parameters.AddWithValue("@Email", request.Email);
 
             await cmd.ExecuteNonQueryAsync();
 

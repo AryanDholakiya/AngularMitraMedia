@@ -12,7 +12,6 @@ import { ThemeService } from '../../../../Services/theme.service';
 export class LeftSidebarComponent implements OnInit {
   private uistate = inject(UiStateService);
   private apiService = inject(ApiServiceService);
-  private Mode = inject(ThemeService);
 
   LoggedInUserId: number = 0;
   LoggedUserProfileImg: string | null = null;
@@ -20,10 +19,6 @@ export class LeftSidebarComponent implements OnInit {
   currentActiveState: string = 'chat-list';
 
   ngOnInit() {
-    this.Mode.IsDarkTheme$.subscribe(() => {
-      this.Mode.loadTheme();
-    });
-
     this.LoggedInUserId = Number(localStorage.getItem('userId'));
     console.log('LoggedInUserId from left sidebar: ', this.LoggedInUserId);
 

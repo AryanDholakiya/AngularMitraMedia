@@ -104,13 +104,12 @@ export class LoginComponent implements OnInit {
           this.SendOtp = false;
 
           localStorage.setItem(
-            //authGuard mate
             'loggedIn_User',
             JSON.stringify({
               email: res.email,
               mobileNumber: this.Connectify_Login.value.mobileNumber,
               countryCode: this.Connectify_Login.value.countryCode,
-            })
+            }),
           );
 
           this.router.navigate(['/chat']);
